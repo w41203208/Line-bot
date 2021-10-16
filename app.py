@@ -37,7 +37,7 @@ def handle_message(event):
     get_message = event.message.text
 
 
-    action = get_message()
+    action = get_message
     reply_msg = getActionReplyMsg()
 
     # Send To Line
