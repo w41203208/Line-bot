@@ -9,7 +9,7 @@
           "contents": [
             {
               "type": "image",
-              "url": "./images/flex-message-1.jpg",
+              "url": "https://images.pexels.com/photos/241316/pexels-photo-241316.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
               "size": "full",
               "aspectMode": "cover",
               "aspectRatio": "1:1",
@@ -147,7 +147,7 @@
           "contents": [
             {
               "type": "image",
-              "url": "./images/flex-message-2.jpg",
+              "url": "https://images.pexels.com/photos/1149137/pexels-photo-1149137.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
               "size": "full",
               "aspectMode": "cover",
               "aspectRatio": "1:1",
@@ -285,7 +285,7 @@
           "contents": [
             {
               "type": "image",
-              "url": "./images/flex-message-3.jpg",
+              "url": "https://images.pexels.com/photos/355977/pexels-photo-355977.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
               "size": "full",
               "aspectMode": "cover",
               "aspectRatio": "1:1",
