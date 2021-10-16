@@ -14,6 +14,9 @@ app = Flask(__name__)
 line_bot_api = LineBotApi(os.environ.get("CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.environ.get("CHANNEL_SECRET"))
 
+action =''
+match = ''
+
 @app.route("/", methods=["GET", "POST"])
 def home_page_render():
 
@@ -54,7 +57,8 @@ def getActionReplyMsg():
         match = True
         return "您好!請問需要什麼幫助嗎？"
     elif action == "我想看資訊欄":
-        return 'See Flex Msg'
+        if match == True:
+            return 'See Flex Msg'
     else:
         action = ""
         match = ''
