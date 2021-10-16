@@ -3,8 +3,6 @@ from datetime import datetime
 
 from flask import Flask, abort, request
 import json
-import re
-from .test import Test
 
 # https://github.com/line/line-bot-sdk-python
 from linebot import LineBotApi, WebhookHandler
@@ -15,9 +13,6 @@ app = Flask(__name__)
 
 line_bot_api = LineBotApi(os.environ.get("CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.environ.get("CHANNEL_SECRET"))
-
-action = ''
-match = ''
 
 @app.route("/", methods=["GET", "POST"])
 def home_page_render():
