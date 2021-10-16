@@ -59,6 +59,8 @@ def getActionReplyMsg():
     elif action == "我想看資訊欄":
         if match == True:
             return 'See Flex Msg'
+        else:
+            return '請先輸入hi!'
     else:
         action = ""
         match = ''
