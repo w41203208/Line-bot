@@ -2,11 +2,12 @@ import os
 from datetime import datetime
 
 from flask import Flask, abort, request
+import json
 
 # https://github.com/line/line-bot-sdk-python
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
-from linebot.models import MessageEvent, TextMessage, TextSendMessage
+from linebot.models import MessageEvent, TextMessage, TextSendMessage, FlexSendMessage
 
 app = Flask(__name__)
 
@@ -15,7 +16,7 @@ handler = WebhookHandler(os.environ.get("1497d9253b7fc842f5ba2a22c15b9ce7"))
 
 
 @app.route("/", methods=["GET", "POST"])
-def callback():
+def home_page_render():
 
     if request.method == "GET":
         return "Hello Heroku"
@@ -36,5 +37,11 @@ def handle_message(event):
     get_message = event.message.text
 
     # Send To Line
-    reply = TextSendMessage(text=f"{get_message}")
-    line_bot_api.reply_message(event.reply_token, reply)
+    if(get_message == 'card'):
+        FlexMessage = json.load(open('./assets/card.json', 'r', encoding='utf-8'))
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile',FlexMessage))
+    else:
+        reply = TextSendMessage(text=f"{get_message}")
+        line_bot_api.reply_message(event.reply_token, reply)
+
+
