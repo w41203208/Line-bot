@@ -9,7 +9,7 @@
           "contents": [
             {
               "type": "image",
-              "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip1.jpg",
+              "url": "./images/flex-message-1.jpg",
               "size": "full",
               "aspectMode": "cover",
               "aspectRatio": "1:1",
@@ -98,7 +98,12 @@
                   "spacing": "sm",
                   "borderColor": "#ffffff",
                   "margin": "xxl",
-                  "height": "40px"
+                  "height": "40px",
+                  "action": {
+                    "type": "postback",
+                    "label": "action",
+                    "data": "You click access!"
+                  }
                 }
               ],
               "backgroundColor": "#03303A",
@@ -117,8 +122,8 @@
                   "type": "text",
                   "text": "Text",
                   "color": "#ffffff",
-                  "align": "center",
-                  "size": "15px"
+                  "size": "15px",
+                  "align": "center"
                 }
               ],
               "position": "absolute",
@@ -128,7 +133,6 @@
               "offsetStart": "18px",
               "height": "35px",
               "width": "60px",
-              "alignItems": "center",
               "justifyContent": "center"
             }
           ],
@@ -143,7 +147,7 @@
           "contents": [
             {
               "type": "image",
-              "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip1.jpg",
+              "url": "./images/flex-message-2.jpg",
               "size": "full",
               "aspectMode": "cover",
               "aspectRatio": "1:1",
@@ -232,7 +236,12 @@
                   "spacing": "sm",
                   "borderColor": "#ffffff",
                   "margin": "xxl",
-                  "height": "40px"
+                  "height": "40px",
+                  "action": {
+                    "type": "postback",
+                    "label": "action",
+                    "data": "You click access!"
+                  }
                 }
               ],
               "backgroundColor": "#03303A",
@@ -251,8 +260,8 @@
                   "type": "text",
                   "text": "Text",
                   "color": "#ffffff",
-                  "align": "center",
-                  "size": "15px"
+                  "size": "15px",
+                  "align": "center"
                 }
               ],
               "position": "absolute",
@@ -262,7 +271,6 @@
               "offsetStart": "18px",
               "height": "35px",
               "width": "60px",
-              "alignItems": "center",
               "justifyContent": "center"
             }
           ],
@@ -277,7 +285,7 @@
           "contents": [
             {
               "type": "image",
-              "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip1.jpg",
+              "url": "./images/flex-message-3.jpg",
               "size": "full",
               "aspectMode": "cover",
               "aspectRatio": "1:1",
@@ -366,7 +374,12 @@
                   "spacing": "sm",
                   "borderColor": "#ffffff",
                   "margin": "xxl",
-                  "height": "40px"
+                  "height": "40px",
+                  "action": {
+                    "type": "postback",
+                    "label": "action",
+                    "data": "You click access!"
+                  }
                 }
               ],
               "backgroundColor": "#03303A",
@@ -385,8 +398,8 @@
                   "type": "text",
                   "text": "Text",
                   "color": "#ffffff",
-                  "align": "center",
-                  "size": "15px"
+                  "size": "15px",
+                  "align": "center"
                 }
               ],
               "position": "absolute",
@@ -396,7 +409,6 @@
               "offsetStart": "18px",
               "height": "35px",
               "width": "60px",
-              "alignItems": "center",
               "justifyContent": "center"
             }
           ],
