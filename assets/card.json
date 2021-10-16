@@ -1,419 +1,422 @@
 {
-    "type": "carousel",
-    "contents": [
-      {
-        "type": "bubble",
-        "body": {
-          "type": "box",
-          "layout": "vertical",
-          "contents": [
-            {
-              "type": "image",
-              "url": "https://images.pexels.com/photos/241316/pexels-photo-241316.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-              "size": "full",
-              "aspectMode": "cover",
-              "aspectRatio": "1:1",
-              "gravity": "top"
-            },
-            {
-              "type": "box",
-              "layout": "vertical",
-              "contents": [
-                {
-                  "type": "box",
-                  "layout": "vertical",
-                  "contents": [
-                    {
-                      "type": "box",
-                      "layout": "vertical",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "Header",
-                          "size": "xl",
-                          "color": "#ffffff",
-                          "weight": "bold"
-                        },
-                        {
-                          "type": "separator",
-                          "margin": "5px",
-                          "color": "#ffffff"
-                        },
-                        {
-                          "type": "box",
-                          "layout": "baseline",
-                          "contents": [
-                            {
-                              "type": "text",
-                              "text": "I try test test test test test test test test test test!",
-                              "color": "#ebebeb",
-                              "size": "sm",
-                              "wrap": true
-                            }
-                          ],
-                          "spacing": "lg",
-                          "paddingTop": "10px"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "box",
-                  "layout": "vertical",
-                  "contents": [
-                    {
-                      "type": "filler"
-                    },
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "contents": [
-                        {
-                          "type": "filler"
-                        },
-                        {
-                          "type": "icon",
-                          "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip14.png"
-                        },
-                        {
-                          "type": "text",
-                          "text": "Text",
-                          "color": "#ffffff",
-                          "flex": 0,
-                          "offsetTop": "-2px"
-                        },
-                        {
-                          "type": "filler"
-                        }
-                      ],
-                      "spacing": "sm"
-                    },
-                    {
-                      "type": "filler"
-                    }
-                  ],
-                  "borderWidth": "1px",
-                  "cornerRadius": "4px",
-                  "spacing": "sm",
-                  "borderColor": "#ffffff",
-                  "margin": "xxl",
-                  "height": "40px",
-                  "action": {
-                    "type": "postback",
-                    "label": "action",
-                    "data": "You click access!"
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
+            "gravity": "top"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "Header",
+                        "size": "xl",
+                        "color": "#ffffff",
+                        "weight": "bold"
+                      },
+                      {
+                        "type": "separator",
+                        "margin": "5px",
+                        "color": "#ffffff"
+                      },
+                      {
+                        "type": "box",
+                        "layout": "baseline",
+                        "contents": [
+                          {
+                            "type": "text",
+                            "text": "I try test test test test test test test test test test!",
+                            "color": "#ebebeb",
+                            "size": "sm",
+                            "wrap": true
+                          }
+                        ],
+                        "spacing": "lg",
+                        "paddingTop": "10px"
+                      }
+                    ]
                   }
-                }
-              ],
-              "backgroundColor": "#03303A",
-              "paddingAll": "15px",
-              "paddingTop": "18px",
-              "offsetTop": "0px",
-              "width": "100%",
-              "offsetEnd": "0px",
-              "justifyContent": "space-between"
-            },
-            {
-              "type": "box",
-              "layout": "vertical",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "Text",
-                  "color": "#ffffff",
-                  "size": "15px",
-                  "align": "center"
-                }
-              ],
-              "position": "absolute",
-              "cornerRadius": "10px",
-              "offsetTop": "18px",
-              "backgroundColor": "#141414b0",
-              "offsetStart": "18px",
-              "height": "35px",
-              "width": "60px",
-              "justifyContent": "center"
-            }
-          ],
-          "paddingAll": "0px"
-        }
-      },
-      {
-        "type": "bubble",
-        "body": {
-          "type": "box",
-          "layout": "vertical",
-          "contents": [
-            {
-              "type": "image",
-              "url": "https://images.pexels.com/photos/1149137/pexels-photo-1149137.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-              "size": "full",
-              "aspectMode": "cover",
-              "aspectRatio": "1:1",
-              "gravity": "top"
-            },
-            {
-              "type": "box",
-              "layout": "vertical",
-              "contents": [
-                {
-                  "type": "box",
-                  "layout": "vertical",
-                  "contents": [
-                    {
-                      "type": "box",
-                      "layout": "vertical",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "Header",
-                          "size": "xl",
-                          "color": "#ffffff",
-                          "weight": "bold"
-                        },
-                        {
-                          "type": "separator",
-                          "margin": "5px",
-                          "color": "#ffffff"
-                        },
-                        {
-                          "type": "box",
-                          "layout": "baseline",
-                          "contents": [
-                            {
-                              "type": "text",
-                              "text": "I try test test test test test test test test test test!",
-                              "color": "#ebebeb",
-                              "size": "sm",
-                              "wrap": true
-                            }
-                          ],
-                          "spacing": "lg",
-                          "paddingTop": "10px"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "box",
-                  "layout": "vertical",
-                  "contents": [
-                    {
-                      "type": "filler"
-                    },
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "contents": [
-                        {
-                          "type": "filler"
-                        },
-                        {
-                          "type": "icon",
-                          "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip14.png"
-                        },
-                        {
-                          "type": "text",
-                          "text": "Text",
-                          "color": "#ffffff",
-                          "flex": 0,
-                          "offsetTop": "-2px"
-                        },
-                        {
-                          "type": "filler"
-                        }
-                      ],
-                      "spacing": "sm"
-                    },
-                    {
-                      "type": "filler"
-                    }
-                  ],
-                  "borderWidth": "1px",
-                  "cornerRadius": "4px",
-                  "spacing": "sm",
-                  "borderColor": "#ffffff",
-                  "margin": "xxl",
-                  "height": "40px",
-                  "action": {
-                    "type": "postback",
-                    "label": "action",
-                    "data": "You click access!"
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "filler"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                      {
+                        "type": "filler"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip14.png"
+                      },
+                      {
+                        "type": "text",
+                        "text": "Text",
+                        "color": "#ffffff",
+                        "flex": 0,
+                        "offsetTop": "-2px"
+                      },
+                      {
+                        "type": "filler"
+                      }
+                    ],
+                    "spacing": "sm"
+                  },
+                  {
+                    "type": "filler"
                   }
+                ],
+                "borderWidth": "1px",
+                "cornerRadius": "4px",
+                "spacing": "sm",
+                "borderColor": "#ffffff",
+                "margin": "xxl",
+                "height": "40px",
+                "action": {
+                  "type": "postback",
+                  "label": "action",
+                  "data": "You click access!",
+                  "displayText": "You click access!"
                 }
-              ],
-              "backgroundColor": "#03303A",
-              "paddingAll": "15px",
-              "paddingTop": "18px",
-              "offsetTop": "0px",
-              "width": "100%",
-              "offsetEnd": "0px",
-              "justifyContent": "space-between"
-            },
-            {
-              "type": "box",
-              "layout": "vertical",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "Text",
-                  "color": "#ffffff",
-                  "size": "15px",
-                  "align": "center"
-                }
-              ],
-              "position": "absolute",
-              "cornerRadius": "10px",
-              "offsetTop": "18px",
-              "backgroundColor": "#141414b0",
-              "offsetStart": "18px",
-              "height": "35px",
-              "width": "60px",
-              "justifyContent": "center"
-            }
-          ],
-          "paddingAll": "0px"
-        }
-      },
-      {
-        "type": "bubble",
-        "body": {
-          "type": "box",
-          "layout": "vertical",
-          "contents": [
-            {
-              "type": "image",
-              "url": "https://images.pexels.com/photos/355977/pexels-photo-355977.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-              "size": "full",
-              "aspectMode": "cover",
-              "aspectRatio": "1:1",
-              "gravity": "top"
-            },
-            {
-              "type": "box",
-              "layout": "vertical",
-              "contents": [
-                {
-                  "type": "box",
-                  "layout": "vertical",
-                  "contents": [
-                    {
-                      "type": "box",
-                      "layout": "vertical",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "Header",
-                          "size": "xl",
-                          "color": "#ffffff",
-                          "weight": "bold"
-                        },
-                        {
-                          "type": "separator",
-                          "margin": "5px",
-                          "color": "#ffffff"
-                        },
-                        {
-                          "type": "box",
-                          "layout": "baseline",
-                          "contents": [
-                            {
-                              "type": "text",
-                              "text": "I try test test test test test test test test test test!",
-                              "color": "#ebebeb",
-                              "size": "sm",
-                              "wrap": true
-                            }
-                          ],
-                          "spacing": "lg",
-                          "paddingTop": "10px"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "box",
-                  "layout": "vertical",
-                  "contents": [
-                    {
-                      "type": "filler"
-                    },
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "contents": [
-                        {
-                          "type": "filler"
-                        },
-                        {
-                          "type": "icon",
-                          "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip14.png"
-                        },
-                        {
-                          "type": "text",
-                          "text": "Text",
-                          "color": "#ffffff",
-                          "flex": 0,
-                          "offsetTop": "-2px"
-                        },
-                        {
-                          "type": "filler"
-                        }
-                      ],
-                      "spacing": "sm"
-                    },
-                    {
-                      "type": "filler"
-                    }
-                  ],
-                  "borderWidth": "1px",
-                  "cornerRadius": "4px",
-                  "spacing": "sm",
-                  "borderColor": "#ffffff",
-                  "margin": "xxl",
-                  "height": "40px",
-                  "action": {
-                    "type": "postback",
-                    "label": "action",
-                    "data": "You click access!"
-                  }
-                }
-              ],
-              "backgroundColor": "#03303A",
-              "paddingAll": "15px",
-              "paddingTop": "18px",
-              "offsetTop": "0px",
-              "width": "100%",
-              "offsetEnd": "0px",
-              "justifyContent": "space-between"
-            },
-            {
-              "type": "box",
-              "layout": "vertical",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "Text",
-                  "color": "#ffffff",
-                  "size": "15px",
-                  "align": "center"
-                }
-              ],
-              "position": "absolute",
-              "cornerRadius": "10px",
-              "offsetTop": "18px",
-              "backgroundColor": "#141414b0",
-              "offsetStart": "18px",
-              "height": "35px",
-              "width": "60px",
-              "justifyContent": "center"
-            }
-          ],
-          "paddingAll": "0px"
-        }
+              }
+            ],
+            "backgroundColor": "#03303A",
+            "paddingAll": "15px",
+            "paddingTop": "18px",
+            "offsetTop": "0px",
+            "width": "100%",
+            "offsetEnd": "0px",
+            "justifyContent": "space-between"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Text",
+                "color": "#ffffff",
+                "size": "15px",
+                "align": "center"
+              }
+            ],
+            "position": "absolute",
+            "cornerRadius": "10px",
+            "offsetTop": "18px",
+            "backgroundColor": "#141414b0",
+            "offsetStart": "18px",
+            "height": "35px",
+            "width": "60px",
+            "justifyContent": "center"
+          }
+        ],
+        "paddingAll": "0px"
       }
-    ]
-  }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://images.pexels.com/photos/241316/pexels-photo-241316.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
+            "gravity": "top"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "Header",
+                        "size": "xl",
+                        "color": "#ffffff",
+                        "weight": "bold"
+                      },
+                      {
+                        "type": "separator",
+                        "margin": "5px",
+                        "color": "#ffffff"
+                      },
+                      {
+                        "type": "box",
+                        "layout": "baseline",
+                        "contents": [
+                          {
+                            "type": "text",
+                            "text": "I try test test test test test test test test test test!",
+                            "color": "#ebebeb",
+                            "size": "sm",
+                            "wrap": true
+                          }
+                        ],
+                        "spacing": "lg",
+                        "paddingTop": "10px"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "filler"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                      {
+                        "type": "filler"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip14.png"
+                      },
+                      {
+                        "type": "text",
+                        "text": "Text",
+                        "color": "#ffffff",
+                        "flex": 0,
+                        "offsetTop": "-2px"
+                      },
+                      {
+                        "type": "filler"
+                      }
+                    ],
+                    "spacing": "sm"
+                  },
+                  {
+                    "type": "filler"
+                  }
+                ],
+                "borderWidth": "1px",
+                "cornerRadius": "4px",
+                "spacing": "sm",
+                "borderColor": "#ffffff",
+                "margin": "xxl",
+                "height": "40px",
+                "action": {
+                  "type": "postback",
+                  "label": "action",
+                  "data": "You click access!",
+                  "displayText": "You click access!"
+                }
+              }
+            ],
+            "backgroundColor": "#03303A",
+            "paddingAll": "15px",
+            "paddingTop": "18px",
+            "offsetTop": "0px",
+            "width": "100%",
+            "offsetEnd": "0px",
+            "justifyContent": "space-between"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Text",
+                "color": "#ffffff",
+                "size": "15px",
+                "align": "center"
+              }
+            ],
+            "position": "absolute",
+            "cornerRadius": "10px",
+            "offsetTop": "18px",
+            "backgroundColor": "#141414b0",
+            "offsetStart": "18px",
+            "height": "35px",
+            "width": "60px",
+            "justifyContent": "center"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://images.pexels.com/photos/1149137/pexels-photo-1149137.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
+            "gravity": "top"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "Header",
+                        "size": "xl",
+                        "color": "#ffffff",
+                        "weight": "bold"
+                      },
+                      {
+                        "type": "separator",
+                        "margin": "5px",
+                        "color": "#ffffff"
+                      },
+                      {
+                        "type": "box",
+                        "layout": "baseline",
+                        "contents": [
+                          {
+                            "type": "text",
+                            "text": "I try test test test test test test test test test test!",
+                            "color": "#ebebeb",
+                            "size": "sm",
+                            "wrap": true
+                          }
+                        ],
+                        "spacing": "lg",
+                        "paddingTop": "10px"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "filler"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                      {
+                        "type": "filler"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip14.png"
+                      },
+                      {
+                        "type": "text",
+                        "text": "Text",
+                        "color": "#ffffff",
+                        "flex": 0,
+                        "offsetTop": "-2px"
+                      },
+                      {
+                        "type": "filler"
+                      }
+                    ],
+                    "spacing": "sm"
+                  },
+                  {
+                    "type": "filler"
+                  }
+                ],
+                "borderWidth": "1px",
+                "cornerRadius": "4px",
+                "spacing": "sm",
+                "borderColor": "#ffffff",
+                "margin": "xxl",
+                "height": "40px",
+                "action": {
+                  "type": "postback",
+                  "label": "action",
+                  "data": "You click access!",
+                  "displayText": "You click access!"
+                }
+              }
+            ],
+            "backgroundColor": "#03303A",
+            "paddingAll": "15px",
+            "paddingTop": "18px",
+            "offsetTop": "0px",
+            "width": "100%",
+            "offsetEnd": "0px",
+            "justifyContent": "space-between"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Text",
+                "color": "#ffffff",
+                "size": "15px",
+                "align": "center"
+              }
+            ],
+            "position": "absolute",
+            "cornerRadius": "10px",
+            "offsetTop": "18px",
+            "backgroundColor": "#141414b0",
+            "offsetStart": "18px",
+            "height": "35px",
+            "width": "60px",
+            "justifyContent": "center"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    }
+  ]
+}
