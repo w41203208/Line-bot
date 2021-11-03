@@ -21,7 +21,7 @@ match = ''
 def home_page_render():
 
     if request.method == "GET":
-        return "Hello Heroku"
+        return "Hello Herokuuuu"
     if request.method == "POST":
         signature = request.headers["X-Line-Signature"]
         body = request.get_data(as_text=True)
@@ -66,3 +66,5 @@ def getActionReplyMsg():
         match = ''
         return "沒有此指令，請確認後再輸入"
 
+if __name__ == "__main__":
+    app.run(debug=True)
