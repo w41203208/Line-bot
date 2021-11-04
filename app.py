@@ -15,7 +15,8 @@ line_bot_api = LineBotApi(os.environ.get("CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.environ.get("CHANNEL_SECRET"))
 
 action =''
-match = ''
+medicalMatch = ''
+searchMatch = ''
 
 @app.route("/", methods=["GET", "POST"])
 def home_page_render():
@@ -36,7 +37,7 @@ def home_page_render():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    global action, match
+    global action, medicalMatch, searchMatch
     get_message = event.message.text
 
 
@@ -44,27 +45,34 @@ def handle_message(event):
     reply_msg = getActionReplyMsg()
 
     # Send To Line
-    if reply_msg == 'See Flex Msg':
+    if reply_msg == 'See Flex Msg': #衛教資訊
         FlexMessage = json.load(open('./assets/card.json', 'r', encoding='utf-8'))
         line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
+    elif medicalMatch == True:
+        reply_msg = "可獲得衛教資訊!"
+
+        reply = TextSendMessage(text=f"{reply_msg}")
+        line_bot_api.reply_message(event.reply_token, reply)
+    elif searchMatch == True:
+
+        FlexMessage = json.load(open('./assets/search.json', 'r', encoding='utf-8'))
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
+
+        reply = TextSendMessage(text=f"{reply_msg}")
+        line_bot_api.reply_message(event.reply_token, reply)
     else:
         reply = TextSendMessage(text=f"{reply_msg}")
         line_bot_api.reply_message(event.reply_token, reply)
 
 def getActionReplyMsg():
-    global action, match
-    if action == "hi":
-        match = True
-        return "您好!請問需要什麼幫助嗎？"
-    elif action == "我想看資訊欄":
-        if match == True:
-            return 'See Flex Msg'
-        else:
-            return '請先輸入hi!'
+    global action, medicalMatch, searchMatch
+    if action == "飲食查詢":
+        searchMatch = True
+    elif action == "衛教資訊":
+        medicalMatch = True
     else:
-        action = ""
-        match = ''
-        return "沒有此指令，請確認後再輸入"
+        return action
+
 
 if __name__ == "__main__":
     app.run(debug=True)
