@@ -70,12 +70,12 @@ def getActionReplyMsg(action):
         searchMatch = True
         medicalMatch = False
         return 'Success to search u can do next step'
-    elif searchMatch == True and action != '':
-        return 'getSearchFood'
     elif action == "衛教資訊":
         medicalMatch = True
         searchMatch = False
         return 'getMedical'
+    elif searchMatch == True and action != '':
+        return 'getSearchFood'
     else:
         return action
 

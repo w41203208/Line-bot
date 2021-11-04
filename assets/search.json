@@ -50,7 +50,7 @@
                       "text": "每份 100公克",
                       "wrap": true,
                       "color": "#888888",
-                      "flex": 3,
+                      "flex": 4,
                       "gravity": "bottom",
                       "align": "end"
                     }
@@ -206,7 +206,7 @@
                     "label": "action",
                     "text": "hello"
                   },
-                  "align": "end",
+                  "align": "center",
                   "weight": "bold",
                   "size": "xxl"
                 }
@@ -278,7 +278,7 @@
                       "text": "每份 100公克",
                       "wrap": true,
                       "color": "#888888",
-                      "flex": 3,
+                      "flex": 4,
                       "gravity": "bottom",
                       "align": "end"
                     }
@@ -433,6 +433,7 @@
                     "label": "action",
                     "text": "hello"
                   },
+                  "align": "center",
                   "weight": "bold",
                   "size": "xxl"
                 }
@@ -504,7 +505,7 @@
                       "text": "每份 100公克",
                       "wrap": true,
                       "color": "#888888",
-                      "flex": 3,
+                      "flex": 4,
                       "gravity": "bottom",
                       "align": "end"
                     }
@@ -659,6 +660,7 @@
                     "label": "action",
                     "text": "hello"
                   },
+                  "align": "center",
                   "weight": "bold",
                   "size": "xxl"
                 }
