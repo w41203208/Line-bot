@@ -43,14 +43,14 @@
                       "wrap": true,
                       "size": "xl",
                       "weight": "bold",
-                      "flex": 6
+                      "flex": 7
                     },
                     {
                       "type": "text",
                       "text": "每份 100公克",
                       "wrap": true,
                       "color": "#888888",
-                      "flex": 4,
+                      "flex": 3,
                       "gravity": "bottom",
                       "align": "end"
                     }
@@ -195,7 +195,8 @@
                     "type": "message",
                     "label": "搜尋記錄",
                     "text": "hello"
-                  }
+                  },
+                  "align": "end"
                 },
                 {
                   "type": "text",
@@ -205,6 +206,7 @@
                     "label": "action",
                     "text": "hello"
                   },
+                  "align": "end",
                   "weight": "bold",
                   "size": "xxl"
                 }
@@ -269,14 +271,14 @@
                       "wrap": true,
                       "size": "xl",
                       "weight": "bold",
-                      "flex": 6
+                      "flex": 7
                     },
                     {
                       "type": "text",
                       "text": "每份 100公克",
                       "wrap": true,
                       "color": "#888888",
-                      "flex": 4,
+                      "flex": 3,
                       "gravity": "bottom",
                       "align": "end"
                     }
@@ -495,14 +497,14 @@
                       "wrap": true,
                       "size": "xl",
                       "weight": "bold",
-                      "flex": 6
+                      "flex": 7
                     },
                     {
                       "type": "text",
                       "text": "每份 100公克",
                       "wrap": true,
                       "color": "#888888",
-                      "flex": 4,
+                      "flex": 3,
                       "gravity": "bottom",
                       "align": "end"
                     }

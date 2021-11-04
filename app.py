@@ -14,7 +14,6 @@ app = Flask(__name__)
 line_bot_api = LineBotApi(os.environ.get("CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.environ.get("CHANNEL_SECRET"))
 
-action =''
 medicalMatch = ''
 searchMatch = ''
 
@@ -37,23 +36,24 @@ def home_page_render():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    global action, medicalMatch, searchMatch
+    global medicalMatch, searchMatch
     get_message = event.message.text
 
 
     action = get_message
-    reply_msg = getActionReplyMsg()
+    reply_msg = getActionReplyMsg(action)
 
     # Send To Line
     if reply_msg == 'See Flex Msg': #衛教資訊
         FlexMessage = json.load(open('./assets/card.json', 'r', encoding='utf-8'))
         line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
-    elif medicalMatch == True:
+    elif reply_msg == "getMedical":
         reply_msg = "可獲得衛教資訊!"
 
         reply = TextSendMessage(text=f"{reply_msg}")
         line_bot_api.reply_message(event.reply_token, reply)
-    elif searchMatch == True:
+    elif reply_msg == 'getSearchFood':
+        sql_text = get_message
 
         FlexMessage = json.load(open('./assets/search.json', 'r', encoding='utf-8'))
         line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
@@ -64,14 +64,21 @@ def handle_message(event):
         reply = TextSendMessage(text=f"{reply_msg}")
         line_bot_api.reply_message(event.reply_token, reply)
 
-def getActionReplyMsg():
-    global action, medicalMatch, searchMatch
+def getActionReplyMsg(action):
+    global medicalMatch, searchMatch
     if action == "飲食查詢":
         searchMatch = True
+        medicalMatch = False
+        return 'Success to search u can do next step'
+    elif searchMatch == True and action != '':
+        return 'getSearchFood'
     elif action == "衛教資訊":
         medicalMatch = True
+        searchMatch = False
+        return 'getMedical'
     else:
         return action
+
 
 
 if __name__ == "__main__":
