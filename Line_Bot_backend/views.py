@@ -16,13 +16,13 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage, FlexSendM
 
 views = Blueprint('views', __name__)
 
-CHANNEL_ACCESS_TOKEN = "F5OQYnRnsuiAf51vzmRiswuQ/VAI06Ag5AVrDookZoapt+GEkfJFvbKJYBp08IrGPPJjqRHwu7HIJbfQs58T2zbPfh9zCQbnOsE2NWNYSgOBGlpcwFPQ7PDiOrpVNmZg6bTJ4zmeh4E6r1P86w6BugdB04t89/1O/w1cDnyilFU="
-CHANNEL_SECRET = "1497d9253b7fc842f5ba2a22c15b9ce7"
+#CHANNEL_ACCESS_TOKEN = "F5OQYnRnsuiAf51vzmRiswuQ/VAI06Ag5AVrDookZoapt+GEkfJFvbKJYBp08IrGPPJjqRHwu7HIJbfQs58T2zbPfh9zCQbnOsE2NWNYSgOBGlpcwFPQ7PDiOrpVNmZg6bTJ4zmeh4E6r1P86w6BugdB04t89/1O/w1cDnyilFU="
+#CHANNEL_SECRET = "1497d9253b7fc842f5ba2a22c15b9ce7"
 
-#line_bot_api = LineBotApi(os.environ.get(CHANNEL_ACCESS_TOKEN))
-#handler = WebhookHandler(os.environ.get(CHANNEL_SECRET))
-line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
-handler = WebhookHandler(CHANNEL_SECRET)
+line_bot_api = LineBotApi(os.environ.get("CHANNEL_ACCESS_TOKEN"))
+handler = WebhookHandler(os.environ.get("CHANNEL_SECRET"))
+#line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
+#handler = WebhookHandler(CHANNEL_SECRET)
 
 medicalMatch = ''
 searchMatch = ''
@@ -290,8 +290,6 @@ def home_page_render():
     with open('./assets/card.json', 'w', encoding='utf-8') as json_file:
         json.dump(sql_flexMessage_dict_carousel, json_file)
 
-    FlexMessage = json.load(open('./assets/search.json', 'r', encoding='utf-8'))
-    pprint.pprint(FlexMessage)
 
     if request.method == "GET":
         return "Hello Herokuuuu"
