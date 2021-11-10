@@ -66,7 +66,7 @@ def handle_message(event):
         sql_text = get_message
 
 
-        FlexMessage = json.load(open('./assets/search.json', 'r', encoding='utf-8'))
+        FlexMessage = json.load(open('./assets/card.json', 'r', encoding='utf-8'))
         line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
 
     else:
