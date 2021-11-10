@@ -125,7 +125,7 @@ def home_page_render():
                                 },
                                 {
                                 "type": "text",
-                                "text": item.product_kcal,
+                                "text": str(item.product_kcal),
                                 "align": "end",
                                 "color": "#888888"
                                 }
@@ -142,7 +142,7 @@ def home_page_render():
                                 },
                                 {
                                 "type": "text",
-                                "text": item.product_protein,
+                                "text": str(item.product_protein),
                                 "align": "end",
                                 "color": "#888888"
                                 }
@@ -159,7 +159,7 @@ def home_page_render():
                                 },
                                 {
                                 "type": "text",
-                                "text": item.product_Na,
+                                "text": str(item.product_Na),
                                 "align": "end",
                                 "color": "#888888"
                                 }
@@ -176,7 +176,7 @@ def home_page_render():
                                 },
                                 {
                                 "type": "text",
-                                "text": item.product_Ka,
+                                "text": str(item.product_Ka),
                                 "align": "end",
                                 "color": "#888888"
                                 }
@@ -193,7 +193,7 @@ def home_page_render():
                                 },
                                 {
                                 "type": "text",
-                                "text": item.product_p,
+                                "text": str(item.product_p),
                                 "align": "end",
                                 "color": "#888888"
                                 }
@@ -210,7 +210,7 @@ def home_page_render():
                                 },
                                 {
                                 "type": "text",
-                                "text": item.product_carbohydrate,
+                                "text": str(item.product_carbohydrate),
                                 "align": "end",
                                 "color": "#888888"
                                 }
@@ -285,20 +285,12 @@ def home_page_render():
         }
         sql_flexMessage_dict_carousel['contents'].append(sql_flexMessage_dict_bubble)
 
-    print(len(sql_flexMessage_dict_carousel['contents']))
 
-
-    print(sql_flexMessage_dict_carousel)
-
-    with open('./assets/card.json', 'w') as json_file:
+    with open('./assets/card.json', 'w', encoding='utf-8') as json_file:
         json.dump(sql_flexMessage_dict_carousel, json_file)
-    #test = {
-    #    'greet': 'HI'
-    #}
-    #sql_flexMessage_dict_carousel['contents'].append(test)
-    #print(sql_flexMessage_dict_carousel['contents'])
 
-
+    FlexMessage = json.load(open('./assets/card.json', 'r', encoding='utf-8'))
+    print(FlexMessage)
 
     if request.method == "GET":
         return "Hello Herokuuuu"
