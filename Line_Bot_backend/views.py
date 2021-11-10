@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request, abort
 import json
 import os
+import pprint
 
 from pymysql import NULL
 
@@ -289,8 +290,8 @@ def home_page_render():
     with open('./assets/card.json', 'w', encoding='utf-8') as json_file:
         json.dump(sql_flexMessage_dict_carousel, json_file)
 
-    FlexMessage = json.load(open('./assets/card.json', 'r', encoding='utf-8'))
-    print(FlexMessage)
+    FlexMessage = json.load(open('./assets/search.json', 'r', encoding='utf-8'))
+    pprint.pprint(FlexMessage)
 
     if request.method == "GET":
         return "Hello Herokuuuu"
@@ -578,12 +579,8 @@ def handle_message(event):
 
         ################################################################################################
         FlexMessage = json.load(open('./assets/card.json', 'r', encoding='utf-8'))
-
-
         line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
 
-        reply = TextSendMessage(text=f"{reply_msg}")
-        line_bot_api.reply_message(event.reply_token, reply)
     else:
         reply = TextSendMessage(text=f"{reply_msg}")
         line_bot_api.reply_message(event.reply_token, reply)
