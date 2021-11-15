@@ -248,19 +248,117 @@
 
 
 ###將資料匯進有外鍵資料庫的方法####
-#dirname = os.path.dirname(__file__)
-    #filePath = os.path.join(dirname, 'sql_product.csv')
-    #import csv
-    #with open(filePath) as f:
-    #    f_csv = csv.reader(f, delimiter=';')
-    #    for index, row in enumerate(f_csv):
-    #        if(index != 0):
-    #            test = int(row[9])
-    #            if (test == 0):
-    #                new_product = Product(product_name=row[1], product_tag=row[2], product_kcal=float(row[3]), #product_protein=float(row[4]), product_Na=float(row[5]),product_Ka=float(row[6]),product_p=float(row#[7]),product_carbohydrate=float(row[8]))
-    #                db.session.add(new_product)
-    #                db.session.commit()
-    #            else:
-    #                new_product = Product(product_name=row[1], product_tag=row[2], product_kcal=float(row[3]), #product_protein=float(row[4]), product_Na=float(row[5]),product_Ka=float(row[6]),product_p=float(row#[7]),product_carbohydrate=float(row[8]),product_protein_range=test)
-    #                db.session.add(new_product)
-    #                db.session.commit()
+    dirname = os.path.dirname(__file__)
+    filePath = os.path.join(dirname, 'sql_product.csv')
+    import csv
+    with open(filePath) as f:
+        f_csv = csv.reader(f, delimiter=';')
+        for index, row in enumerate(f_csv):
+            if(index != 0):
+                test = int(row[9])
+                if (test == 0):
+                    new_product = Food(
+                        foodName=row[1],
+                        foodTag=row[2],
+                        foodKcal=float(row[3]),
+                        foodProtein=float(row[4]),
+                        foodNaa=float(row[5]),
+                        foodKa=float(row[6]),
+                        foodP=float(row[7]),
+                        foodCarbohydrate=float(row[8])
+                    )
+                    db.session.add(new_product)
+                    db.session.commit()
+                else:
+                    new_product = Food(
+                        foodName=row[1],
+                        foodTag=row[2],
+                        foodKcal=float(row[3]),
+                        foodProtein=float(row[4]),
+                        foodNaa=float(row[5]),
+                        foodKa=float(row[6]),
+                        foodP=float(row[7]),
+                        foodCarbohydrate=float(row[8]),foodProteinId=test
+                    )
+                    db.session.add(new_product)
+                    db.session.commit()
+
+
+
+##########temp to Undo########
+medicalMatch = ''
+searchMatch = ''
+
+
+@views.route("/", methods=["GET", "POST"])
+def home_page_render():
+
+
+
+    if request.method == "GET":
+        return "Hello Herokuuuu"
+    if request.method == "POST":
+        signature = request.headers["X-Line-Signature"]
+        body = request.get_data(as_text=True)
+
+        try:
+            handler.handle(body, signature)
+        except InvalidSignatureError:
+            abort(400)
+
+        return "OK"
+
+
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+    global medicalMatch, searchMatch
+    get_message = event.message.text
+
+    reply_msg = getActionReplyMsg(get_message)
+
+
+
+    # Send To Line
+    if reply_msg == 'See Flex Msg': #衛教資訊
+        FlexMessage = json.load(open('./assets/card.json', 'r', encoding='utf-8'))
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
+    elif reply_msg == "getMedical":
+
+
+        reply_msg = "可獲得衛教資訊!"
+
+
+        reply = TextSendMessage(text=f"{reply_msg}")
+        line_bot_api.reply_message(event.reply_token, reply)
+    elif reply_msg == 'getSearchFood':
+
+
+        '''
+        query_text = '蛋糕' #query_text = get_message
+        outputData = Food.query.filter(Food.product_name.like('%'+ query_text + '%') if query_text is not None else '').all()
+        res = GETfoodDataAPI(outputData).excute()
+        print(res)
+        '''
+
+
+
+        FlexMessage = json.load(open('./assets/search.json', 'r', encoding='utf-8'))
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
+    else:
+        reply = TextSendMessage(text=f"{reply_msg}")
+        line_bot_api.reply_message(event.reply_token, reply)
+
+def getActionReplyMsg(action):
+    global medicalMatch, searchMatch
+    if action == "飲食查詢":
+        searchMatch = True
+        medicalMatch = False
+        return 'Success to search u can do next step'
+    elif action == "衛教資訊":
+        medicalMatch = True
+        searchMatch = False
+        return 'getMedical'
+    elif searchMatch == True and action != '':
+        return 'getSearchFood'
+    else:
+        return action

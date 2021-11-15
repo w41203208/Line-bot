@@ -190,21 +190,12 @@
               "layout": "vertical",
               "contents": [
                 {
-                  "type": "button",
-                  "action": {
-                    "type": "message",
-                    "label": "搜尋記錄",
-                    "text": "hello"
-                  },
-                  "align": "end"
-                },
-                {
                   "type": "text",
                   "text": "搜尋記錄",
                   "action": {
-                    "type": "message",
+                    "type": "uri",
                     "label": "action",
-                    "text": "hello"
+                    "uri": "https://www.google.com.tw/"
                   },
                   "align": "center",
                   "weight": "bold",
@@ -418,20 +409,12 @@
               "layout": "vertical",
               "contents": [
                 {
-                  "type": "button",
-                  "action": {
-                    "type": "message",
-                    "label": "搜尋記錄",
-                    "text": "hello"
-                  }
-                },
-                {
                   "type": "text",
                   "text": "搜尋記錄",
                   "action": {
-                    "type": "message",
+                    "type": "uri",
                     "label": "action",
-                    "text": "hello"
+                    "uri": "https://www.google.com.tw/"
                   },
                   "align": "center",
                   "weight": "bold",
@@ -645,20 +628,12 @@
               "layout": "vertical",
               "contents": [
                 {
-                  "type": "button",
-                  "action": {
-                    "type": "message",
-                    "label": "搜尋記錄",
-                    "text": "hello"
-                  }
-                },
-                {
                   "type": "text",
                   "text": "搜尋記錄",
                   "action": {
-                    "type": "message",
+                    "type": "uri",
                     "label": "action",
-                    "text": "hello"
+                    "uri": "https://www.google.com.tw/"
                   },
                   "align": "center",
                   "weight": "bold",

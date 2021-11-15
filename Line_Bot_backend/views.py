@@ -2,9 +2,8 @@ from flask import Blueprint, jsonify, request, abort
 import json
 import os
 
-#from pymysql import NULL
-
-#from .models import Product, ProteinRange
+#from .models import Food
+#from .api import GETfoodDataAPI
 #from . import db
 
 # https://github.com/line/line-bot-sdk-python
@@ -23,12 +22,12 @@ handler = WebhookHandler(os.environ.get("CHANNEL_SECRET"))
 #line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
 #handler = WebhookHandler(CHANNEL_SECRET)
 
-medicalMatch = ''
-searchMatch = ''
+
 
 
 @views.route("/", methods=["GET", "POST"])
 def home_page_render():
+
 
     if request.method == "GET":
         return "Hello Herokuuuu"
@@ -46,44 +45,27 @@ def home_page_render():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    global medicalMatch, searchMatch
     get_message = event.message.text
 
-
-    action = get_message
-    reply_msg = getActionReplyMsg(action)
-
-    # Send To Line
-    if reply_msg == 'See Flex Msg': #衛教資訊
-        FlexMessage = json.load(open('./assets/card.json', 'r', encoding='utf-8'))
-        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
-    elif reply_msg == "getMedical":
+    if get_message == '衛教資訊':
         reply_msg = "可獲得衛教資訊!"
-
         reply = TextSendMessage(text=f"{reply_msg}")
         line_bot_api.reply_message(event.reply_token, reply)
-    elif reply_msg == 'getSearchFood':
-        sql_text = get_message
+    else: #只要資料庫找的到的都輸出foodData
+        '''
+        query_text = '蛋糕' #query_text = get_message
+        outputData = Food.query.filter(Food.product_name.like('%'+ query_text + '%') if query_text is not None else '').all()
+        res = GETfoodDataAPI(outputData).excute()
+        print(res)
+        '''
+
+        if get_message != '蛋糕': #if outputData is exist:
+            reply_msg = get_message
+            reply = TextSendMessage(text=f"{reply_msg}")
+            line_bot_api.reply_message(event.reply_token, reply)
+        else:
+            FlexMessage = json.load(open('./assets/search.json', 'r', encoding='utf-8'))
+            line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
 
 
-        FlexMessage = json.load(open('./assets/card.json', 'r', encoding='utf-8'))
-        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
 
-    else:
-        reply = TextSendMessage(text=f"{reply_msg}")
-        line_bot_api.reply_message(event.reply_token, reply)
-
-def getActionReplyMsg(action):
-    global medicalMatch, searchMatch
-    if action == "飲食查詢":
-        searchMatch = True
-        medicalMatch = False
-        return 'Success to search u can do next step'
-    elif action == "衛教資訊":
-        medicalMatch = True
-        searchMatch = False
-        return 'getMedical'
-    elif searchMatch == True and action != '':
-        return 'getSearchFood'
-    else:
-        return action
