@@ -1,0 +1,730 @@
+{
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "direction": "ltr",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "text",
+                "weight": "bold",
+                "size": "xl",
+                "align": "center",
+                "contents": [
+                  {
+                    "type": "span",
+                    "text": "初期(第一、二期)"
+                  }
+                ]
+              }
+            ],
+            "justifyContent": "center",
+            "alignItems": "center",
+            "paddingBottom": "5px",
+            "paddingTop": "40px"
+          },
+          {
+            "type": "separator",
+            "color": "#aaaaaa"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "請選擇您的期別",
+                    "size": "xl",
+                    "weight": "bold"
+                  }
+                ],
+                "paddingBottom": "5px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "腎絲球過濾率：",
+                    "color": "#acacac",
+                    "size": "sm",
+                    "wrap": true,
+                    "weight": "bold"
+                  }
+                ],
+                "paddingBottom": "3px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "box",
+                    "layout": "horizontal",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "第 1 期",
+                        "color": "#acacac",
+                        "size": "sm",
+                        "weight": "bold",
+                        "flex": 3
+                      },
+                      {
+                        "type": "text",
+                        "text": ">=90",
+                        "color": "#acacac",
+                        "weight": "bold",
+                        "size": "sm",
+                        "flex": 3
+                      },
+                      {
+                        "type": "text",
+                        "text": "ml/min/1.73㎡",
+                        "color": "#acacac",
+                        "weight": "bold",
+                        "size": "sm",
+                        "flex": 5,
+                        "align": "end"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "box",
+                    "layout": "horizontal",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "第 2 期",
+                        "color": "#acacac",
+                        "size": "sm",
+                        "weight": "bold",
+                        "flex": 3
+                      },
+                      {
+                        "type": "text",
+                        "text": "60-89.9",
+                        "color": "#acacac",
+                        "weight": "bold",
+                        "size": "sm",
+                        "flex": 3
+                      },
+                      {
+                        "type": "text",
+                        "text": "ml/min/1.73㎡",
+                        "color": "#acacac",
+                        "weight": "bold",
+                        "size": "sm",
+                        "flex": 5,
+                        "align": "end"
+                      }
+                    ]
+                  }
+                ],
+                "paddingBottom": "10px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "慢性腎臟病可分為五期。",
+                    "size": "xs",
+                    "weight": "bold"
+                  },
+                  {
+                    "type": "text",
+                    "text": "主要以年齡、性別、血清肌酸酣，綜合計算出「腎絲球過濾率值（GFR）」來判斷腎功能。當腎絲球過濾率值過(<60ml/min/1.73㎡)或出現蛋白尿、血尿等腎臟損傷狀況，持續「三個月以上」，即為慢性腎臟病。",
+                    "size": "xs",
+                    "weight": "bold",
+                    "wrap": true
+                  }
+                ]
+              }
+            ],
+            "paddingTop": "15px",
+            "paddingBottom": "15px",
+            "paddingStart": "12px",
+            "paddingEnd": "12px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "第一期、第二期",
+                "align": "center",
+                "size": "24px",
+                "weight": "bold",
+                "color": "#4464a8"
+              }
+            ],
+            "paddingBottom": "15px",
+            "justifyContent": "center",
+            "alignItems": "center",
+            "action": {
+              "type": "message",
+              "label": "action",
+              "text": "第一、二期資訊"
+            }
+          }
+        ],
+        "paddingAll": "0px",
+        "height": "265px"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "direction": "ltr",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "text",
+                "text": "第三期",
+                "weight": "bold",
+                "size": "xl",
+                "align": "center",
+                "contents": [
+                  {
+                    "type": "span",
+                    "text": "第三期"
+                  }
+                ]
+              }
+            ],
+            "justifyContent": "center",
+            "alignItems": "center",
+            "paddingBottom": "5px",
+            "paddingTop": "40px"
+          },
+          {
+            "type": "separator",
+            "color": "#aaaaaa"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "size": "xl",
+                    "weight": "bold",
+                    "text": " "
+                  }
+                ],
+                "paddingBottom": "5px",
+                "height": "30px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "腎絲球過濾率：",
+                    "color": "#acacac",
+                    "size": "sm",
+                    "wrap": true,
+                    "weight": "bold"
+                  }
+                ],
+                "paddingBottom": "3px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "box",
+                    "layout": "horizontal",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "第 3 期",
+                        "color": "#acacac",
+                        "size": "sm",
+                        "weight": "bold",
+                        "flex": 3
+                      },
+                      {
+                        "type": "text",
+                        "text": "30-59.9",
+                        "color": "#acacac",
+                        "weight": "bold",
+                        "size": "sm",
+                        "flex": 3
+                      },
+                      {
+                        "type": "text",
+                        "text": "ml/min/1.73㎡",
+                        "color": "#acacac",
+                        "weight": "bold",
+                        "size": "sm",
+                        "flex": 5,
+                        "align": "end"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "box",
+                    "layout": "horizontal",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "第 3a 期",
+                        "color": "#acacac",
+                        "size": "sm",
+                        "weight": "bold",
+                        "flex": 3
+                      },
+                      {
+                        "type": "text",
+                        "text": "45-59.9",
+                        "color": "#acacac",
+                        "weight": "bold",
+                        "size": "sm",
+                        "flex": 3
+                      },
+                      {
+                        "type": "text",
+                        "text": "ml/min/1.73㎡",
+                        "color": "#acacac",
+                        "weight": "bold",
+                        "size": "sm",
+                        "flex": 5,
+                        "align": "end"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "box",
+                    "layout": "horizontal",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "第 3a 期",
+                        "color": "#acacac",
+                        "size": "sm",
+                        "weight": "bold",
+                        "flex": 3
+                      },
+                      {
+                        "type": "text",
+                        "text": "30-44.9",
+                        "color": "#acacac",
+                        "weight": "bold",
+                        "size": "sm",
+                        "flex": 3
+                      },
+                      {
+                        "type": "text",
+                        "text": "ml/min/1.73㎡",
+                        "color": "#acacac",
+                        "weight": "bold",
+                        "size": "sm",
+                        "flex": 5,
+                        "align": "end"
+                      }
+                    ]
+                  }
+                ],
+                "paddingBottom": "10px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "size": "xs",
+                    "weight": "bold"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "size": "xs",
+                    "weight": "bold",
+                    "wrap": true
+                  }
+                ]
+              }
+            ],
+            "paddingTop": "15px",
+            "paddingBottom": "15px",
+            "paddingStart": "12px",
+            "paddingEnd": "12px",
+            "height": "265px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "第三期",
+                "align": "center",
+                "size": "24px",
+                "weight": "bold",
+                "color": "#4464a8"
+              }
+            ],
+            "paddingBottom": "15px",
+            "justifyContent": "center",
+            "alignItems": "center",
+            "action": {
+              "type": "message",
+              "label": "action",
+              "text": "第三期資訊"
+            }
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "direction": "ltr",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "text",
+                "text": "第三期",
+                "weight": "bold",
+                "size": "xl",
+                "align": "center",
+                "contents": [
+                  {
+                    "type": "span",
+                    "text": "第四期"
+                  }
+                ]
+              }
+            ],
+            "justifyContent": "center",
+            "alignItems": "center",
+            "paddingBottom": "5px",
+            "paddingTop": "40px"
+          },
+          {
+            "type": "separator",
+            "color": "#aaaaaa"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "size": "xl",
+                    "weight": "bold",
+                    "text": " "
+                  }
+                ],
+                "paddingBottom": "5px",
+                "height": "30px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "腎絲球過濾率：",
+                    "color": "#acacac",
+                    "size": "sm",
+                    "wrap": true,
+                    "weight": "bold"
+                  }
+                ],
+                "paddingBottom": "3px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "box",
+                    "layout": "horizontal",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "第 4 期",
+                        "color": "#acacac",
+                        "size": "sm",
+                        "weight": "bold",
+                        "flex": 3
+                      },
+                      {
+                        "type": "text",
+                        "text": "15-29.9",
+                        "color": "#acacac",
+                        "weight": "bold",
+                        "size": "sm",
+                        "flex": 3
+                      },
+                      {
+                        "type": "text",
+                        "text": "ml/min/1.73㎡",
+                        "color": "#acacac",
+                        "weight": "bold",
+                        "size": "sm",
+                        "flex": 5,
+                        "align": "end"
+                      }
+                    ]
+                  }
+                ],
+                "paddingBottom": "10px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "size": "xs",
+                    "weight": "bold"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "size": "xs",
+                    "weight": "bold",
+                    "wrap": true
+                  }
+                ],
+                "height": "110px"
+              }
+            ],
+            "paddingTop": "15px",
+            "paddingBottom": "15px",
+            "paddingStart": "12px",
+            "paddingEnd": "12px",
+            "height": "265px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "第四期",
+                "align": "center",
+                "size": "24px",
+                "weight": "bold",
+                "color": "#4464a8"
+              }
+            ],
+            "paddingBottom": "15px",
+            "justifyContent": "center",
+            "alignItems": "center",
+            "action": {
+              "type": "message",
+              "label": "action",
+              "text": "第四期資訊"
+            }
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "direction": "ltr",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "text",
+                "text": "第三期",
+                "weight": "bold",
+                "size": "xl",
+                "align": "center",
+                "contents": [
+                  {
+                    "type": "span",
+                    "text": "第五期"
+                  }
+                ]
+              }
+            ],
+            "justifyContent": "center",
+            "alignItems": "center",
+            "paddingBottom": "5px",
+            "paddingTop": "40px"
+          },
+          {
+            "type": "separator",
+            "color": "#aaaaaa"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "size": "xl",
+                    "weight": "bold",
+                    "text": " "
+                  }
+                ],
+                "paddingBottom": "5px",
+                "height": "30px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "腎絲球過濾率：",
+                    "color": "#acacac",
+                    "size": "sm",
+                    "wrap": true,
+                    "weight": "bold"
+                  }
+                ],
+                "paddingBottom": "3px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "box",
+                    "layout": "horizontal",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "第 5 期",
+                        "color": "#acacac",
+                        "size": "sm",
+                        "weight": "bold",
+                        "flex": 3
+                      },
+                      {
+                        "type": "text",
+                        "text": "<15",
+                        "color": "#acacac",
+                        "weight": "bold",
+                        "size": "sm",
+                        "flex": 3
+                      },
+                      {
+                        "type": "text",
+                        "text": "ml/min/1.73㎡",
+                        "color": "#acacac",
+                        "weight": "bold",
+                        "size": "sm",
+                        "flex": 5,
+                        "align": "end"
+                      }
+                    ]
+                  }
+                ],
+                "paddingBottom": "10px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "size": "xs",
+                    "weight": "bold"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "size": "xs",
+                    "weight": "bold",
+                    "wrap": true
+                  }
+                ],
+                "height": "110px"
+              }
+            ],
+            "paddingTop": "15px",
+            "paddingBottom": "15px",
+            "paddingStart": "12px",
+            "paddingEnd": "12px",
+            "height": "265px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "第五期",
+                "align": "center",
+                "size": "24px",
+                "weight": "bold",
+                "color": "#4464a8"
+              }
+            ],
+            "paddingBottom": "15px",
+            "justifyContent": "center",
+            "alignItems": "center",
+            "action": {
+              "type": "message",
+              "label": "action",
+              "text": "第五期資訊"
+            }
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    }
+  ]
+}

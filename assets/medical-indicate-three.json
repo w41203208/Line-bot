@@ -1,0 +1,148 @@
+{
+  "type": "bubble",
+  "size": "kilo",
+  "direction": "ltr",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "第三期",
+            "weight": "bold",
+            "size": "xl",
+            "align": "center",
+            "contents": [
+              {
+                "type": "span",
+                "text": "第三期衛教指引"
+              }
+            ]
+          }
+        ],
+        "justifyContent": "center",
+        "alignItems": "center",
+        "paddingBottom": "5px",
+        "paddingTop": "40px"
+      },
+      {
+        "type": "separator",
+        "color": "#aaaaaa"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "size": "xs",
+                "weight": "bold",
+                "text": "限制蛋白質，維持正常的血壓與血糖，能延緩腎功能惡化。以下為個人化照護重點。",
+                "wrap": true,
+                "color": "#acacac"
+              }
+            ],
+            "paddingBottom": "5px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "請依序點選：",
+                "color": "#acacac",
+                "size": "sm",
+                "weight": "bold"
+              }
+            ],
+            "paddingBottom": "20px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "1、認識【鉀】含量高的食物",
+                "size": "md",
+                "weight": "bold",
+                "color": "#2b7ce6"
+              }
+            ],
+            "paddingBottom": "10px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "2、認識【磷】含量高的食物",
+                "size": "md",
+                "weight": "bold",
+                "color": "#2b7ce6"
+              }
+            ],
+            "paddingBottom": "10px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "3、蛋白質飲食",
+                "size": "md",
+                "weight": "bold",
+                "color": "#2b7ce6"
+              }
+            ],
+            "paddingBottom": "10px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": " 4、【水份控制】",
+                "size": "md",
+                "weight": "bold",
+                "color": "#2b7ce6"
+              }
+            ],
+            "paddingBottom": "10px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": " 5、腎臟病常見檢查及其臨床意義",
+                "size": "md",
+                "weight": "bold",
+                "color": "#2b7ce6"
+              }
+            ],
+            "paddingBottom": "10px"
+          }
+        ],
+        "paddingTop": "15px",
+        "paddingBottom": "15px",
+        "paddingStart": "18px",
+        "paddingEnd": "18px"
+      }
+    ],
+    "paddingAll": "0px"
+  }
+}

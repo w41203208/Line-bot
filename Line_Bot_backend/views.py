@@ -48,9 +48,27 @@ def handle_message(event):
     get_message = event.message.text
 
     if get_message == '衛教資訊':
-        reply_msg = "可獲得衛教資訊!"
-        reply = TextSendMessage(text=f"{reply_msg}")
-        line_bot_api.reply_message(event.reply_token, reply)
+        FlexMessage = json.load(open('./assets/medical.json', 'r', encoding='utf-8'))
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
+    elif get_message == '第一、二期資訊':
+        FlexMessage = json.load(open('./assets/medical-indicate-one.json', 'r', encoding='utf-8'))
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
+    elif get_message == '第三期資訊':
+        FlexMessage = json.load(open('./assets/medical-indicate-three.json', 'r', encoding='utf-8'))
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
+    elif get_message == '第四期資訊':
+        FlexMessage = json.load(open('./assets/medical-indicate-four.json', 'r', encoding='utf-8'))
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
+    elif get_message == '第五期資訊':
+        FlexMessage = json.load(open('./assets/medical-indicate-five.json', 'r', encoding='utf-8'))
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
+    elif get_message == '血液透析':
+        FlexMessage = json.load(open('./assets/blood.json', 'r', encoding='utf-8'))
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
+    elif get_message == '腹膜透析':
+        FlexMessage = json.load(open('./assets/fomo.json', 'r', encoding='utf-8'))
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
+
     else: #只要資料庫找的到的都輸出foodData
         '''
         query_text = '蛋糕' #query_text = get_message
