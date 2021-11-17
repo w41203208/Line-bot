@@ -1,0 +1,255 @@
+{
+  "type": "bubble",
+  "size": "giga",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "hello, world",
+            "contents": [
+              {
+                "type": "span",
+                "text": "3. 【蛋白質飲食】",
+                "color": "#2b7ce6",
+                "weight": "bold"
+              }
+            ]
+          }
+        ],
+        "action": {
+          "type": "postback",
+          "label": "action",
+          "data": "hello"
+        },
+        "paddingBottom": "10px"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "（一）不要吃太鹹，血壓要正常",
+            "wrap": true,
+            "size": "sm"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "烹調時，注意重點：",
+                "size": "sm"
+              }
+            ],
+            "paddingBottom": "7px"
+          },
+          {
+            "type": "text",
+            "text": "1、減少鹽與醬油的使用量。",
+            "wrap": true,
+            "size": "sm"
+          },
+          {
+            "type": "text",
+            "text": " 2、少調味，如不加胡椒鹽、番茄醬、辣椒醬、豆瓣醬、沙茶醬。 ",
+            "wrap": true,
+            "size": "sm"
+          },
+          {
+            "type": "text",
+            "text": "3、少喝湯，盡量不要在外面用餐，都能減少吃進的鹽量。 ",
+            "wrap": true,
+            "size": "sm"
+          },
+          {
+            "type": "text",
+            "text": "4、少吃過鹹食物，如榨菜、酸菜、泡菜、味噌、醬瓜、鹹蛋、肉燥、泡  麵、鹽酥雞、泰式料理、洋芋片、海苔等。",
+            "wrap": true,
+            "size": "sm"
+          },
+          {
+            "type": "text",
+            "text": "5、勿用薄鹽醬油、低鈉鹽。",
+            "wrap": true,
+            "size": "sm"
+          },
+          {
+            "type": "text",
+            "text": "以上少吃能控制好血壓，腎功能才不會快速惡化。 有高血壓的人一定要依照醫師指示服用降血壓藥，不能自行調整藥物!!",
+            "wrap": true,
+            "size": "sm"
+          }
+        ],
+        "paddingBottom": "10px"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "（二）限蛋白質飲食",
+            "wrap": true,
+            "size": "sm"
+          },
+          {
+            "type": "text",
+            "text": "飲食蛋白質攝取過多導致腎絲球內高血壓，會造成腎臟負擔，因此維持良 好營養狀態下，適量減少蛋白質攝取，是相當重要的，有助於延緩腎功能 惡化。",
+            "size": "sm",
+            "wrap": true
+          }
+        ],
+        "paddingBottom": "10px"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "1、那如何選擇蛋白質攝取呢?",
+            "wrap": true,
+            "size": "sm"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "(1)像一般常吃到的主食，如米飯、麵條、燕麥、玉米、饅頭、包子、水 餃，蓮藕、芋頭、馬鈴薯、南瓜等澱粉，因為這類為【非優質的蛋白質】 ，對腎臟負擔較大，每天要限量食用。而慢性腎臟病患最好以白米飯為主 食，雖然白米飯也是非優質蛋白質，但白米飯對腎臟負擔比較小，比起麵 條、包子饅頭、麵包等麵粉等食品，對腎臟的負擔會比較大。",
+                "wrap": true,
+                "size": "sm"
+              }
+            ],
+            "paddingBottom": "10px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "(2)選擇【優質蛋白質】食用，優質蛋白質為蛋豆魚肉類，如蛋與豬、雞 、鴨、魚、牛等肉類，以及豆腐、豆乾、豆包等黃豆製成的食品，這些在 體內利用率好、所產生尿毒素少，因此在選擇蛋白質上至少要有 50%-75%是【優質蛋白質】。優質蛋白質又稱高生物價蛋白質。",
+                "wrap": true,
+                "size": "sm"
+              }
+            ],
+            "paddingBottom": "10px"
+          }
+        ],
+        "paddingBottom": "10px"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "2、每日所需攝取多少份量的蛋白質？",
+            "wrap": true,
+            "size": "sm"
+          },
+          {
+            "type": "text",
+            "text": "@第3期腎臟病，蛋白質每天每公斤攝取量為0.8-1.0 g/kg/day。 舉例：如以一個體重60公斤的人，腎臟病第三期患者蛋白質需限制0.8  (g/kg)，則他每天需要的蛋白質為60x0.8= 48(g)，份量(至少50%~75% 的優質蛋白質)，所以一天三餐最多吃5份蛋白質(蛋豆魚肉類)+2碗白飯( 主食)。份量參考如下表。",
+            "wrap": true,
+            "size": "sm"
+          }
+        ],
+        "paddingBottom": "10px"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+            "aspectRatio": "3:2",
+            "aspectMode": "cover",
+            "size": "100%"
+          }
+        ],
+        "paddingBottom": "10px"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "3、如何判斷一份蛋白質有多少分量?",
+            "wrap": true,
+            "size": "sm"
+          },
+          {
+            "type": "text",
+            "text": "1 份的蛋白質 ",
+            "wrap": true,
+            "size": "sm"
+          },
+          {
+            "type": "text",
+            "text": "=1份/雞豬牛羊肉 ( 約3支手指頭大小)",
+            "wrap": true,
+            "size": "sm"
+          },
+          {
+            "type": "text",
+            "text": "=1份/半個手掌心大小的魚肉",
+            "wrap": true,
+            "size": "sm"
+          },
+          {
+            "type": "text",
+            "text": "=1份/半個手掌心大小的魚肉",
+            "wrap": true,
+            "size": "sm"
+          },
+          {
+            "type": "text",
+            "text": "=2片/豆干",
+            "wrap": true,
+            "size": "sm"
+          },
+          {
+            "type": "text",
+            "text": "=1碗/飯",
+            "wrap": true,
+            "size": "sm"
+          },
+          {
+            "type": "text",
+            "text": "=1杯260ml/豆漿",
+            "wrap": true,
+            "size": "sm"
+          }
+        ],
+        "paddingBottom": "10px"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+            "aspectRatio": "3:2",
+            "aspectMode": "cover",
+            "size": "100%"
+          }
+        ]
+      }
+    ],
+    "paddingAll": "15px"
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "type": "bubble",
+  "size": "giga",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "hello, world",
+            "contents": [
+              {
+                "type": "span",
+                "text": "2. 認識【蛋白質飲食】",
+                "color": "#2b7ce6",
+                "weight": "bold"
+              }
+            ]
+          }
+        ],
+        "action": {
+          "type": "postback",
+          "label": "action",
+          "data": "hello"
+        },
+        "paddingBottom": "10px"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "（二）少吃低生物價蛋白質，低生物價蛋白質會增加尿毒素濃度，增加腎臟負擔，也要少吃。",
+                "wrap": true
+              }
+            ],
+            "paddingBottom": "10px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "蛋白質有分好壞！"
+              }
+            ],
+            "paddingBottom": "5px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "1、優質的蛋白質（高生物價的蛋白質）在體內利用率佳、產生尿毒素較少的蛋白質。 如，蛋與豬、雞、鴨、魚、牛等肉類及豆腐、豆乾、豆包等黃豆製成的食 品，因此在攝取蛋白質上要選好的蛋白質為主。",
+                "wrap": true
+              }
+            ],
+            "paddingBottom": "5px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": " 2、非優質的蛋白質（低生物價的蛋白質） 會產生較多的尿毒素，會增加腎臟負擔，要少吃。 如，堅果類：腰果、松子、杏仁、夏威夷果、花生、瓜子、芝麻等，磷的 含量高",
+                "wrap": true
+              }
+            ],
+            "paddingBottom": "5px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "豆類：綠豆、紅豆、蓮子、薏仁、皇帝豆、蠶豆、碗豆等，磷的含量高。",
+                    "wrap": true
+                  }
+                ],
+                "paddingBottom": "5px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "麵筋製成的食品：麵筋、麵腸、麵輪、烤麩等，產生較多的尿毒素。"
+                  }
+                ],
+                "paddingBottom": "5px"
+              }
+            ]
+          }
+        ],
+        "paddingBottom": "10px"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "（三）糖尿病",
+                "wrap": true
+              }
+            ],
+            "paddingBottom": "10px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "有腎臟病，且有糖尿病的人，初期(1-2期)不用減少肉量，飲食以控制血 糖為重，但還是要選擇優質的蛋白質為主。",
+                "wrap": true
+              }
+            ],
+            "paddingBottom": "5px"
+          }
+        ],
+        "paddingBottom": "10px"
+      }
+    ],
+    "paddingAll": "15px"
+  }
+}

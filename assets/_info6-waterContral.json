@@ -1,0 +1,47 @@
+{
+  "type": "bubble",
+  "size": "giga",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "hello, world",
+            "contents": [
+              {
+                "type": "span",
+                "text": "4. 【水份】控制",
+                "color": "#2b7ce6",
+                "weight": "bold"
+              }
+            ]
+          }
+        ],
+        "action": {
+          "type": "postback",
+          "label": "action",
+          "data": "hello"
+        },
+        "paddingBottom": "10px"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "性腎臟病患者，若有嚴重水腫問題，請依據醫師指示限制水份攝取，  以不發生水腫為原則。",
+            "size": "sm",
+            "wrap": true
+          }
+        ]
+      }
+    ],
+    "paddingAll": "15px"
+  }
+}

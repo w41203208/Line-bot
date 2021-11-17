@@ -1,0 +1,96 @@
+{
+  "type": "bubble",
+  "size": "giga",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "hello, world",
+            "contents": [
+              {
+                "type": "span",
+                "text": "1. 血壓血糖控制",
+                "color": "#2b7ce6",
+                "weight": "bold"
+              }
+            ]
+          }
+        ],
+        "action": {
+          "type": "postback",
+          "label": "action",
+          "data": "hello"
+        },
+        "paddingBottom": "10px"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "（一）不要吃太鹹，血壓要正常",
+            "wrap": true
+          }
+        ],
+        "paddingBottom": "10px"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "烹調時："
+              }
+            ],
+            "paddingBottom": "7px"
+          },
+          {
+            "type": "text",
+            "text": "1、減少鹽與醬油的使用量。",
+            "wrap": true
+          },
+          {
+            "type": "text",
+            "text": " 2、少調味，如不加胡椒鹽、番茄醬、辣椒醬、豆瓣醬、沙茶醬。 ",
+            "wrap": true
+          },
+          {
+            "type": "text",
+            "text": "3、少喝湯，盡量不要在外面用餐，都能減少吃進的鹽量。 ",
+            "wrap": true
+          },
+          {
+            "type": "text",
+            "text": "4、少吃過鹹食物，如榨菜、酸菜、泡菜、味噌、醬瓜、鹹蛋、肉燥、泡  麵、鹽酥雞、泰式料理、洋芋片、海苔等。",
+            "wrap": true
+          }
+        ],
+        "paddingBottom": "10px"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "以上少吃能控制好血壓，腎功能才不會快速惡化。 有高血壓的人一定要依照醫師指示服用降血壓藥，不能自行調整藥物!!",
+            "wrap": true
+          }
+        ]
+      }
+    ],
+    "paddingAll": "15px"
+  }
+}

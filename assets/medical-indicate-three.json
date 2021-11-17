@@ -75,7 +75,12 @@
                 "text": "1、認識【鉀】含量高的食物",
                 "size": "md",
                 "weight": "bold",
-                "color": "#2b7ce6"
+                "color": "#2b7ce6",
+                "action": {
+                  "type": "message",
+                  "label": "action",
+                  "text": "認識【鉀】含量高的食物"
+                }
               }
             ],
             "paddingBottom": "10px"
@@ -89,7 +94,12 @@
                 "text": "2、認識【磷】含量高的食物",
                 "size": "md",
                 "weight": "bold",
-                "color": "#2b7ce6"
+                "color": "#2b7ce6",
+                "action": {
+                  "type": "message",
+                  "label": "action",
+                  "text": "認識【磷】含量高的食物"
+                }
               }
             ],
             "paddingBottom": "10px"
@@ -103,7 +113,12 @@
                 "text": "3、蛋白質飲食",
                 "size": "md",
                 "weight": "bold",
-                "color": "#2b7ce6"
+                "color": "#2b7ce6",
+                "action": {
+                  "type": "message",
+                  "label": "action",
+                  "text": "蛋白質飲食(第三期)"
+                }
               }
             ],
             "paddingBottom": "10px"
@@ -114,10 +129,15 @@
             "contents": [
               {
                 "type": "text",
-                "text": " 4、【水份控制】",
+                "text": " 4、水份控制",
                 "size": "md",
                 "weight": "bold",
-                "color": "#2b7ce6"
+                "color": "#2b7ce6",
+                "action": {
+                  "type": "message",
+                  "label": "action",
+                  "text": "水份控制"
+                }
               }
             ],
             "paddingBottom": "10px"
@@ -131,7 +151,12 @@
                 "text": " 5、腎臟病常見檢查及其臨床意義",
                 "size": "md",
                 "weight": "bold",
-                "color": "#2b7ce6"
+                "color": "#2b7ce6",
+                "action": {
+                  "type": "message",
+                  "label": "action",
+                  "text": "腎臟病常見檢查及其臨床意義"
+                }
               }
             ],
             "paddingBottom": "10px"

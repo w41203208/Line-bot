@@ -1,0 +1,82 @@
+{
+  "type": "bubble",
+  "size": "giga",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "3. 水分控制",
+            "contents": [],
+            "color": "#2b7ce6",
+            "weight": "bold"
+          }
+        ],
+        "action": {
+          "type": "postback",
+          "label": "action",
+          "data": "hello"
+        },
+        "paddingBottom": "10px"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "血液透析病人當體內水分過多時，因腎臟無法排水，會出現呼吸急促、血壓升高、 身體浮腫、肺部積水、心臟負荷增加甚至造成心臟衰竭⋯等等，因此水分控制很重 要，水份包括水果、湯汁、飲料、開水等。",
+            "size": "sm",
+            "wrap": true
+          }
+        ],
+        "paddingBottom": "5px"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "（1）每日的飲水攝取量，必須根據個人每日的尿量、排汗量、運動量和季節性的 不 同做來調整。",
+            "size": "sm",
+            "wrap": true
+          }
+        ],
+        "paddingBottom": "5px"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "（2）每日應定時、定點、同磅秤量體重，且兩次透析之間的體重以不超過體重增 加 5% （如：60 公斤乾體重的人，60×4.5% ＝ 2.7，則體重增加儘量不超 過 2.7  公斤）。 ",
+            "size": "sm",
+            "wrap": true
+          }
+        ],
+        "paddingBottom": "5px"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "（3）避免過量水份攝取與口渴小秘訣 ：平均分配一日需飲用水分，口渴時，可含 小冰塊減少水份攝取量。 保持口腔及嘴唇濕潤，可含無糖的硬糖果、嚼無糖口香 糖、檸檬片沾口 或擦護唇膏。 選擇食物以乾性、固體為主，減少攝取湯湯水水的 食物。",
+            "size": "sm",
+            "wrap": true
+          }
+        ],
+        "paddingBottom": "5px"
+      }
+    ],
+    "paddingAll": "15px"
+  }
+}

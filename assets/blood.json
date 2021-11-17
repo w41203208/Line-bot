@@ -78,15 +78,15 @@
                     "text": "1、充足的【熱量】攝取",
                     "size": "md",
                     "weight": "bold",
-                    "color": "#2b7ce6"
+                    "color": "#2b7ce6",
+                    "action": {
+                      "type": "message",
+                      "label": "action",
+                      "text": "充足的【熱量】攝取"
+                    }
                   }
                 ],
-                "paddingBottom": "10px",
-                "action": {
-                  "type": "uri",
-                  "label": "action",
-                  "uri": "http://linecorp.com/"
-                }
+                "paddingBottom": "10px"
               },
               {
                 "type": "box",
@@ -94,18 +94,18 @@
                 "contents": [
                   {
                     "type": "text",
-                    "text": "2、【蛋白質飲食】",
+                    "text": "2、蛋白質飲食",
                     "size": "md",
                     "weight": "bold",
-                    "color": "#2b7ce6"
+                    "color": "#2b7ce6",
+                    "action": {
+                      "type": "message",
+                      "label": "action",
+                      "text": "蛋白質飲食(第四期)"
+                    }
                   }
                 ],
-                "paddingBottom": "10px",
-                "action": {
-                  "type": "uri",
-                  "label": "action",
-                  "uri": "http://linecorp.com/"
-                }
+                "paddingBottom": "10px"
               },
               {
                 "type": "box",
@@ -113,18 +113,18 @@
                 "contents": [
                   {
                     "type": "text",
-                    "text": "3、【水份控制】",
+                    "text": "3、水份控制",
                     "size": "md",
                     "weight": "bold",
-                    "color": "#2b7ce6"
+                    "color": "#2b7ce6",
+                    "action": {
+                      "type": "message",
+                      "label": "action",
+                      "text": "水份控制(第五期)"
+                    }
                   }
                 ],
-                "paddingBottom": "10px",
-                "action": {
-                  "type": "uri",
-                  "label": "action",
-                  "uri": "http://linecorp.com/"
-                }
+                "paddingBottom": "10px"
               },
               {
                 "type": "box",
@@ -132,18 +132,18 @@
                 "contents": [
                   {
                     "type": "text",
-                    "text": " 4、【鹽份控制】",
+                    "text": " 4、鹽分攝取(鈉攝取)",
                     "size": "md",
                     "weight": "bold",
-                    "color": "#2b7ce6"
+                    "color": "#2b7ce6",
+                    "action": {
+                      "type": "message",
+                      "label": "action",
+                      "text": "鹽分攝取(鈉攝取)"
+                    }
                   }
                 ],
-                "paddingBottom": "10px",
-                "action": {
-                  "type": "uri",
-                  "label": "action",
-                  "uri": "http://linecorp.com/"
-                }
+                "paddingBottom": "10px"
               },
               {
                 "type": "box",
@@ -154,15 +154,15 @@
                     "text": " 5、認識【鉀】含量高的食物",
                     "size": "md",
                     "weight": "bold",
-                    "color": "#2b7ce6"
+                    "color": "#2b7ce6",
+                    "action": {
+                      "type": "message",
+                      "label": "action",
+                      "text": "認識【鉀】含量高的食物"
+                    }
                   }
                 ],
-                "paddingBottom": "10px",
-                "action": {
-                  "type": "uri",
-                  "label": "action",
-                  "uri": "http://linecorp.com/"
-                }
+                "paddingBottom": "10px"
               },
               {
                 "type": "box",
@@ -173,15 +173,15 @@
                     "text": "6、認識【磷】含量高的食物",
                     "size": "md",
                     "weight": "bold",
-                    "color": "#2b7ce6"
+                    "color": "#2b7ce6",
+                    "action": {
+                      "type": "message",
+                      "label": "action",
+                      "text": "認識【磷】含量高的食物"
+                    }
                   }
                 ],
-                "paddingBottom": "10px",
-                "action": {
-                  "type": "uri",
-                  "label": "action",
-                  "uri": "http://linecorp.com/"
-                }
+                "paddingBottom": "10px"
               },
               {
                 "type": "box",
@@ -195,12 +195,7 @@
                     "color": "#2b7ce6"
                   }
                 ],
-                "paddingBottom": "10px",
-                "action": {
-                  "type": "uri",
-                  "label": "action",
-                  "uri": "http://linecorp.com/"
-                }
+                "paddingBottom": "10px"
               }
             ],
             "paddingTop": "15px",

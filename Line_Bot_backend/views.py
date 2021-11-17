@@ -68,6 +68,42 @@ def handle_message(event):
     elif get_message == '腹膜透析':
         FlexMessage = json.load(open('./assets/fomo.json', 'r', encoding='utf-8'))
         line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
+    elif get_message == '血壓血糖控制':
+        FlexMessage = json.load(open('./assets/_info1-bsContral.json', 'r', encoding='utf-8'))
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
+    elif get_message == '認識【蛋白質飲食】':
+        FlexMessage = json.load(open('./assets/_info2-knowProtein.json', 'r', encoding='utf-8'))
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
+    elif get_message == '認識【鉀】含量高的食物':
+        FlexMessage = json.load(open('./assets/_info3-knowKa.json', 'r', encoding='utf-8'))
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
+    elif get_message == '認識【磷】含量高的食物':
+        FlexMessage = json.load(open('./assets/_info4-knowP.json', 'r', encoding='utf-8'))
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
+    elif get_message == '蛋白質飲食(第三期)':
+        FlexMessage = json.load(open('./assets/_info5-proteinEat.json', 'r', encoding='utf-8'))
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
+    elif get_message == '水份控制':
+        FlexMessage = json.load(open('./assets/_info6-waterContral.json', 'r', encoding='utf-8'))
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
+    elif get_message == '蛋白質飲食(第四期)':
+        FlexMessage = json.load(open('./assets/_info5-proteinEat.json', 'r', encoding='utf-8'))
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
+
+        FlexMessage = json.load(open('./assets/_info5-proteinEat2.json', 'r', encoding='utf-8'))
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
+    elif get_message == '充足的【熱量】攝取':
+        FlexMessage = json.load(open('./assets/_info7-kcal.json', 'r', encoding='utf-8'))
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
+    elif get_message == '水份控制(第五期)':
+        FlexMessage = json.load(open('./assets/_info6-waterContral2.json', 'r', encoding='utf-8'))
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
+    elif get_message == '鹽分攝取(鈉攝取)':
+        FlexMessage = json.load(open('./assets/_info9-salt.json', 'r', encoding='utf-8'))
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
+    elif get_message == '腹膜透析【鉀離子】攝取':
+        FlexMessage = json.load(open('./assets/_info10-fomoKa.json', 'r', encoding='utf-8'))
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
 
     else: #只要資料庫找的到的都輸出foodData
         '''
