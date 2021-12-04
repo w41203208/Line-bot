@@ -1,7 +1,20 @@
 from sqlalchemy.orm import backref
 from . import db
 from sqlalchemy.sql import func
+import datetime
 
+likeRelations = db.Table(
+    'whoLikes',
+    db.Column('member_id', db.Integer, db.ForeignKey('member.memberId'), primary_key=True),
+    db.Column('post_id', db.Integer, db.ForeignKey('post.postId'), primary_key=True)
+)
+
+class TestUser(db.Model):
+    __tablename__ = 'test_user'
+
+    userId = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    LineId = db.Column(db.Text)
+    createTime = db.Column(db.DateTime, default=datetime.datetime.now)
 
 class Protein(db.Model):
     __tablename__ = 'protein'
@@ -41,6 +54,9 @@ class Member(db.Model):
     posts = db.relationship('Post', backref='post')
     messages = db.relationship('Message', backref='message')
 
+
+    likes = db.relationship('Post', secondary=likeRelations, backref=db.backref('likes', lazy= "dynamic"))
+
 class DiseaseType(db.Model):
     __tablename__ = 'diseasetype'
 
@@ -56,7 +72,7 @@ class BloodPressure(db.Model):
     sp = db.Column(db.Float)
     dp = db.Column(db.Float)
     mbp = db.Column(db.Float)
-    dateTime = db.Column(db.DateTime)
+    createDateTime = db.Column(db.DateTime, default=datetime.datetime.now)
 
 class BloodSugar(db.Model):
     __tablename__ = 'bloodsugar'
@@ -64,7 +80,7 @@ class BloodSugar(db.Model):
     memberId = db.Column(db.Integer, db.ForeignKey('member.memberId'))
     bsId  = db.Column(db.Integer, primary_key=True, autoincrement=True)
     sugarValue = db.Column(db.Float)
-    dateTime = db.Column(db.DateTime)
+    createDateTime = db.Column(db.DateTime, default=datetime.datetime.now)
 
 class Post(db.Model):
     __tablename__ = 'post'
@@ -73,8 +89,9 @@ class Post(db.Model):
     postId  = db.Column(db.Integer, primary_key=True, autoincrement=True)
     imgSrc = db.Column(db.Text)
     postTitle = db.Column(db.Text)
-    postLike = db.Column(db.Boolean)#待討論
-    dateTime = db.Column(db.DateTime)
+    postLike = db.Column(db.Boolean)
+    createDateTime = db.Column(db.DateTime, default=datetime.datetime.now)
+    updateDateTime = db.Column(db.DateTime, onupdate=datetime.datetime.now, default=datetime.datetime.now)
 
 class Message(db.Model):
     __tablename__ = 'message'
@@ -83,7 +100,7 @@ class Message(db.Model):
     postId  = db.Column(db.Integer, db.ForeignKey('post.postId'))
     messageId = db.Column(db.Integer, primary_key=True, autoincrement=True)
     messageContent = db.Column(db.Text)
-    messageLike = db.Column(db.Boolean)#待討論
+    messageLike = db.Column(db.Boolean)
     dateTime = db.Column(db.DateTime)
 
 

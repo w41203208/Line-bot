@@ -255,3 +255,52 @@ class GETfoodDataAPI():
         with open('./assets/card.json', 'w', encoding='utf-8') as json_file:
             json.dump(self.flexMessage_carousel, json_file)
 
+class GETrichMenuURIAPI():
+    def __init__(self, userId, title):
+        self.userId = userId
+        self.title = title
+        self.req = ''
+
+    def excute(self):
+        self.genAPI(self.userId,self.title)
+
+        return self.req
+
+    def genAPI(self, userId, title):
+        dict = {
+                    "type": "bubble",
+                    "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                        {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                            {
+                                "type": "text",
+                                "text": title,
+                                "align": "center",
+                                "gravity": "center",
+                                "weight": "bold",
+                                "size": "lg",
+                                "color": "#aaaaaa"
+                            },
+                            {
+                                "type": "button",
+                                "action": {
+                                "type": "uri",
+                                "uri": "http://linecorp.com/"+userId,
+                                "label": "點我前往"
+                                },
+                                "style": "link"
+                            }
+                            ],
+                            "paddingTop": "10px"
+                        }
+                        ],
+                        "paddingAll": "0px"
+                    }
+                }
+
+        self.req = dict

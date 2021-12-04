@@ -2,10 +2,11 @@ from flask import Blueprint, jsonify, request, abort
 import json
 import os
 import requests
+from sqlalchemy.sql.expression import exists
 
-#from .models import Food
-#from .api import GETfoodDataAPI
-#from . import db
+from .models import Food, TestUser
+from .api import GETfoodDataAPI, GETrichMenuURIAPI
+from . import db
 
 # https://github.com/line/line-bot-sdk-python
 from linebot import LineBotApi, WebhookHandler
@@ -25,7 +26,6 @@ handler = WebhookHandler(CHANNEL_SECRET)
 
 headers = headers = {"Authorization":"Bearer F5OQYnRnsuiAf51vzmRiswuQ/VAI06Ag5AVrDookZoapt+GEkfJFvbKJYBp08IrGPPJjqRHwu7HIJbfQs58T2zbPfh9zCQbnOsE2NWNYSgOBGlpcwFPQ7PDiOrpVNmZg6bTJ4zmeh4E6r1P86w6BugdB04t89/1O/w1cDnyilFU=" , "Content-Type":"application/json"}
 member_rich_menu = "richmenu-93edef72aca9a5c99ffbadc42253fffd"
-default_rich_menu = "richmenu-d621822ebadba6020b56a4fc76f08595"
 
 @views.route("/callback", methods=["GET", "POST"])
 def home_page_render():
@@ -36,7 +36,6 @@ def home_page_render():
     if request.method == "POST":
         signature = request.headers["X-Line-Signature"]
         body = request.get_data(as_text=True)
-
         try:
             handler.handle(body, signature)
         except InvalidSignatureError:
@@ -60,7 +59,27 @@ def handle_message(event):
         areas=[
             RichMenuArea(
                 bounds=RichMenuBounds(x=0, y=0, width=2500, height=1686),
-                action=MessageAction(label='個人資訊', text='個人資訊')
+                action=MessageAction(label='註冊', text='註冊')
+            ),
+            RichMenuArea(
+                bounds=RichMenuBounds(x=0, y=0, width=2500, height=1686),
+                action=MessageAction(label='註冊', text='註冊')
+            ),
+            RichMenuArea(
+                bounds=RichMenuBounds(x=0, y=0, width=2500, height=1686),
+                action=MessageAction(label='註冊', text='註冊')
+            ),
+            RichMenuArea(
+                bounds=RichMenuBounds(x=0, y=0, width=2500, height=1686),
+                action=MessageAction(label='註冊', text='註冊')
+            ),
+            RichMenuArea(
+                bounds=RichMenuBounds(x=0, y=0, width=2500, height=1686),
+                action=MessageAction(label='註冊', text='註冊')
+            ),
+            RichMenuArea(
+                bounds=RichMenuBounds(x=0, y=0, width=2500, height=1686),
+                action=MessageAction(label='註冊', text='註冊')
             )
         ]
     )
@@ -68,29 +87,41 @@ def handle_message(event):
     with open('./assets/images/test.jpeg', 'rb') as f:
         line_bot_api.set_rich_menu_image(rich_menu_id, "image/jpeg", f)
     '''
-    #requests.post('https://api.line.me/v2/bot/user/all/richmenu/'+ default_rich_menu, headers=headers)
-
-
-
-
-    rich_menu_list = line_bot_api.get_rich_menu_list()
-    for item in rich_menu_list:
-        print(item.rich_menu_id)
 
 
     #if event.source.user_id 還沒在database裡 = default  2. 按下註冊後會推memberRichMenu給user並將userId存到資料庫
-    if event.source.user_id == get_message:
-        line_bot_api.link_rich_menu_to_user(event.source.user_id, member_rich_menu)
-    else:
-        line_bot_api.link_rich_menu_to_user(event.source.user_id, default_rich_menu)
+    #註冊UserId test
+    if get_message == '我要註冊':
+        user = TestUser.query.filter_by(LineId=event.source.user_id).first()
+        if not user:
+            new_user = TestUser(LineId=event.source.user_id)
+            db.session.add(new_user)
+            db.session.commit()
+            get_message = '恭喜註冊成功'
+            line_bot_api.link_rich_menu_to_user(event.source.user_id, member_rich_menu)
 
 
 
+    #richMenu action
+    if get_message == '個人資訊':
+        res = GETrichMenuURIAPI(event.source.user_id, get_message).excute()
+        print(res)
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', res))
+    elif get_message == '血壓記錄':
+        res = GETrichMenuURIAPI(event.source.user_id, get_message).excute()
+        print(res)
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', res))
+    elif get_message == '血糖記錄':
+        res = GETrichMenuURIAPI(event.source.user_id, get_message).excute()
+        print(res)
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', res))
+    elif get_message == '飲食記錄':
+        res = GETrichMenuURIAPI(event.source.user_id, get_message).excute()
+        print(res)
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', res))
 
-    if get_message == "D" :
-        rich_menu_list = line_bot_api.get_rich_menu_list()
-        for i in rich_menu_list:
-            line_bot_api.delete_rich_menu(i.rich_menu_id)
+
+
 
 
     if get_message == '衛教資訊':

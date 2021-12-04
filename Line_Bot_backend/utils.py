@@ -2,7 +2,7 @@ import json
 import pathlib
 DIR = str(pathlib.Path(__file__).parent.absolute())
 
-print(DIR)
+print(DIR+"\__pycache__.py")
 
 #def write_json_file(json_data,filename, use_pwd_path = False):
 #    fname = filename if use_pwd_path else DIR+"/"+filename
