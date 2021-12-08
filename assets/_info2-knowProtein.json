@@ -34,80 +34,11 @@
         "layout": "vertical",
         "contents": [
           {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "（二）少吃低生物價蛋白質，低生物價蛋白質會增加尿毒素濃度，增加腎臟負擔，也要少吃。",
-                "wrap": true
-              }
-            ],
-            "paddingBottom": "10px"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "蛋白質有分好壞！"
-              }
-            ],
-            "paddingBottom": "5px"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "1、優質的蛋白質（高生物價的蛋白質）在體內利用率佳、產生尿毒素較少的蛋白質。 如，蛋與豬、雞、鴨、魚、牛等肉類及豆腐、豆乾、豆包等黃豆製成的食 品，因此在攝取蛋白質上要選好的蛋白質為主。",
-                "wrap": true
-              }
-            ],
-            "paddingBottom": "5px"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": " 2、非優質的蛋白質（低生物價的蛋白質） 會產生較多的尿毒素，會增加腎臟負擔，要少吃。 如，堅果類：腰果、松子、杏仁、夏威夷果、花生、瓜子、芝麻等，磷的 含量高",
-                "wrap": true
-              }
-            ],
-            "paddingBottom": "5px"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "豆類：綠豆、紅豆、蓮子、薏仁、皇帝豆、蠶豆、碗豆等，磷的含量高。",
-                    "wrap": true
-                  }
-                ],
-                "paddingBottom": "5px"
-              },
-              {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "麵筋製成的食品：麵筋、麵腸、麵輪、烤麩等，產生較多的尿毒素。"
-                  }
-                ],
-                "paddingBottom": "5px"
-              }
-            ]
+            "type": "image",
+            "url": "https://upload.cc/i1/2021/12/09/RQdZPL.png",
+            "size": "100%",
+            "aspectRatio": "9:5",
+            "aspectMode": "fit"
           }
         ],
         "paddingBottom": "10px"
@@ -122,11 +53,18 @@
             "contents": [
               {
                 "type": "text",
-                "text": "（三）糖尿病",
+                "text": "2.1 少吃低生物價蛋白質",
+                "wrap": true,
+                "weight": "bold"
+              },
+              {
+                "type": "text",
+                "text": "蛋白質有分好壞！優質的蛋白質為高生物價的蛋白質，非優質的蛋白 質為低生物價的蛋白質。",
+                "size": "sm",
                 "wrap": true
               }
             ],
-            "paddingBottom": "10px"
+            "paddingBottom": "20px"
           },
           {
             "type": "box",
@@ -134,14 +72,181 @@
             "contents": [
               {
                 "type": "text",
-                "text": "有腎臟病，且有糖尿病的人，初期(1-2期)不用減少肉量，飲食以控制血 糖為重，但還是要選擇優質的蛋白質為主。",
+                "text": "(1)優質的蛋白質（高生物價的蛋白質），在體內利用率佳、產生尿毒素較   少的蛋白質。例如：",
+                "wrap": true,
+                "size": "sm"
+              },
+              {
+                "type": "text",
+                "text": "★ 蛋豆魚肉類：蛋、豬、雞、鴨、魚、牛、豆腐等(黃豆製成的食品)。",
+                "wrap": true,
+                "size": "sm"
+              },
+              {
+                "type": "text",
+                "text": "★ 蛋白質攝取最好要選擇【蛋豆魚肉類】為主。",
+                "wrap": true,
+                "size": "sm"
+              }
+            ],
+            "paddingBottom": "20px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "(2)非優質的蛋白質（低生物價的蛋白質），會產生較多的尿毒素，會增加  腎臟負擔，要避免吃。例如：",
+                "wrap": true,
+                "size": "sm"
+              },
+              {
+                "type": "text",
+                "text": "★ 堅果類：腰果、松子、杏仁、花生、瓜子、芝麻等。",
+                "wrap": true,
+                "size": "sm"
+              },
+              {
+                "type": "text",
+                "text": "★ 豆 類：綠豆、紅豆、蓮子、薏仁、蠶豆、碗豆等。",
+                "size": "sm",
+                "wrap": true
+              },
+              {
+                "type": "text",
+                "text": "★ 麵筋製成的食品：麵筋、麵腸、麵輪、烤麩等，產生較多的尿毒素。 上述都要避免吃!!",
+                "size": "sm",
+                "wrap": true
+              }
+            ],
+            "paddingBottom": "20px"
+          }
+        ],
+        "paddingBottom": "10px"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "3.1 糖尿病",
+                "wrap": true,
+                "weight": "bold"
+              },
+              {
+                "type": "text",
+                "text": "(1)有腎臟病，且有糖尿病的人，初期(1-2期)不用減少肉量，飲食以控制  血糖為重，但還是要選擇優質的蛋白質為主。",
+                "size": "sm",
                 "wrap": true
               }
             ],
             "paddingBottom": "5px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "運動：",
+                "size": "sm",
+                "wrap": true
+              },
+              {
+                "type": "text",
+                "text": "不運動容易造成血液中脂肪累積、血液循環速度變慢，使得血壓、血糖、 血脂控制不良，讓腎臟健康愈來愈差。持續、規律的運動能讓病人健康整 體改善，運動的好處包括：",
+                "size": "sm",
+                "wrap": true
+              },
+              {
+                "type": "text",
+                "text": "（一）強化肌力及耐力。",
+                "size": "sm",
+                "wrap": true
+              },
+              {
+                "type": "text",
+                "text": "（二）血壓控制穩定。",
+                "size": "sm",
+                "wrap": true
+              },
+              {
+                "type": "text",
+                "text": "（三）改善體內血脂肪、膽固醇及三酸甘油脂過高現象。",
+                "size": "sm",
+                "wrap": true
+              },
+              {
+                "type": "text",
+                "text": "（四）促進血糖的平衡調控。",
+                "size": "sm",
+                "wrap": true
+              },
+              {
+                "type": "text",
+                "text": "（五）改善心理健康。",
+                "size": "sm",
+                "wrap": true
+              },
+              {
+                "type": "text",
+                "text": "（六）減少骨質疏鬆。",
+                "size": "sm",
+                "wrap": true
+              },
+              {
+                "type": "text",
+                "text": "腎臟病患者建議每週至少運動五天，中等激烈程度之動( 如打球、 快走、  慢跑、騎自 行車、游泳舞蹈跑步機 、有氧運動登山等)，每天累積達30 分 鐘以上，運動後心跳達到 130 下左右，能夠增進心肺功的運動尤佳 。",
+                "size": "sm",
+                "wrap": true
+              }
+            ],
+            "paddingBottom": "20px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "據上述資料並歸納為庫的建檔， 並依照衛生福利部中央健康保險署 「 全民健康保險末期腎臟病前（ Pre-ESRD）之病人照護與衛教計畫」  (2018) 法規所定。",
+                "size": "sm",
+                "wrap": true
+              }
+            ],
+            "paddingBottom": "20px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "服藥：",
+                "size": "sm",
+                "wrap": true
+              },
+              {
+                "type": "text",
+                "text": "您不能不知道！亂用藥物會加速疾病的惡化，像是電台取得的偏方，在不 清楚來源的情況下都不能吃!",
+                "size": "sm",
+                "wrap": true
+              },
+              {
+                "type": "text",
+                "text": "不管任何藥品或中草藥皆需經由醫護人員認可後才能食用，並遵循醫生正 確指引之下規律服藥，建立良好的服藥習慣才能延緩腎臟功能惡化。",
+                "size": "sm",
+                "wrap": true
+              }
+            ]
           }
-        ],
-        "paddingBottom": "10px"
+        ]
       }
     ],
     "paddingAll": "15px"

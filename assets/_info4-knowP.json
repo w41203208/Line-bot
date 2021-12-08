@@ -34,22 +34,36 @@
         "layout": "vertical",
         "contents": [
           {
+            "type": "image",
+            "url": "https://upload.cc/i1/2021/12/09/BZdyJC.png",
+            "size": "100%",
+            "aspectRatio": "9:7",
+            "aspectMode": "fit"
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
             "type": "box",
             "layout": "vertical",
             "contents": [
               {
                 "type": "text",
                 "text": "1、磷離子是什麼？",
-                "wrap": true
+                "wrap": true,
+                "weight": "bold"
               },
               {
                 "type": "text",
                 "text": "幾乎所有的食物包括加工食品或天然食物都含有磷，只是量多量少的差 別而已。而當慢性腎臟病患者因腎功能下降，無法排除飲食中攝取到的 磷時，血磷濃度就會上升，過多會導致，眼睛會糊糊的、皮膚搔癢、骨 質病變、副甲狀腺機能亢進。因此每日好好控制磷攝取量相當重要，才 能避免高血磷對健康造成的危害。",
                 "wrap": true,
-                "size": "md"
+                "size": "sm"
               }
             ],
-            "paddingBottom": "10px"
+            "paddingBottom": "20px"
           },
           {
             "type": "box",
@@ -58,7 +72,8 @@
               {
                 "type": "text",
                 "text": "2、那該如何控制呢？",
-                "wrap": true
+                "wrap": true,
+                "weight": "bold"
               },
               {
                 "type": "box",
@@ -66,7 +81,69 @@
                 "contents": [
                   {
                     "type": "text",
-                    "text": "(1)正常的血磷濃度範圍標準值是3.5~5 mg/dL，患者知道自己屬於哪個 階段(屬於第幾期腎臟病)。",
+                    "text": "(1)正常的血磷濃度範圍標準值是3.5~5 mg/dL，患者知道自己屬於第幾  期腎臟病。",
+                    "wrap": true,
+                    "size": "sm"
+                  }
+                ],
+                "paddingBottom": "10px"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "(2)認識高磷食物：(以下食物含磷較高，慢性腎臟病患者要避免食用)",
+                    "size": "sm",
+                    "wrap": true
+                  },
+                  {
+                    "type": "text",
+                    "text": "★全 穀 類：全麥麵包、糙米、穀片、麥片、蓮子、薏仁、小麥胚芽。",
+                    "size": "sm",
+                    "wrap": true
+                  },
+                  {
+                    "type": "text",
+                    "text": "★堅 果 類：花生、栗子、杏仁果、開心果、核桃、腰果、瓜子。  堅果類由營養師確認抽血報告確認磷指數後才可以吃，不  然一律不能吃。",
+                    "size": "sm",
+                    "wrap": true
+                  },
+                  {
+                    "type": "text",
+                    "text": "★乳 製 品：牛奶、奶粉、羊奶、優格、乳酪、優酪乳、發酵乳、養樂   多等乳酸飲料等。",
+                    "size": "sm",
+                    "wrap": true
+                  },
+                  {
+                    "type": "text",
+                    "text": "★動物內臟：豬肝、豬心、雞胗等。",
+                    "size": "sm",
+                    "wrap": true
+                  },
+                  {
+                    "type": "text",
+                    "text": "★加工肉品：豬肉鬆、火腿片、豬肉乾、肉燥、貢丸類、餃類、香腸、  火腿、燻肉、臘肉。",
+                    "size": "sm",
+                    "wrap": true
+                  },
+                  {
+                    "type": "text",
+                    "text": "★豆 類：綠豆、紅豆、蓮子、薏仁、蠶豆、碗豆等，磷含量高。",
+                    "size": "sm",
+                    "wrap": true
+                  },
+                  {
+                    "type": "text",
+                    "text": "★飲 品 類：如咖啡、拿鐵、可樂、汽水、可可、碳酸飲料。",
+                    "size": "sm",
+                    "wrap": true
+                  },
+                  {
+                    "type": "text",
+                    "text": "★湯類食品：燉補品、羊肉爐、薑母鴨、麻油雞、牛肉麵、燴麵、燴飯  肉羹麵、魷魚羮麵、酸辣湯、燴飯、咖哩飯、即食調理包",
+                    "size": "sm",
                     "wrap": true
                   }
                 ],
@@ -78,88 +155,41 @@
                 "contents": [
                   {
                     "type": "text",
-                    "text": "(2)認識高磷食物。"
+                    "text": "(3)該如何吃呢?",
+                    "size": "sm"
                   },
                   {
                     "type": "text",
-                    "text": "以下食物含磷較高，慢性腎臟病患者要避免食用：",
+                    "text": "★磷每日攝取量為800-1200毫克/天。",
                     "size": "sm",
                     "wrap": true
                   },
                   {
                     "type": "text",
-                    "text": "＠全穀類，如全麥麵包、糙米、穀片、麥片、蓮子、薏仁、小麥胚芽。",
+                    "size": "sm",
+                    "wrap": true,
+                    "contents": [
+                      {
+                        "type": "span",
+                        "text": "★奶類與奶製品的磷含量很高，且使用鈣片類的磷結合劑並不能有效降  低奶類磷的吸收，所以"
+                      },
+                      {
+                        "type": "span",
+                        "text": "慢性腎臟病患者要避免奶類與奶製品的攝取。",
+                        "weight": "bold",
+                        "color": "#000000"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "★肉類食材水煮 30 分鐘，磷含量幾乎都轉移到湯汁中，可將磷含量降低   20~55%。因此不要喝肉湯，避免這些從食材溶出的磷又吃進肚內。",
                     "size": "sm",
                     "wrap": true
                   },
                   {
                     "type": "text",
-                    "text": "＠乳製品，包括牛奶、奶粉、羊奶、優格、乳酪、優酪乳、發酵乳與 養樂多等乳酸飲料等。",
-                    "size": "sm",
-                    "wrap": true
-                  },
-                  {
-                    "type": "text",
-                    "text": "＠動物內臟，如豬肝、豬心、雞胗。",
-                    "size": "sm",
-                    "wrap": true
-                  },
-                  {
-                    "type": "text",
-                    "text": "＠加工肉品，如豬肉鬆、火腿片、豬肉乾、肉燥、貢丸類與餃類、香腸 、火腿、燻肉、臘肉。",
-                    "size": "sm",
-                    "wrap": true
-                  },
-                  {
-                    "type": "text",
-                    "text": "＠乾豆類，如綠豆、紅豆、黃豆。",
-                    "size": "sm",
-                    "wrap": true
-                  },
-                  {
-                    "type": "text",
-                    "text": "＠其他飲品，如咖啡、拿鐵、可樂、汽水、可可、碳酸飲料。",
-                    "size": "sm",
-                    "wrap": true
-                  },
-                  {
-                    "type": "text",
-                    "text": "@湯類食品，燉補品、羊肉爐、薑母鴨、麻油雞、牛肉麵、燴麵、肉羹 麵、魷魚羮麵、酸辣湯、燴飯、咖哩飯、即食調理包。",
-                    "size": "sm",
-                    "wrap": true
-                  }
-                ],
-                "paddingBottom": "10px"
-              },
-              {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "(3)該如何吃呢?"
-                  },
-                  {
-                    "type": "text",
-                    "text": "@湯類食品，燉補品、羊肉爐、薑母鴨、麻油雞、牛肉麵、燴麵、肉羹 麵、魷魚羮麵、酸辣湯、燴飯、咖哩飯、即食調理包",
-                    "size": "sm",
-                    "wrap": true
-                  },
-                  {
-                    "type": "text",
-                    "text": "@奶類與奶製品的磷含量很高，而且使用鈣片類的磷結合劑並不能有效 降低奶類磷的吸收，所以慢性腎臟病患者要避免奶類與奶製品的攝取。",
-                    "size": "sm",
-                    "wrap": true
-                  },
-                  {
-                    "type": "text",
-                    "text": "@肉類食材水煮 30 分鐘，磷含量幾乎都轉移到湯汁中，可將磷含量降 低 20~55%。因此，不要喝肉湯，避免把這些從食材溶出的磷又吃進肚 內。",
-                    "size": "sm",
-                    "wrap": true
-                  },
-                  {
-                    "type": "text",
-                    "text": "@病情較嚴重的病患，即使降低高磷食物的攝取也無法維持血磷正常， 因此需根據醫師建議，在用餐中要吃鈣片（磷結合劑）以降低磷的吸收 才能降低血磷。",
+                    "text": "★病情較嚴重的病患，即使降低高磷食物的攝取也無法維持血磷正常，  因此需根據醫師建議，在用餐中要吃磷結合劑以降低磷的吸收才能降  低血磷。",
                     "size": "sm",
                     "wrap": true
                   }

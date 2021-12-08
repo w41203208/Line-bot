@@ -2,11 +2,11 @@ from flask import Blueprint, jsonify, request, abort
 import json
 import os
 import requests
-from sqlalchemy.sql.expression import exists
 
-from .models import Food, TestUser
+#from sqlalchemy.sql.expression import exists
+#from .models import Food, TestUser
 from .api import GETfoodDataAPI, GETrichMenuURIAPI
-from . import db
+#from . import db
 
 # https://github.com/line/line-bot-sdk-python
 from linebot import LineBotApi, WebhookHandler
@@ -16,13 +16,13 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage, FlexSendM
 
 views = Blueprint('views', __name__)
 
-CHANNEL_ACCESS_TOKEN = "F5OQYnRnsuiAf51vzmRiswuQ/VAI06Ag5AVrDookZoapt+GEkfJFvbKJYBp08IrGPPJjqRHwu7HIJbfQs58T2zbPfh9zCQbnOsE2NWNYSgOBGlpcwFPQ7PDiOrpVNmZg6bTJ4zmeh4E6r1P86w6BugdB04t89/1O/w1cDnyilFU="
-CHANNEL_SECRET = "1497d9253b7fc842f5ba2a22c15b9ce7"
+#CHANNEL_ACCESS_TOKEN = "F5OQYnRnsuiAf51vzmRiswuQ/VAI06Ag5AVrDookZoapt+GEkfJFvbKJYBp08IrGPPJjqRHwu7HIJbfQs58T2zbPfh9zCQbnOsE2NWNYSgOBGlpcwFPQ7PDiOrpVNmZg6bTJ4zmeh4E6r1P86w6BugdB04t89/1O/w1cDnyilFU="
+#CHANNEL_SECRET = "1497d9253b7fc842f5ba2a22c15b9ce7"
 
-#line_bot_api = LineBotApi(os.environ.get("CHANNEL_ACCESS_TOKEN"))
-#handler = WebhookHandler(os.environ.get("CHANNEL_SECRET"))
-line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
-handler = WebhookHandler(CHANNEL_SECRET)
+line_bot_api = LineBotApi(os.environ.get("CHANNEL_ACCESS_TOKEN"))
+handler = WebhookHandler(os.environ.get("CHANNEL_SECRET"))
+# line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
+# handler = WebhookHandler(CHANNEL_SECRET)
 
 headers = headers = {"Authorization":"Bearer F5OQYnRnsuiAf51vzmRiswuQ/VAI06Ag5AVrDookZoapt+GEkfJFvbKJYBp08IrGPPJjqRHwu7HIJbfQs58T2zbPfh9zCQbnOsE2NWNYSgOBGlpcwFPQ7PDiOrpVNmZg6bTJ4zmeh4E6r1P86w6BugdB04t89/1O/w1cDnyilFU=" , "Content-Type":"application/json"}
 member_rich_menu = "richmenu-93edef72aca9a5c99ffbadc42253fffd"
@@ -89,18 +89,18 @@ def handle_message(event):
     '''
 
 
-    #if event.source.user_id 還沒在database裡 = default  2. 按下註冊後會推memberRichMenu給user並將userId存到資料庫
-    #註冊UserId test
+
+    # if get_message == '我要註冊':
+    #     user = TestUser.query.filter_by(LineId=event.source.user_id).first()
+    #     if not user:
+    #         new_user = TestUser(LineId=event.source.user_id)
+    #         db.session.add(new_user)
+    #         db.session.commit()
+    #         get_message = '恭喜註冊成功'
+    #         line_bot_api.link_rich_menu_to_user(event.source.user_id, member_rich_menu)
+
     if get_message == '我要註冊':
-        user = TestUser.query.filter_by(LineId=event.source.user_id).first()
-        if not user:
-            new_user = TestUser(LineId=event.source.user_id)
-            db.session.add(new_user)
-            db.session.commit()
-            get_message = '恭喜註冊成功'
-            line_bot_api.link_rich_menu_to_user(event.source.user_id, member_rich_menu)
-
-
+        line_bot_api.link_rich_menu_to_user(event.source.user_id, member_rich_menu)
 
     #richMenu action
     if get_message == '個人資訊':
