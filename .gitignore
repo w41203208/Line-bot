@@ -132,8 +132,8 @@ dmypy.json
 .pyre/
 
 
-.migrations/
-.Line_Bot_backend/__pycache__/
-.__pycache__/
-.test/
-.img/
+.migrations
+.Line_Bot_backend/__pycache__
+.__pycache__
+.test
+.img
