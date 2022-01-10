@@ -3,10 +3,10 @@ import json
 import os
 import requests
 
-#from sqlalchemy.sql.expression import exists
-#from .models import Food, TestUser
+from sqlalchemy.sql.expression import exists
+from .models import Food, TestUser
 from .api import GETfoodDataAPI, GETrichMenuURIAPI
-#from . import db
+from . import db
 
 # https://github.com/line/line-bot-sdk-python
 from linebot import LineBotApi, WebhookHandler
@@ -16,20 +16,19 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage, FlexSendM
 
 views = Blueprint('views', __name__)
 
-#CHANNEL_ACCESS_TOKEN = "F5OQYnRnsuiAf51vzmRiswuQ/VAI06Ag5AVrDookZoapt+GEkfJFvbKJYBp08IrGPPJjqRHwu7HIJbfQs58T2zbPfh9zCQbnOsE2NWNYSgOBGlpcwFPQ7PDiOrpVNmZg6bTJ4zmeh4E6r1P86w6BugdB04t89/1O/w1cDnyilFU="
-#CHANNEL_SECRET = "1497d9253b7fc842f5ba2a22c15b9ce7"
+CHANNEL_ACCESS_TOKEN = "F5OQYnRnsuiAf51vzmRiswuQ/VAI06Ag5AVrDookZoapt+GEkfJFvbKJYBp08IrGPPJjqRHwu7HIJbfQs58T2zbPfh9zCQbnOsE2NWNYSgOBGlpcwFPQ7PDiOrpVNmZg6bTJ4zmeh4E6r1P86w6BugdB04t89/1O/w1cDnyilFU="
+CHANNEL_SECRET = "1497d9253b7fc842f5ba2a22c15b9ce7"
 
-line_bot_api = LineBotApi(os.environ.get("CHANNEL_ACCESS_TOKEN"))
-handler = WebhookHandler(os.environ.get("CHANNEL_SECRET"))
-# line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
-# handler = WebhookHandler(CHANNEL_SECRET)
+# line_bot_api = LineBotApi(os.environ.get("CHANNEL_ACCESS_TOKEN"))
+# handler = WebhookHandler(os.environ.get("CHANNEL_SECRET"))
+line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
+handler = WebhookHandler(CHANNEL_SECRET)
 
 headers = headers = {"Authorization":"Bearer F5OQYnRnsuiAf51vzmRiswuQ/VAI06Ag5AVrDookZoapt+GEkfJFvbKJYBp08IrGPPJjqRHwu7HIJbfQs58T2zbPfh9zCQbnOsE2NWNYSgOBGlpcwFPQ7PDiOrpVNmZg6bTJ4zmeh4E6r1P86w6BugdB04t89/1O/w1cDnyilFU=" , "Content-Type":"application/json"}
 member_rich_menu = "richmenu-93edef72aca9a5c99ffbadc42253fffd"
 
 @views.route("/callback", methods=["GET", "POST"])
 def home_page_render():
-
 
     if request.method == "GET":
         return "Hello Herokuuuu"
@@ -183,19 +182,18 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
 
     else: #只要資料庫找的到的都輸出foodData
-        '''
-        query_text = '蛋糕' #query_text = get_message
-        outputData = Food.query.filter(Food.product_name.like('%'+ query_text + '%') if query_text is not None else '').all()
-        res = GETfoodDataAPI(outputData).excute()
-        print(res)
-        '''
 
-        if get_message != '蛋糕': #if outputData is exist:
+        query_text = get_message
+        outputData = Food.query.filter(Food.foodName.like('%'+ query_text + '%') if query_text is not None else '').all()[:5]
+        res = GETfoodDataAPI(outputData).excute()
+
+
+        if not outputData:
             reply_msg = get_message
             reply = TextSendMessage(text=f"{reply_msg}")
             line_bot_api.reply_message(event.reply_token, reply)
         else:
-            FlexMessage = json.load(open('./assets/search.json', 'r', encoding='utf-8'))
+            FlexMessage = res
             line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
 
 

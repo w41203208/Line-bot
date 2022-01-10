@@ -56,7 +56,7 @@ class GETfoodDataAPI():
                             "contents": [
                                 {
                                 "type": "text",
-                                "text": "【" + item.product_name + "】",
+                                "text": "【" + item.foodName + "】",
                                 "wrap": True,
                                 "size": "xl",
                                 "weight": "bold",
@@ -88,7 +88,7 @@ class GETfoodDataAPI():
                                     },
                                     {
                                     "type": "text",
-                                    "text": str(item.product_kcal),
+                                    "text": str(item.foodKcal),
                                     "align": "end",
                                     "color": "#888888"
                                     }
@@ -105,7 +105,7 @@ class GETfoodDataAPI():
                                     },
                                     {
                                     "type": "text",
-                                    "text": str(item.product_protein),
+                                    "text": str(item.foodProtein),
                                     "align": "end",
                                     "color": "#888888"
                                     }
@@ -122,7 +122,7 @@ class GETfoodDataAPI():
                                     },
                                     {
                                     "type": "text",
-                                    "text": str(item.product_Na),
+                                    "text": str(item.foodNaa),
                                     "align": "end",
                                     "color": "#888888"
                                     }
@@ -139,7 +139,7 @@ class GETfoodDataAPI():
                                     },
                                     {
                                     "type": "text",
-                                    "text": str(item.product_Ka),
+                                    "text": str(item.foodKa),
                                     "align": "end",
                                     "color": "#888888"
                                     }
@@ -156,7 +156,7 @@ class GETfoodDataAPI():
                                     },
                                     {
                                     "type": "text",
-                                    "text": str(item.product_p),
+                                    "text": str(item.foodP),
                                     "align": "end",
                                     "color": "#888888"
                                     }
@@ -173,7 +173,7 @@ class GETfoodDataAPI():
                                     },
                                     {
                                     "type": "text",
-                                    "text": str(item.product_carbohydrate),
+                                    "text": str(item.foodCarbohydrate),
                                     "align": "end",
                                     "color": "#888888"
                                     }
