@@ -1,5 +1,6 @@
 import json
 
+
 class GETfoodDataAPI():
     def __init__(self, query):
         self.flexMessage_carousel = {
@@ -16,8 +17,11 @@ class GETfoodDataAPI():
         return self.req
 
     def genAPI(self, query_data):
-
         for item in query_data:
+            proteinDesc = '無任何建議'
+            if item.protein:
+                proteinDesc = item.protein.proteinDesc
+
             flexMessage_bubble = {
                 "type": "bubble",
                 "body": {
@@ -188,7 +192,7 @@ class GETfoodDataAPI():
                             "contents": [
                                 {
                                 "type": "text",
-                                "text": "為高鉀食品，要避免食用。建議吃蔬菜前先川燙，菜湯不喝。全穀物、果乾、乾香菇避免吃。",
+                                "text": proteinDesc,
                                 "wrap": True,
                                 "weight": "bold",
                                 "color": "#000000"
@@ -200,38 +204,8 @@ class GETfoodDataAPI():
                         ],
                         "paddingStart": "20px",
                         "paddingEnd": "20px",
-                        "paddingTop": "20px"
-                        },
-                        {
-                        "type": "box",
-                        "layout": "vertical",
-                        "contents": [
-                            {
-                            "type": "button",
-                            "action": {
-                                "type": "message",
-                                "label": "搜尋記錄",
-                                "text": "hello"
-                            },
-                            "align": "end"
-                            },
-                            {
-                            "type": "text",
-                            "text": "搜尋記錄",
-                            "action": {
-                                "type": "message",
-                                "label": "action",
-                                "text": "hello"
-                            },
-                            "align": "center",
-                            "weight": "bold",
-                            "size": "xxl"
-                            }
-                        ],
-                        "paddingTop": "30px",
-                        "justifyContent": "center",
-                        "alignItems": "center",
-                        "paddingBottom": "15px"
+                        "paddingTop": "20px",
+                        "paddingBottom": "20px"
                         },
                         {
                         "type": "box",
@@ -249,11 +223,6 @@ class GETfoodDataAPI():
             self.flexMessage_carousel['contents'].append(flexMessage_bubble)
 
         self.req = self.flexMessage_carousel
-
-
-    def genJSON(self):
-        with open('./assets/card.json', 'w', encoding='utf-8') as json_file:
-            json.dump(self.flexMessage_carousel, json_file)
 
 class GETrichMenuURIAPI():
     def __init__(self, userId, title):
@@ -304,3 +273,5 @@ class GETrichMenuURIAPI():
                 }
 
         self.req = dict
+
+

@@ -58,3 +58,41 @@ rich_menu_to_create = RichMenu(
     with open('./assets/images/test.jpeg', 'rb') as f:
         line_bot_api.set_rich_menu_image(rich_menu_id, "image/jpeg", f)
 '''
+
+'''
+rich_menu_to_create = RichMenu(
+    size=RichMenuSize(width=2500, height=1686),
+    selected=False,
+    name="Nice richmenu",
+    chat_bar_text="KCS小助手",
+    areas=[
+        RichMenuArea(
+            bounds=RichMenuBounds(x=0, y=0, width=2500, height=1686),
+            action=MessageAction(label='註冊', text='註冊')
+        ),
+        RichMenuArea(
+            bounds=RichMenuBounds(x=0, y=0, width=2500, height=1686),
+            action=MessageAction(label='註冊', text='註冊')
+        ),
+        RichMenuArea(
+            bounds=RichMenuBounds(x=0, y=0, width=2500, height=1686),
+            action=MessageAction(label='註冊', text='註冊')
+        ),
+        RichMenuArea(
+            bounds=RichMenuBounds(x=0, y=0, width=2500, height=1686),
+            action=MessageAction(label='註冊', text='註冊')
+        ),
+        RichMenuArea(
+            bounds=RichMenuBounds(x=0, y=0, width=2500, height=1686),
+            action=MessageAction(label='註冊', text='註冊')
+        ),
+        RichMenuArea(
+            bounds=RichMenuBounds(x=0, y=0, width=2500, height=1686),
+            action=MessageAction(label='註冊', text='註冊')
+        )
+    ]
+)
+rich_menu_id = line_bot_api.create_rich_men(rich_menu=rich_menu_to_create)
+with open('./assets/images/test.jpeg', 'rb') as f:
+    line_bot_api.set_rich_menu_image(rich_menu_id, "image/jpeg", f)
+'''

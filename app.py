@@ -1,3 +1,4 @@
+# coding=UTF-8
 from Line_Bot_backend import create_app
 
 

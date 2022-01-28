@@ -22,7 +22,7 @@ class Protein(db.Model):
     proteinId = db.Column(db.Integer, primary_key=True, autoincrement=True)
     proteinName = db.Column(db.Text)
     proteinDesc = db.Column(db.Text)
-    foods = db.relationship('Food', backref='food')
+    foods = db.relationship('Food', backref='protein')
 
 class Food(db.Model):
     __tablename__ = 'food'

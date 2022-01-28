@@ -17,7 +17,8 @@
                 "type": "span",
                 "text": "1. 充足的熱量攝取",
                 "color": "#2b7ce6",
-                "weight": "bold"
+                "weight": "bold",
+                "size": "lg"
               }
             ]
           }
@@ -28,18 +29,6 @@
           "data": "hello"
         },
         "paddingBottom": "10px"
-      },
-      {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "text",
-            "text": "當熱量攝取不足時，身體組織的蛋白質會分解作為熱量來源，不僅增加含氮廢物產 生，更加重腎臟負擔。因此，熱量攝取建議為每天每公斤 30-35 大卡（例如：體 重 60 公斤，所需熱量為1,800~2,100 大卡），或請依營養師指示。",
-            "size": "sm",
-            "wrap": true
-          }
-        ]
       }
     ],
     "paddingAll": "15px"
