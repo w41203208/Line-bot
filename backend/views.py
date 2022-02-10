@@ -4,7 +4,7 @@ import os
 import requests
 
 from .models import Food
-from .api import GETfoodDataAPI, GETrichMenuURIAPI, getPushMessage
+from .api import GETfoodDataAPI, GETrichMenuURIAPI
 from . import db
 
 # https://github.com/line/line-bot-sdk-python

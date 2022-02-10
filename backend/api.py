@@ -17,10 +17,24 @@ class GETfoodDataAPI():
         return self.req
 
     def genAPI(self, query_data):
+        colorNa, colorP, colorKa, colorTitle, nameTitle = '', '', '', '', ''
+
         for item in query_data:
             proteinDesc = '無任何建議'
             if item.protein:
                 proteinDesc = item.protein.proteinDesc
+
+            colorNa = '#FF0000' if item.foodNaa > 700 else '#888888'
+            colorP = '#FF0000' if item.foodP > 250 else '#888888'
+            colorKa = '#FF0000' if item.foodKa > 300 else '#888888'
+
+            if colorNa == '#FF0000' or colorP == '#FF0000' or colorKa == '#FF0000':
+                colorTitle = '#FF0000'
+                nameTitle = '不建議吃!!'
+            else:
+                colorTitle = '#008000'
+                nameTitle = '建議吃!!'
+
 
             flexMessage_bubble = {
                 "type": "bubble",
@@ -34,11 +48,12 @@ class GETfoodDataAPI():
                         "contents": [
                             {
                             "type": "text",
-                            "text": "不建議吃！！",
+                            "text": nameTitle,
                             "align": "center",
                             "offsetStart": "15px",
                             "size": "xl",
-                            "weight": "bold"
+                            "weight": "bold",
+                            "color": colorTitle,
                             }
                         ],
                         "paddingBottom": "10px",
@@ -128,7 +143,7 @@ class GETfoodDataAPI():
                                     "type": "text",
                                     "text": str(item.foodNaa),
                                     "align": "end",
-                                    "color": "#888888"
+                                    "color": colorNa
                                     }
                                 ]
                                 },
@@ -145,7 +160,7 @@ class GETfoodDataAPI():
                                     "type": "text",
                                     "text": str(item.foodKa),
                                     "align": "end",
-                                    "color": "#888888"
+                                    "color": colorKa
                                     }
                                 ]
                                 },
@@ -162,7 +177,7 @@ class GETfoodDataAPI():
                                     "type": "text",
                                     "text": str(item.foodP),
                                     "align": "end",
-                                    "color": "#888888"
+                                    "color": colorP
                                     }
                                 ]
                                 },
