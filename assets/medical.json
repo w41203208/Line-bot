@@ -205,37 +205,6 @@
             "height": "150px"
           },
           {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "第一期、第二期",
-                "action": {
-                  "type": "message",
-                  "label": "action",
-                  "text": "第一、二期資訊"
-                },
-                "align": "center",
-                "weight": "bold",
-                "color": "#4464a8",
-                "size": "xl",
-                "offsetStart": "-2px"
-              },
-              {
-                "type": "image",
-                "url": "https://upload.cc/i1/2022/02/16/3Pjip2.png",
-                "position": "absolute",
-                "aspectRatio": "10:3",
-                "size": "5xl"
-              }
-            ],
-            "paddingTop": "30px",
-            "justifyContent": "center",
-            "alignItems": "center",
-            "paddingBottom": "15px"
-          },
-          {
             "type": "image",
             "url": "https://upload.cc/i1/2022/02/13/tf3qUR.png",
             "aspectMode": "cover",
@@ -246,6 +215,37 @@
           }
         ],
         "paddingAll": "0px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://upload.cc/i1/2022/02/16/3Pjip2.png",
+            "position": "absolute",
+            "aspectRatio": "10:3",
+            "size": "5xl"
+          },
+          {
+            "type": "text",
+            "text": "第一期、第二期",
+            "action": {
+              "type": "message",
+              "label": "action",
+              "text": "第一、二期資訊"
+            },
+            "align": "center",
+            "weight": "bold",
+            "color": "#4464a8",
+            "size": "xl",
+            "offsetStart": "-2px"
+          }
+        ],
+        "paddingTop": "30px",
+        "justifyContent": "center",
+        "alignItems": "center",
+        "paddingBottom": "15px"
       }
     },
     {
@@ -517,37 +517,6 @@
             "height": "150px"
           },
           {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "第三期",
-                "action": {
-                  "type": "message",
-                  "label": "action",
-                  "text": "第三期資訊"
-                },
-                "align": "center",
-                "weight": "bold",
-                "color": "#4464a8",
-                "size": "xl",
-                "offsetStart": "-2px"
-              },
-              {
-                "type": "image",
-                "url": "https://upload.cc/i1/2022/02/16/3Pjip2.png",
-                "position": "absolute",
-                "aspectRatio": "10:3",
-                "size": "5xl"
-              }
-            ],
-            "paddingTop": "30px",
-            "justifyContent": "center",
-            "alignItems": "center",
-            "paddingBottom": "15px"
-          },
-          {
             "type": "image",
             "url": "https://upload.cc/i1/2022/02/13/tf3qUR.png",
             "aspectMode": "cover",
@@ -558,6 +527,37 @@
           }
         ],
         "paddingAll": "0px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://upload.cc/i1/2022/02/16/3Pjip2.png",
+            "position": "absolute",
+            "aspectRatio": "10:3",
+            "size": "5xl"
+          },
+          {
+            "type": "text",
+            "text": "第三期",
+            "action": {
+              "type": "message",
+              "label": "action",
+              "text": "第三期資訊"
+            },
+            "align": "center",
+            "weight": "bold",
+            "color": "#4464a8",
+            "size": "xl",
+            "offsetStart": "-2px"
+          }
+        ],
+        "paddingTop": "30px",
+        "justifyContent": "center",
+        "alignItems": "center",
+        "paddingBottom": "15px"
       }
     },
     {
@@ -776,37 +776,6 @@
             "height": "150px"
           },
           {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "第四期",
-                "action": {
-                  "type": "message",
-                  "label": "action",
-                  "text": "第四期資訊"
-                },
-                "align": "center",
-                "weight": "bold",
-                "color": "#4464a8",
-                "size": "xl",
-                "offsetStart": "-2px"
-              },
-              {
-                "type": "image",
-                "url": "https://upload.cc/i1/2022/02/16/3Pjip2.png",
-                "position": "absolute",
-                "aspectRatio": "10:3",
-                "size": "5xl"
-              }
-            ],
-            "paddingTop": "30px",
-            "justifyContent": "center",
-            "alignItems": "center",
-            "paddingBottom": "15px"
-          },
-          {
             "type": "image",
             "url": "https://upload.cc/i1/2022/02/13/tf3qUR.png",
             "aspectMode": "cover",
@@ -817,6 +786,37 @@
           }
         ],
         "paddingAll": "0px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://upload.cc/i1/2022/02/16/3Pjip2.png",
+            "position": "absolute",
+            "aspectRatio": "10:3",
+            "size": "5xl"
+          },
+          {
+            "type": "text",
+            "text": "第四期",
+            "action": {
+              "type": "message",
+              "label": "action",
+              "text": "第四期資訊"
+            },
+            "align": "center",
+            "weight": "bold",
+            "color": "#4464a8",
+            "size": "xl",
+            "offsetStart": "-2px"
+          }
+        ],
+        "paddingTop": "30px",
+        "justifyContent": "center",
+        "alignItems": "center",
+        "paddingBottom": "15px"
       }
     },
     {
@@ -1042,37 +1042,6 @@
             "height": "150px"
           },
           {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "第五期",
-                "action": {
-                  "type": "message",
-                  "label": "action",
-                  "text": "第五期資訊"
-                },
-                "align": "center",
-                "weight": "bold",
-                "color": "#4464a8",
-                "size": "xl",
-                "offsetStart": "-2px"
-              },
-              {
-                "type": "image",
-                "url": "https://upload.cc/i1/2022/02/16/3Pjip2.png",
-                "position": "absolute",
-                "aspectRatio": "10:3",
-                "size": "5xl"
-              }
-            ],
-            "paddingTop": "30px",
-            "justifyContent": "center",
-            "alignItems": "center",
-            "paddingBottom": "15px"
-          },
-          {
             "type": "image",
             "url": "https://upload.cc/i1/2022/02/13/tf3qUR.png",
             "aspectMode": "cover",
@@ -1083,6 +1052,37 @@
           }
         ],
         "paddingAll": "0px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://upload.cc/i1/2022/02/16/3Pjip2.png",
+            "position": "absolute",
+            "aspectRatio": "10:3",
+            "size": "5xl"
+          },
+          {
+            "type": "text",
+            "text": "第五期",
+            "action": {
+              "type": "message",
+              "label": "action",
+              "text": "第五期資訊"
+            },
+            "align": "center",
+            "weight": "bold",
+            "color": "#4464a8",
+            "size": "xl",
+            "offsetStart": "-2px"
+          }
+        ],
+        "paddingTop": "30px",
+        "justifyContent": "center",
+        "alignItems": "center",
+        "paddingBottom": "15px"
       }
     }
   ]
