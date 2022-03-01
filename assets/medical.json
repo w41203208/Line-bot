@@ -222,30 +222,21 @@
         "contents": [
           {
             "type": "image",
-            "url": "https://upload.cc/i1/2022/02/16/3Pjip2.png",
+            "url": "https://upload.cc/i1/2022/02/19/pQZhFd.png",
             "position": "absolute",
             "aspectRatio": "10:3",
-            "size": "5xl"
-          },
-          {
-            "type": "text",
-            "text": "第一期、第二期",
+            "size": "5xl",
             "action": {
               "type": "message",
               "label": "action",
               "text": "第一、二期資訊"
-            },
-            "align": "center",
-            "weight": "bold",
-            "color": "#4464a8",
-            "size": "xl",
-            "offsetStart": "-2px"
+            }
           }
         ],
         "paddingTop": "30px",
         "justifyContent": "center",
         "alignItems": "center",
-        "paddingBottom": "15px"
+        "paddingBottom": "30px"
       }
     },
     {
@@ -534,30 +525,21 @@
         "contents": [
           {
             "type": "image",
-            "url": "https://upload.cc/i1/2022/02/16/3Pjip2.png",
+            "url": "https://upload.cc/i1/2022/02/19/6NxzAy.png",
             "position": "absolute",
             "aspectRatio": "10:3",
-            "size": "5xl"
-          },
-          {
-            "type": "text",
-            "text": "第三期",
+            "size": "5xl",
             "action": {
               "type": "message",
               "label": "action",
               "text": "第三期資訊"
-            },
-            "align": "center",
-            "weight": "bold",
-            "color": "#4464a8",
-            "size": "xl",
-            "offsetStart": "-2px"
+            }
           }
         ],
         "paddingTop": "30px",
         "justifyContent": "center",
         "alignItems": "center",
-        "paddingBottom": "15px"
+        "paddingBottom": "30px"
       }
     },
     {
@@ -793,30 +775,21 @@
         "contents": [
           {
             "type": "image",
-            "url": "https://upload.cc/i1/2022/02/16/3Pjip2.png",
+            "url": "https://upload.cc/i1/2022/02/19/YWFhvA.png",
             "position": "absolute",
             "aspectRatio": "10:3",
-            "size": "5xl"
-          },
-          {
-            "type": "text",
-            "text": "第四期",
+            "size": "5xl",
             "action": {
               "type": "message",
               "label": "action",
               "text": "第四期資訊"
-            },
-            "align": "center",
-            "weight": "bold",
-            "color": "#4464a8",
-            "size": "xl",
-            "offsetStart": "-2px"
+            }
           }
         ],
         "paddingTop": "30px",
         "justifyContent": "center",
         "alignItems": "center",
-        "paddingBottom": "15px"
+        "paddingBottom": "30px"
       }
     },
     {
@@ -1059,30 +1032,21 @@
         "contents": [
           {
             "type": "image",
-            "url": "https://upload.cc/i1/2022/02/16/3Pjip2.png",
+            "url": "https://upload.cc/i1/2022/02/19/F2m3lR.png",
             "position": "absolute",
             "aspectRatio": "10:3",
-            "size": "5xl"
-          },
-          {
-            "type": "text",
-            "text": "第五期",
+            "size": "5xl",
             "action": {
               "type": "message",
               "label": "action",
               "text": "第五期資訊"
-            },
-            "align": "center",
-            "weight": "bold",
-            "color": "#4464a8",
-            "size": "xl",
-            "offsetStart": "-2px"
+            }
           }
         ],
         "paddingTop": "30px",
         "justifyContent": "center",
         "alignItems": "center",
-        "paddingBottom": "15px"
+        "paddingBottom": "30px"
       }
     }
   ]

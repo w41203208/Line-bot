@@ -98,8 +98,8 @@ def handle_message(event):
     elif get_message == '認識【蛋白質飲食】':
         FlexMessage = json.load(open('./assets/_info2-knowProtein.json', 'r', encoding='utf-8'))
         line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
-        knowProteinTextMessage1 = TextSendMessage(bsControlTextReply)
-        knowProteinTextMessage2 = TextSendMessage(bsControlTextReply,quick_reply=quick_reply_level1)
+        knowProteinTextMessage1 = TextSendMessage(knowProteinTextReply1)
+        knowProteinTextMessage2 = TextSendMessage(knowProteinTextReply2,quick_reply=quick_reply_level1)
 
         line_bot_api.push_message(id, [knowProteinTextMessage1,knowProteinTextMessage2], timeout=3)
 
@@ -235,7 +235,7 @@ def handle_message(event):
 
         if not outputData:
             reply_msg = get_message
-            reply = TextSendMessage(text=f"{reply_msg}")
+            reply = TextSendMessage(text=f"{reply_msg}不在資料庫內，請洽詢護理師!")
             line_bot_api.reply_message(event.reply_token, reply)
         else:
             FlexMessage = res
