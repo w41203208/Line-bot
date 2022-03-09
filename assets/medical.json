@@ -229,7 +229,7 @@
             "action": {
               "type": "message",
               "label": "action",
-              "text": "第一、二期資訊"
+              "text": "第一、二期衛教指引"
             }
           }
         ],
@@ -532,7 +532,7 @@
             "action": {
               "type": "message",
               "label": "action",
-              "text": "第三期資訊"
+              "text": "第三期衛教指引"
             }
           }
         ],
@@ -782,7 +782,7 @@
             "action": {
               "type": "message",
               "label": "action",
-              "text": "第四期資訊"
+              "text": "第四期衛教指引"
             }
           }
         ],
@@ -1039,7 +1039,7 @@
             "action": {
               "type": "message",
               "label": "action",
-              "text": "第五期資訊"
+              "text": "第五期衛教指引"
             }
           }
         ],

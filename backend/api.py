@@ -1,30 +1,37 @@
 import json
-
+from .db import SQLManger
 
 class GETfoodDataAPI():
-    def __init__(self, query):
+    def __init__(self):
         self.flexMessage_carousel = {
             "type": "carousel",
             "contents": []
         }
-        self.query_data = query
-        self.req = ''
+        self.result = ''
 
 
-    def excute(self):
-        self.genAPI(self.query_data)
+    def excute(self, dataFood, dataSuggestion):
+        self.genAPI(dataFood, dataSuggestion)
 
-        return self.req
+        return self.result
 
-    def genAPI(self, query_data):
+    def genAPI(self, dataFood, dataSuggestion):
         colorNa, colorP, colorKa, colorTitle, nameTitle = '', '', '', '', ''
 
-        for item in query_data:
+        _foodSuggestion = {
+            'suggestionHighProtein': dataSuggestion[0]['suggest'],
+            'suggestionLowProtein': dataSuggestion[1]['suggest'],
+            'suggestionKa': dataSuggestion[2]['suggest'],
+            'suggestionP': dataSuggestion[3]['suggest'],
+            'suggestionNa': dataSuggestion[4]['suggest'],
+        }
+
+        for item in dataFood:
             noticeDict = {}
             noticeFormat = []
 
-            if item.protein:
-                proteinDesc = item.protein.proteinDesc
+            if item['proteinDesc']:
+                proteinDesc = item['proteinDesc']
                 noticeDict[0] = {
                     'descName': proteinDesc,
                     'isDesc': True,
@@ -38,10 +45,10 @@ class GETfoodDataAPI():
 
 
             ###判斷底下顯示內容與值得顏色###
-            if item.foodNaa > 700:
+            if item['foodNaa'] > 700:
                 colorNa = '#FF0000'
                 noticeDict[1] = {
-                    "descName": "為高鹽份食品，要避免吃。此外，少外食，少吃加工食品，養成清淡飲食習慣。",
+                    "descName": _foodSuggestion['suggestionNa'],
                     "isDesc": True,
                 }
             else:
@@ -51,10 +58,10 @@ class GETfoodDataAPI():
                     "isDesc": False,
                 }
 
-            if item.foodP > 250:
+            if item['foodP']> 250:
                 colorP = '#FF0000'
                 noticeDict[2] = {
-                    "descName": "為高磷食品，要避免吃。常見堅果類、奶類製品、動物內臟、加工食品，也為高磷食物要避免吃。",
+                    "descName": _foodSuggestion['suggestionP'],
                     "isDesc": True,
                 }
             else:
@@ -64,10 +71,10 @@ class GETfoodDataAPI():
                     "isDesc": False,
                 }
 
-            if item.foodKa > 300:
+            if item['foodKa']> 300:
                 colorKa = '#FF0000'
                 noticeDict[3] = {
-                    "descName": "為高鉀食品，要避免吃。建議吃蔬菜前先川燙，菜湯不喝。全穀物、果乾、乾香菇避免吃。",
+                    "descName": _foodSuggestion['suggestionKa'],
                     "isDesc": True,
                 }
             else:
@@ -145,7 +152,7 @@ class GETfoodDataAPI():
                             "contents": [
                                 {
                                 "type": "text",
-                                "text": "【" + item.foodName + "】",
+                                "text": "【" + item['foodName'] + "】",
                                 "wrap": True,
                                 "size": "xl",
                                 "weight": "bold",
@@ -168,7 +175,7 @@ class GETfoodDataAPI():
                                     },
                                     {
                                     "type": "text",
-                                    "text": str(item.foodKcal),
+                                    "text": str(item['foodKcal']),
                                     "align": "end",
                                     "color": "#888888"
                                     }
@@ -185,7 +192,7 @@ class GETfoodDataAPI():
                                     },
                                     {
                                     "type": "text",
-                                    "text": str(item.foodProtein),
+                                    "text": str(item['foodProtein']),
                                     "align": "end",
                                     "color": "#888888"
                                     }
@@ -202,7 +209,7 @@ class GETfoodDataAPI():
                                     },
                                     {
                                     "type": "text",
-                                    "text": str(item.foodNaa),
+                                    "text": str(item['foodNaa']),
                                     "align": "end",
                                     "color": colorNa
                                     }
@@ -219,7 +226,7 @@ class GETfoodDataAPI():
                                     },
                                     {
                                     "type": "text",
-                                    "text": str(item.foodKa),
+                                    "text": str(item['foodKa']),
                                     "align": "end",
                                     "color": colorKa
                                     }
@@ -236,7 +243,7 @@ class GETfoodDataAPI():
                                     },
                                     {
                                     "type": "text",
-                                    "text": str(item.foodP),
+                                    "text": str(item['foodP']),
                                     "align": "end",
                                     "color": colorP
                                     }
@@ -253,7 +260,7 @@ class GETfoodDataAPI():
                                     },
                                     {
                                     "type": "text",
-                                    "text": str(item.foodCarbohydrate),
+                                    "text": str(item['foodCarbohydrate']),
                                     "align": "end",
                                     "color": "#888888"
                                     }
@@ -304,7 +311,256 @@ class GETfoodDataAPI():
             }
             self.flexMessage_carousel['contents'].append(flexMessage_bubble)
 
-        self.req = self.flexMessage_carousel
+        self.result = self.flexMessage_carousel
+
+class GETsubMedicalAPI():
+    def __init__(self):
+        self.flexMessage_carousel = {
+            "type": "carousel",
+            "contents": []
+        }
+        self.result_FlexMessage = ''
+        self.result_ReplyMessage = ''
+        self.result_QuickReply = ''
+
+
+    def excute(self, dataMedical):
+        self.genAPI(dataMedical)
+
+        return self.result_FlexMessage, self.result_ReplyMessage, self.result_QuickReply
+
+    def genAPI(self, dataMedical):
+
+        for item in dataMedical:
+
+            #item['imgsrc']
+            image = {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "image",
+                        "url": "https://upload.cc/i1/2021/12/09/WMLwbs.png",
+                        "size": "100%",
+                        "aspectRatio": "9:5",
+                        "aspectMode": "fit"
+                    }
+                ]
+            } if item['imgsrc'] else {
+                "type": "box",
+                "layout": "vertical",
+                "contents": []
+            }
+
+            flexMessage_bubble = {
+                "type": "bubble",
+                "size": "giga",
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                                {
+                                    "type": "text",
+                                    "contents": [
+                                        {
+                                            "type": "span",
+                                            "text": item['title'],
+                                            "color": "#2b7ce6",
+                                            "weight": "bold",
+                                            "size": "lg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "paddingBottom": "10px"
+                        },
+                        image
+                    ],
+                    "paddingAll": "15px"
+                }
+            }
+
+            new_text = item['full_desc'].replace('\\n', '\n')
+            self.result_ReplyMessage = new_text
+            self.result_QuickReply = item['checklist']
+
+        self.result_FlexMessage = flexMessage_bubble
+
+class GETmedicalAPI():
+
+    def __init__(self):
+        self.flexMessage_carousel = {
+            "type": "carousel",
+            "contents": []
+        }
+        self.result = ''
+
+
+    def excute(self, dataMedical):
+        self.genAPI(dataMedical)
+
+        return self.result
+
+    def genAPI(self, dataMedical):
+
+        for item in dataMedical:
+
+            infoList = []
+            for index, info in enumerate(eval(item['infolist'])):
+
+                infoList.append({
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": f"{index+1}、{info['title']}",
+                            "size": "md",
+                            "weight": "bold",
+                            "color": "#2b7ce6",
+                            "action": {
+                                "type": "message",
+                                "label": "action",
+                                "text": info['title']
+                            }
+                        },
+                    ],
+                    "paddingBottom": "10px"
+                })
+
+            flexMessage_bubble = {
+                "type": "bubble",
+                "size": "kilo",
+                "direction": "ltr",
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                    {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                        {
+                            "type": "text",
+                            "text": "第三期",
+                            "weight": "bold",
+                            "size": "xl",
+                            "align": "center",
+                            "contents": [
+                            {
+                                "type": "span",
+                                "text": item['title']
+                            }
+                            ]
+                        }
+                        ],
+                        "justifyContent": "center",
+                        "alignItems": "center",
+                        "paddingBottom": "5px",
+                        "paddingTop": "40px"
+                    },
+                    {
+                        "type": "separator",
+                        "color": "#aaaaaa"
+                    },
+                    {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                        {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                            {
+                                "type": "text",
+                                "size": "xs",
+                                "weight": "bold",
+                                "text": item['brief_desc'] if item['brief_desc'] else ' ',
+                                "wrap": True,
+                                "color": "#acacac"
+                            }
+                            ],
+                            "paddingBottom": "5px"
+                        },
+                        {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                            {
+                                "type": "text",
+                                "text": item['notification'],
+                                "color": "#acacac",
+                                "size": "sm",
+                                "weight": "bold"
+                            }
+                            ],
+                            "paddingBottom": "20px"
+                        },
+                        {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": infoList,
+                        },
+                        {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                            {
+                                "type": "text",
+                                "text": " ",
+                                "size": "md",
+                                "weight": "bold",
+                                "color": "#2b7ce6"
+                            }
+                            ],
+                            "paddingBottom": "10px"
+                        },
+                        {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                            {
+                                "type": "text",
+                                "text": " ",
+                                "size": "md",
+                                "weight": "bold",
+                                "color": "#2b7ce6"
+                            }
+                            ],
+                            "paddingBottom": "10px"
+                        },
+                        {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                            {
+                                "type": "text",
+                                "text": " ",
+                                "size": "md",
+                                "weight": "bold",
+                                "color": "#2b7ce6"
+                            }
+                            ],
+                            "paddingBottom": "10px"
+                        }
+                        ],
+                        "paddingTop": "15px",
+                        "paddingBottom": "15px",
+                        "paddingStart": "18px",
+                        "paddingEnd": "18px"
+                    }
+                    ],
+                    "paddingAll": "0px"
+                }
+            }
+
+
+
+        self.result = flexMessage_bubble
 
 class GETrichMenuURIAPI():
     def __init__(self, userId, title):
