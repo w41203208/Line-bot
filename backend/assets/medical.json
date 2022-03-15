@@ -31,14 +31,6 @@
             "color": "#aaaaaa"
           },
           {
-            "type": "image",
-            "url": "https://upload.cc/i1/2022/02/16/340Kmj.png",
-            "aspectMode": "cover",
-            "align": "center",
-            "position": "absolute",
-            "size": "full"
-          },
-          {
             "type": "box",
             "layout": "vertical",
             "contents": [
@@ -48,7 +40,7 @@
                 "contents": [
                   {
                     "type": "image",
-                    "url": "https://upload.cc/i1/2022/02/16/1T8MDc.png",
+                    "url": "https://kcs-linebot.secplavory.page/images/relate.png",
                     "position": "absolute",
                     "aspectMode": "cover",
                     "size": "3xl",
@@ -100,12 +92,13 @@
                 "contents": [
                   {
                     "type": "image",
-                    "url": "https://upload.cc/i1/2022/02/16/07GR63.png",
+                    "url": "https://kcs-linebot.secplavory.page/images/selectlevel.png",
                     "position": "absolute",
                     "aspectMode": "cover",
                     "size": "3xl",
                     "aspectRatio": "10:3",
-                    "offsetTop": "5px"
+                    "offsetTop": "5px",
+                    "offsetStart": "15px"
                   }
                 ],
                 "position": "relative",
@@ -222,7 +215,7 @@
         "contents": [
           {
             "type": "image",
-            "url": "https://upload.cc/i1/2022/02/19/pQZhFd.png",
+            "url": "https://kcs-linebot.secplavory.page/images/oneandtwo.png",
             "position": "absolute",
             "aspectRatio": "10:3",
             "size": "5xl",
@@ -269,14 +262,6 @@
             "color": "#aaaaaa"
           },
           {
-            "type": "image",
-            "url": "https://upload.cc/i1/2022/02/16/340Kmj.png",
-            "aspectMode": "cover",
-            "align": "center",
-            "position": "absolute",
-            "size": "full"
-          },
-          {
             "type": "box",
             "layout": "vertical",
             "contents": [
@@ -286,7 +271,7 @@
                 "contents": [
                   {
                     "type": "image",
-                    "url": "https://upload.cc/i1/2022/02/16/1T8MDc.png",
+                    "url": "https://kcs-linebot.secplavory.page/images/relate.png",
                     "position": "absolute",
                     "aspectMode": "cover",
                     "size": "3xl",
@@ -372,12 +357,13 @@
                 "contents": [
                   {
                     "type": "image",
-                    "url": "https://upload.cc/i1/2022/02/16/07GR63.png",
+                    "url": "https://kcs-linebot.secplavory.page/images/selectlevel.png",
                     "position": "absolute",
                     "aspectMode": "cover",
                     "size": "3xl",
                     "aspectRatio": "10:3",
-                    "offsetTop": "5px"
+                    "offsetTop": "5px",
+                    "offsetStart": "15px"
                   }
                 ],
                 "position": "relative",
@@ -525,7 +511,7 @@
         "contents": [
           {
             "type": "image",
-            "url": "https://upload.cc/i1/2022/02/19/6NxzAy.png",
+            "url": "https://kcs-linebot.secplavory.page/images/three.png",
             "position": "absolute",
             "aspectRatio": "10:3",
             "size": "5xl",
@@ -572,14 +558,6 @@
             "color": "#aaaaaa"
           },
           {
-            "type": "image",
-            "url": "https://upload.cc/i1/2022/02/16/340Kmj.png",
-            "aspectMode": "cover",
-            "align": "center",
-            "position": "absolute",
-            "size": "full"
-          },
-          {
             "type": "box",
             "layout": "vertical",
             "contents": [
@@ -589,7 +567,7 @@
                 "contents": [
                   {
                     "type": "image",
-                    "url": "https://upload.cc/i1/2022/02/16/1T8MDc.png",
+                    "url": "https://kcs-linebot.secplavory.page/images/relate.png",
                     "position": "absolute",
                     "aspectMode": "cover",
                     "size": "3xl",
@@ -684,12 +662,13 @@
                 "contents": [
                   {
                     "type": "image",
-                    "url": "https://upload.cc/i1/2022/02/16/07GR63.png",
+                    "url": "https://kcs-linebot.secplavory.page/images/selectlevel.png",
                     "position": "absolute",
                     "aspectMode": "cover",
                     "size": "3xl",
                     "aspectRatio": "10:3",
-                    "offsetTop": "5px"
+                    "offsetTop": "5px",
+                    "offsetStart": "15px"
                   }
                 ],
                 "position": "relative",
@@ -775,7 +754,7 @@
         "contents": [
           {
             "type": "image",
-            "url": "https://upload.cc/i1/2022/02/19/YWFhvA.png",
+            "url": "https://kcs-linebot.secplavory.page/images/four.png",
             "position": "absolute",
             "aspectRatio": "10:3",
             "size": "5xl",
@@ -822,14 +801,6 @@
             "color": "#aaaaaa"
           },
           {
-            "type": "image",
-            "url": "https://upload.cc/i1/2022/02/16/340Kmj.png",
-            "aspectMode": "cover",
-            "align": "center",
-            "position": "absolute",
-            "size": "full"
-          },
-          {
             "type": "box",
             "layout": "vertical",
             "contents": [
@@ -839,7 +810,7 @@
                 "contents": [
                   {
                     "type": "image",
-                    "url": "https://upload.cc/i1/2022/02/16/1T8MDc.png",
+                    "url": "https://kcs-linebot.secplavory.page/images/relate.png",
                     "position": "absolute",
                     "aspectMode": "cover",
                     "size": "3xl",
@@ -941,12 +912,13 @@
                 "contents": [
                   {
                     "type": "image",
-                    "url": "https://upload.cc/i1/2022/02/16/07GR63.png",
+                    "url": "https://kcs-linebot.secplavory.page/images/selectlevel.png",
                     "position": "absolute",
                     "aspectMode": "cover",
                     "size": "3xl",
                     "aspectRatio": "10:3",
-                    "offsetTop": "5px"
+                    "offsetTop": "5px",
+                    "offsetStart": "15px"
                   }
                 ],
                 "position": "relative",
@@ -1032,7 +1004,7 @@
         "contents": [
           {
             "type": "image",
-            "url": "https://upload.cc/i1/2022/02/19/F2m3lR.png",
+            "url": "https://kcs-linebot.secplavory.page/images/five.png",
             "position": "absolute",
             "aspectRatio": "10:3",
             "size": "5xl",

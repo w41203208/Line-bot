@@ -1,6 +1,8 @@
-from asyncio.windows_events import NULL
+from genericpath import exists
 from flask import Blueprint, jsonify, request, abort, make_response
 import json
+import os
+import base64
 
 from sqlalchemy import null
 from .api import GETfoodDataAPI, GETmedicalAPI, GETsubMedicalAPI
@@ -16,6 +18,9 @@ CHANNEL_SECRET = "1497d9253b7fc842f5ba2a22c15b9ce7"
 
 line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(CHANNEL_SECRET)
+
+dirname = os.path.dirname(__file__)
+filePath = os.path.join(dirname, 'assets/images')
 
 Level = 0
 
@@ -46,6 +51,50 @@ def home_page_render():
 
         return "OK"
 
+@views.route("/upload_file", methods=["POST"])
+def uploadFile():
+    if request.method != 'POST':
+        resp = make_response(jsonify({
+            'msg': 'Bad request!'
+        }),400)
+        resp.headers['Access-Control-Allow-Origin'] = '*'
+        return resp
+
+
+    if request.method == 'POST':
+        data = json.loads(request.data)
+        if data['imageFile'] is None or data['imageName'] is None:
+            resp = make_response(jsonify({
+                'msg': 'File is not exist! or Name is not exist!'
+            }),404)
+            resp.headers['Access-Control-Allow-Origin'] = '*'
+            return resp
+        else:
+            imageBase64, imageName = data['imageFile'].split(',')[1], data['imageName']
+            for name in os.listdir(filePath):
+                if imageName == name.split('.')[0]:
+                    resp = make_response(jsonify({
+                        'msg': 'FileName is exsit!'
+                    }),402)
+                    resp.headers['Access-Control-Allow-Origin'] = '*'
+                    return resp
+            imgdata = base64.b64decode(imageBase64)
+            filename = f"{imageName}.jpg"
+            with open(f"{filePath}/{filename}", "wb") as f:
+                f.write(imgdata)
+
+            url = f'https://kcs-linebot.secplavory.page/images/{filename}'
+
+            resp = make_response(jsonify({
+                'msg': 'File is uploaded!',
+                'url': url,
+            }),200)
+            resp.headers['Access-Control-Allow-Origin'] = '*'
+            return resp
+
+
+
+
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
@@ -71,7 +120,7 @@ def handle_message(event):
     if get_message == '飲食查詢':
         return
     if get_message == '衛教資訊':
-        FlexMessage = json.load(open('./assets/medical.json', 'r', encoding='utf-8'))
+        FlexMessage = json.load(open('./backend/assets/medical.json', 'r', encoding='utf-8'))
         line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
         return
 

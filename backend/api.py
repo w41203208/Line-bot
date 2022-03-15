@@ -1,5 +1,9 @@
 import json
 from .db import SQLManger
+from PIL import Image
+import os
+dirname = os.path.dirname(__file__)
+filePath = os.path.join(dirname, 'assets/images')
 
 class GETfoodDataAPI():
     def __init__(self):
@@ -333,16 +337,20 @@ class GETsubMedicalAPI():
 
         for item in dataMedical:
 
-            #item['imgsrc']
+            test = item['imgsrc'].split('/')[-1]
+            img = Image.open(f"{filePath}/{test}")
+            w = img.width
+            h = img.height
+
             image = {
                 "type": "box",
                 "layout": "vertical",
                 "contents": [
                     {
                         "type": "image",
-                        "url": "https://upload.cc/i1/2021/12/09/WMLwbs.png",
+                        "url": item['imgsrc'],
                         "size": "100%",
-                        "aspectRatio": "9:5",
+                        "aspectRatio": f"{w}:{h}",
                         "aspectMode": "fit"
                     }
                 ]
@@ -411,7 +419,6 @@ class GETmedicalAPI():
 
             infoList = []
             for index, info in enumerate(eval(item['infolist'])):
-
                 infoList.append({
                     "type": "box",
                     "layout": "vertical",
@@ -431,7 +438,6 @@ class GETmedicalAPI():
                     ],
                     "paddingBottom": "10px"
                 })
-
             flexMessage_bubble = {
                 "type": "bubble",
                 "size": "kilo",
@@ -611,5 +617,3 @@ class GETrichMenuURIAPI():
                 }
 
         self.req = dict
-
-
