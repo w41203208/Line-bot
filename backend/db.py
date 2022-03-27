@@ -5,7 +5,7 @@ DB_CONFIG = {
 	"port": 3306,
 	"user": "root",
 	"passwd": "0000",
-	"db": "temp_database",
+	"db": "temp_database2",
   "charset": "utf8",
 }
 
@@ -36,6 +36,10 @@ class SQLManger(object):
     self.cursor.execute(sql, args)
     result = self.cursor.fetchall()
     return result
+
+  def update(self, sql, args=None):
+    self.cursor.execute(sql, args)
+    self.conn.commit()
 
   def close(self):
     self.cursor.close()

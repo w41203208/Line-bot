@@ -1,4 +1,4 @@
-from genericpath import exists
+
 from flask import Blueprint, jsonify, request, abort, make_response
 import json
 import os
@@ -7,9 +7,10 @@ import base64
 from sqlalchemy import null
 from .api import GETfoodDataAPI, GETmedicalAPI, GETsubMedicalAPI
 from .db import SQLManger
+from .util import test
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
-from linebot.models import MessageEvent, TextMessage, TextSendMessage, FlexSendMessage,QuickReply,QuickReplyButton,MessageAction
+from linebot.models import MessageEvent, TextMessage, TextSendMessage, FlexSendMessage,QuickReply,QuickReplyButton,MessageAction,ImageSendMessage
 
 views = Blueprint('views', __name__)
 
@@ -21,10 +22,11 @@ handler = WebhookHandler(CHANNEL_SECRET)
 
 dirname = os.path.dirname(__file__)
 filePath = os.path.join(dirname, 'assets/images')
-
+filePath_word = os.path.join(dirname, 'assets/word_images')
 Level = 0
 
 USER_AND_LEVEL_DICT = {}
+USER_AND_MORE_DICT = {}
 
 LEVEL_DICT = {
     '第一、二期衛教指引':1,
@@ -117,7 +119,33 @@ def handle_message(event):
     #     res = GETrichMenuURIAPI(event.source.user_id, get_message).excute()
     #     line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', res))
 
+
+
+
+    #####回傳hot word#####
     if get_message == '飲食查詢':
+        query_result = db.query(f"SELECT foodName, searchtime FROM food Order by searchtime desc limit 10;")
+        food_word_dict = {}
+        for index, item in enumerate(query_result):
+            food_word_dict[index] = {
+                'name':item['foodName'],
+                'times': item['searchtime'],
+            }
+        n = len(food_word_dict)
+        for i in range(n):
+            for j in range(0, n-i-1):
+                if (food_word_dict[j]['times']> food_word_dict[j+1]['times']):
+                    food_word_dict[j], food_word_dict[j+1] = food_word_dict[j+1], food_word_dict[j]
+        print(food_word_dict)
+        name_arr = []
+        times_arr = []
+        for items in food_word_dict.values():
+            name_arr.append(items['name'])
+            times_arr.append(items['times'])
+        test(times_arr, name_arr, filePath_word)
+        # imageMessage = ImageSendMessage(original_content_url='https://kcs-linebot.secplavory.page/word_images/plot.png',preview_image_url='https://kcs-linebot.secplavory.page/word_images/plot.png')
+
+        # line_bot_api.reply_message(event.reply_token, imageMessage)
         return
     if get_message == '衛教資訊':
         FlexMessage = json.load(open('./backend/assets/medical.json', 'r', encoding='utf-8'))
@@ -126,14 +154,45 @@ def handle_message(event):
 
     #####找食物#####
     query_text = get_message
-    queryFood = db.query(f"SELECT f.*, p.proteinDesc FROM food as f LEFT JOIN protein as p ON p.proteinId = f.foodProteinId WHERE foodName LIKE '%{query_text}%' LIMIT 5")
+    queryFood = db.query(f"SELECT f.* FROM food as f  WHERE foodName LIKE '%{query_text}%'")
     querySuggestion = db.query('SELECT * FROM foodsuggestion')
 
 
     if queryFood:
-        FlexMessage = GETfoodDataAPI().excute(queryFood, querySuggestion)
-        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
-        return
+        sum = len(queryFood)
+        db.update(f"update food set searchtime = searchtime + 1 where foodName LIKE '%{query_text}%'")
+        if id not in USER_AND_MORE_DICT.keys():
+            #都沒有查過的user init 第一次
+            USER_AND_MORE_DICT[id] = {
+                'name': query_text,
+                'times': 1,
+            }
+        else:
+            if USER_AND_MORE_DICT[id]['name'] != query_text:
+                USER_AND_MORE_DICT[id] = {
+                    'name': query_text,
+                    'times': 1,
+                }
+            else:
+                USER_AND_MORE_DICT[id] = {
+                    'name': query_text,
+                    'times': USER_AND_MORE_DICT[id]['times'] + 1,
+                }
+        print(USER_AND_MORE_DICT)
+        if ((sum - 5*(USER_AND_MORE_DICT[id]['times']-1)) <= 0):
+            reply = TextSendMessage(text=f"{query_text}沒有更多了")
+            line_bot_api.reply_message(event.reply_token, reply)
+            return
+        else:
+            start = (USER_AND_MORE_DICT[id]['times']-1)*5
+            end = start+5
+            if ((sum - 5*(USER_AND_MORE_DICT[id]['times']-1)) < 5):
+                end = start + sum - 5*(USER_AND_MORE_DICT[id]['times']-1)
+
+            FlexMessage = GETfoodDataAPI().excute(queryFood[start:end], querySuggestion)
+            quick_reply = QuickReply(items=[QuickReplyButton(action=MessageAction(label=f"查詢更多：{query_text}", text=query_text))])
+            line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage, quick_reply=quick_reply))
+            return
 
 
     #####找衛教資訊#####

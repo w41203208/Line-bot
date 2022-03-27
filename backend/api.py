@@ -22,6 +22,7 @@ class GETfoodDataAPI():
     def genAPI(self, dataFood, dataSuggestion):
         colorNa, colorP, colorKa, colorTitle, nameTitle = '', '', '', '', ''
 
+
         _foodSuggestion = {
             'suggestionHighProtein': dataSuggestion[0]['suggest'],
             'suggestionLowProtein': dataSuggestion[1]['suggest'],
@@ -34,10 +35,15 @@ class GETfoodDataAPI():
             noticeDict = {}
             noticeFormat = []
 
-            if item['proteinDesc']:
-                proteinDesc = item['proteinDesc']
+
+            if item['foodProteinId'] == 1:
                 noticeDict[0] = {
-                    'descName': proteinDesc,
+                    'descName': _foodSuggestion["suggestionHighProtein"],
+                    'isDesc': True,
+                }
+            elif item['foodProteinId'] == 2:
+                noticeDict[0] = {
+                    'descName': _foodSuggestion["suggestionLowProtein"],
                     'isDesc': True,
                 }
             else :
@@ -106,7 +112,7 @@ class GETfoodDataAPI():
 
 
             ####判斷標題####
-            if colorNa == '#FF0000' or colorP == '#FF0000' or colorKa == '#FF0000':
+            if colorNa == '#FF0000' or colorP == '#FF0000' or colorKa == '#FF0000' or item['foodProteinId'] == 2 or item['isSafe'] == 0:
                 colorTitle = '#FF0000'
                 nameTitle = '不建議吃'
                 imageUrl = "https://upload.cc/i1/2022/02/13/Dk4q3b.png"
@@ -392,7 +398,7 @@ class GETsubMedicalAPI():
                 }
             }
 
-            new_text = item['full_desc'].replace('\\n', '\n')
+            new_text = item['full_desc'].replace('\\r', '\n')
             self.result_ReplyMessage = new_text
             self.result_QuickReply = item['checklist']
 
