@@ -95,8 +95,13 @@ def uploadFile():
             return resp
 
 
-
-
+@views.route("/login", methods=["GET"])
+def login():
+    resp = make_response(jsonify({
+        'msg': 'File is uploaded!',
+    }),200)
+    resp.headers['Access-Control-Allow-Origin'] = '*'
+    return resp
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
