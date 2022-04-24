@@ -13,16 +13,12 @@ class GETfoodDataAPI():
         }
         self.result = ''
 
-
     def excute(self, dataFood, dataSuggestion):
         self.genAPI(dataFood, dataSuggestion)
-
         return self.result
 
     def genAPI(self, dataFood, dataSuggestion):
         colorNa, colorP, colorKa, colorTitle, nameTitle = '', '', '', '', ''
-
-
         _foodSuggestion = {
             'suggestionHighProtein': dataSuggestion[0]['suggest'],
             'suggestionLowProtein': dataSuggestion[1]['suggest'],
@@ -30,12 +26,9 @@ class GETfoodDataAPI():
             'suggestionP': dataSuggestion[3]['suggest'],
             'suggestionNa': dataSuggestion[4]['suggest'],
         }
-
         for item in dataFood:
             noticeDict = {}
             noticeFormat = []
-
-
             if item['foodProteinId'] == 1:
                 noticeDict[0] = {
                     'descName': _foodSuggestion["suggestionHighProtein"],
@@ -52,8 +45,6 @@ class GETfoodDataAPI():
                     'descName': proteinDesc,
                     'isDesc': False,
                 }
-
-
             ###判斷底下顯示內容與值得顏色###
             if item['foodNaa'] > 700:
                 colorNa = '#FF0000'
@@ -67,7 +58,6 @@ class GETfoodDataAPI():
                     "descName": " ",
                     "isDesc": False,
                 }
-
             if item['foodP']> 250:
                 colorP = '#FF0000'
                 noticeDict[2] = {
@@ -80,7 +70,6 @@ class GETfoodDataAPI():
                     "descName": " ",
                     "isDesc": False,
                 }
-
             if item['foodKa']> 300:
                 colorKa = '#FF0000'
                 noticeDict[3] = {
@@ -93,7 +82,6 @@ class GETfoodDataAPI():
                     "descName": " ",
                     "isDesc": False,
                 }
-
             for i in noticeDict:
                 if noticeDict[i]['isDesc'] != False:
                     noticeFormat.append({
@@ -109,8 +97,6 @@ class GETfoodDataAPI():
                             }
                         ],
                     })
-
-
             ####判斷標題####
             if colorNa == '#FF0000' or colorP == '#FF0000' or colorKa == '#FF0000' or item['foodProteinId'] == 2 or item['isSafe'] == 0:
                 colorTitle = '#FF0000'
@@ -120,9 +106,6 @@ class GETfoodDataAPI():
                 colorTitle = '#000000'
                 nameTitle = '可安全食用'
                 imageUrl = "https://upload.cc/i1/2022/02/13/uNfmWz.png"
-
-
-
             flexMessage_bubble = {
                 "type": "bubble",
                 "body": {
@@ -295,10 +278,52 @@ class GETfoodDataAPI():
                             "paddingTop": "10px"
                             },
                             {
-                            "type": "box",
-                            "layout": "vertical",
-                            "contents": noticeFormat,
-                            "paddingTop": "15px",
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": noticeFormat,
+                                "paddingTop": "15px",
+                            },
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                    {
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "contents": [
+                                            {
+                                                "type": "text",
+                                                "text": "🥬我的搜尋紀錄🥕",
+                                                "weight": "bold",
+                                                "size": "xl",
+                                                "action": {
+                                                    "type": "message",
+                                                    "label": "action",
+                                                    "text": "我的搜尋紀錄"
+                                                }
+                                            }
+                                        ],
+                                        "paddingBottom": "10px"
+                                    },
+                                    {
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "contents": [
+                                            {
+                                                "type": "text",
+                                                "text": "👉最近熱搜記錄👈",
+                                                "weight": "bold",
+                                                "size": "xl",
+                                                "action": {
+                                                    "type": "message",
+                                                    "label": "action",
+                                                    "text": "最近熱搜紀錄"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "alignItems": "center"
                             }
                         ],
                         "paddingStart": "20px",
@@ -333,21 +358,16 @@ class GETsubMedicalAPI():
         self.result_ReplyMessage = ''
         self.result_QuickReply = ''
 
-
     def excute(self, dataMedical):
         self.genAPI(dataMedical)
-
         return self.result_FlexMessage, self.result_ReplyMessage, self.result_QuickReply
 
     def genAPI(self, dataMedical):
-
         for item in dataMedical:
-
             test = item['imgsrc'].split('/')[-1]
             img = Image.open(f"{filePath}/{test}")
             w = img.width
             h = img.height
-
             image = {
                 "type": "box",
                 "layout": "vertical",
@@ -365,7 +385,6 @@ class GETsubMedicalAPI():
                 "layout": "vertical",
                 "contents": []
             }
-
             flexMessage_bubble = {
                 "type": "bubble",
                 "size": "giga",
@@ -397,32 +416,23 @@ class GETsubMedicalAPI():
                     "paddingAll": "15px"
                 }
             }
-
             new_text = item['full_desc'].replace('\\r', '\n')
             self.result_ReplyMessage = new_text
             self.result_QuickReply = item['checklist']
-
         self.result_FlexMessage = flexMessage_bubble
 
 class GETmedicalAPI():
-
     def __init__(self):
         self.flexMessage_carousel = {
             "type": "carousel",
             "contents": []
         }
         self.result = ''
-
-
     def excute(self, dataMedical):
         self.genAPI(dataMedical)
-
         return self.result
-
     def genAPI(self, dataMedical):
-
         for item in dataMedical:
-
             infoList = []
             for index, info in enumerate(eval(item['infolist'])):
                 infoList.append({
@@ -569,9 +579,6 @@ class GETmedicalAPI():
                     "paddingAll": "0px"
                 }
             }
-
-
-
         self.result = flexMessage_bubble
 
 class GETrichMenuURIAPI():
