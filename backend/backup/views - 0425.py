@@ -133,66 +133,109 @@ def login():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-
+    db = SQLManger()
+    db.connect()
     global LEVEL
     get_message = event.message.text
     id = event.source.user_id
 
+
+    #####添加新的line成員#####
+    old_user = db.query(f"SELECT line_id FROM users WHERE line_id = '{id}'")
+    if len(old_user) == 0:
+        db.update(f"INSERT INTO users (line_id) VALUES ('{id}')")
+
+
     #####熱圖API查詢#####
     if get_message == '近3個月熱搜' or get_message == '近1個月熱搜' or get_message == '近1週熱搜' or get_message == '我的搜尋紀錄' or get_message == '飲食查詢' or get_message == '最近熱搜紀錄':
-
-        if get_message == '我的搜尋紀錄':
-            USER_AND_SEARCH[id] = False
-        elif get_message == '飲食查詢' or get_message == '最近熱搜紀錄':
+        if get_message == '飲食查詢' or get_message == '最近熱搜紀錄':
             USER_AND_SEARCH[id] = True
+            query_result = db.query(f"SELECT foodName, foodTag, searchtime as times FROM food Order by searchtime desc limit 5;")
+        else:
+            _params = {}
+            if get_message == '我的搜尋紀錄':
+                USER_AND_SEARCH[id] = False
+                _params = {
+                    'lineId': id,
+                }
+                res = requests.get('https://kcs-backend.secplavory.page/getHeatmapProps', params=_params)
+            else:
+                if get_message == '近3個月熱搜':
+                    if USER_AND_SEARCH[id]:
+                        _params = {
+                            'traceBackDate': 90,
+                        }
+                    else:
+                        _params = {
+                            'traceBackDate': 90,
+                            'lineId': id,
+                        }
+                elif get_message == '近1個月熱搜':
+                    if USER_AND_SEARCH[id]:
+                        _params = {
+                            'traceBackDate': 30,
+                        }
+                    else:
+                        _params = {
+                            'traceBackDate': 30,
+                            'lineId': id,
+                        }
+                elif get_message == '近1週熱搜':
+                    if USER_AND_SEARCH[id]:
+                        _params = {
+                            'traceBackDate': 7,
+                        }
+                    else:
+                        _params = {
+                            'traceBackDate': 7,
+                            'lineId': id,
+                        }
+            res = requests.get('https://kcs-backend.secplavory.page/getHeatmapProps', params=_params)
+            query_result = res.json()['data']
 
-        traceBackDate = None
-        if get_message == '近3個月熱搜':
-            traceBackDate = '90'
-        elif get_message == '近1個月熱搜':
-            traceBackDate = '30'
-        elif get_message == '近1周熱搜':
-            traceBackDate = '7'
-
-        _params = {}
-        if traceBackDate: _params["traceBackDate"] = traceBackDate
-        if USER_AND_SEARCH[id]: _params["lineId"] = id
-        heatmapProps = requests.get('https://kcs-backend.secplavory.page/getHeatmapProps', params=_params).json()['data']
-
+        print(query_result)
         food_word_dict = {}
-        for index, item in enumerate(heatmapProps):
+        for index, item in enumerate(query_result):
             food_word_dict[index] = {
                 'name':item['foodName'],
                 'tag': item['foodTag'],
                 'times': item['times'],
             }
-
-        # 無情氣泡排序
         n = len(food_word_dict)
         for i in range(n):
             for j in range(0, n-i-1):
-                if food_word_dict[j]['times'] > food_word_dict[j + 1]['times']:
+                if (food_word_dict[j]['times'] > food_word_dict[j+1]['times']):
                     food_word_dict[j], food_word_dict[j+1] = food_word_dict[j+1], food_word_dict[j]
-
         name_arr = []
         times_arr = []
         colors_arr = []
         tag_color_arr = []
         temp_tag_dict = []
         for items in food_word_dict.values():
-            color = COLOR_DICT[items['tag']] if items['tag'] in COLOR_DICT else '000000'
+            if COLOR_DICT[items['tag']]:
+                color = COLOR_DICT[items['tag']]
+            else:
+                color = '000000'
 
-            if len(temp_tag_dict) == 0 or items['tag'] not in temp_tag_dict:
+            if(len(temp_tag_dict) == 0):
                 temp_tag_dict.append(items['tag'])
                 tag_color_arr.append({
-                    'tag': items['tag'],
-                    'color': color
+                    'tag':items['tag'],
+                    'color': COLOR_DICT[items['tag']]
                 })
+            else:
+                if items['tag'] not in temp_tag_dict:
+                    temp_tag_dict.append(items['tag'])
+                    tag_color_arr.append({
+                        'tag':items['tag'],
+                        'color': COLOR_DICT[items['tag']]
+                    })
+
             colors_arr.append(color)
             name_arr.append(items['name'])
             times_arr.append(items['times'])
-
-        test(times_arr, name_arr, colors_arr, tag_color_arr, filePath_word)
+        print(tag_color_arr)
+        test(times_arr, name_arr,colors_arr,tag_color_arr, filePath_word)
         quick_reply = QuickReply(
             items=[
                 QuickReplyButton(action=MessageAction(label='近3個月熱搜', text='近3個月熱搜')),
@@ -203,6 +246,8 @@ def handle_message(event):
         imageMessage = ImageSendMessage(original_content_url='https://kcs-linebot.secplavory.page/word_images/plot.png',preview_image_url='https://kcs-linebot.secplavory.page/word_images/plot.png', quick_reply=quick_reply)
         line_bot_api.reply_message(event.reply_token, imageMessage)
         return
+
+
 
     #####回傳關鍵字查詢#####
     queryFoodKeyword = db.query(
