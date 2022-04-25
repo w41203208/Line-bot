@@ -6,7 +6,7 @@ import base64
 from numpy import empty
 import requests
 from sqlalchemy import false
-from .services import GETfoodDataAPI, GETmedicalAPI, GETsubMedicalAPI
+from .api import GETfoodDataAPI, GETmedicalAPI, GETsubMedicalAPI
 from .db import SQLManger
 from .util import test
 from linebot import LineBotApi, WebhookHandler
@@ -297,6 +297,11 @@ def handle_message(event):
                     'times': USER_AND_MORE_DICT[id]['times'] + 1,
                 }
         print(USER_AND_MORE_DICT)
+        request_body = {
+            'lineId': id,
+            'foodName': query_text,
+        }
+        requests.post('https://kcs-backend.secplavory.page/updateSearchtime', data=request_body)
         if ((sum - 5*(USER_AND_MORE_DICT[id]['times']-1)) <= 0):
             reply = TextSendMessage(text=f"{query_text}沒有更多了")
             line_bot_api.reply_message(event.reply_token, reply)

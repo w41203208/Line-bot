@@ -1,25 +1,25 @@
 import pymysql
 
 # test
-DB_CONFIG = {
-	"host": "127.0.0.1",
-	"port": 3306,
-	"user": "root",
-	"passwd": "0000",
-	"db": "temp_database3",
-  "charset": "utf8",
-}
-
-
-# formal
 # DB_CONFIG = {
 # 	"host": "127.0.0.1",
 # 	"port": 3306,
 # 	"user": "root",
-# 	"passwd": "kcsau4a83",
-# 	"db": "kcs_backend",
+# 	"passwd": "0000",
+# 	"db": "temp_database2",
 #   "charset": "utf8",
 # }
+
+
+# formal
+DB_CONFIG = {
+	"host": "127.0.0.1",
+	"port": 3306,
+	"user": "root",
+	"passwd": "kcsau4a83",
+	"db": "kcs_backend",
+  "charset": "utf8",
+}
 
 class SQLManger(object):
   _instance = None
