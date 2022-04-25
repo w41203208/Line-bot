@@ -137,3 +137,6 @@ dmypy.json
 .__pycache__
 .test
 .img
+
+# IDE
+.idea/
