@@ -8,7 +8,7 @@ import requests
 from sqlalchemy import false
 from .api import GETfoodDataAPI, GETmedicalAPI, GETsubMedicalAPI
 from .db import SQLManger
-from .util import test
+from .util import plotHeatMap
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage, FlexSendMessage,QuickReply,QuickReplyButton,MessageAction,ImageSendMessage
@@ -134,6 +134,8 @@ def login():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 
+    db = SQLManger()
+    db.connect()
     global LEVEL
     get_message = event.message.text
     id = event.source.user_id
@@ -157,7 +159,8 @@ def handle_message(event):
         _params = {}
         if traceBackDate: _params["traceBackDate"] = traceBackDate
         if USER_AND_SEARCH[id]: _params["lineId"] = id
-        heatmapProps = requests.get('https://kcs-backend.secplavory.page/getHeatmapProps', params=_params).json()['data']
+        res = requests.get('https://kcs-backend.secplavory.page/getHeatmapProps', params=_params)
+        heatmapProps = res.json()['data']
 
         food_word_dict = {}
         for index, item in enumerate(heatmapProps):
@@ -179,7 +182,7 @@ def handle_message(event):
         colors_arr = []
         tag_color_arr = []
         temp_tag_dict = []
-        for items in food_word_dict.values():
+        for items in list(food_word_dict.values()):
             color = COLOR_DICT[items['tag']] if items['tag'] in COLOR_DICT else '000000'
 
             if len(temp_tag_dict) == 0 or items['tag'] not in temp_tag_dict:
@@ -192,7 +195,7 @@ def handle_message(event):
             name_arr.append(items['name'])
             times_arr.append(items['times'])
 
-        test(times_arr, name_arr, colors_arr, tag_color_arr, filePath_word)
+        plotHeatMap(times_arr, name_arr, colors_arr, tag_color_arr, filePath_word)
         quick_reply = QuickReply(
             items=[
                 QuickReplyButton(action=MessageAction(label='近3個月熱搜', text='近3個月熱搜')),
@@ -256,7 +259,8 @@ def handle_message(event):
             'lineId': id,
             'foodName': query_text,
         }
-        requests.post('https://kcs-backend.secplavory.page/updateSearchtime', data=request_body)
+        print(request_body)
+        requests.post('https://kcs-backend.secplavory.page/updateSearchtime', json=request_body)
         if ((sum - 5*(USER_AND_MORE_DICT[id]['times']-1)) <= 0):
             reply = TextSendMessage(text=f"{query_text}沒有更多了")
             line_bot_api.reply_message(event.reply_token, reply)

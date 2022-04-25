@@ -141,3 +141,5 @@ dmypy.json
 # IDE
 .idea/
 *.copy*
+githubHash
+nohup.out
