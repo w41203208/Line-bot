@@ -223,12 +223,10 @@ def handle_message(event):
                 TextMessage = TextSendMessage(text)
                 line_bot_api.push_message(id, TextMessage, timeout=3)
 
-
     if get_message == '衛教資訊':
         FlexMessage = json.load(open('./backend/assets/medical.json', 'r', encoding='utf-8'))
         line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
         return
-
 
     #####找食物#####
     query_text = get_message
@@ -236,7 +234,6 @@ def handle_message(event):
     querySuggestion = db.query('SELECT * FROM foodsuggestion')
     if len(queryFood) != 0:
         sum = len(queryFood)
-        db.update(f"update food set searchtime = searchtime + 1 where foodName LIKE '%{query_text}%'")
         if id not in USER_AND_MORE_DICT.keys():
             #都沒有查過的user init 第一次
             USER_AND_MORE_DICT[id] = {
@@ -261,44 +258,37 @@ def handle_message(event):
         }
         print(request_body)
         requests.post('https://kcs-backend.secplavory.page/updateSearchtime', json=request_body)
-        if ((sum - 5*(USER_AND_MORE_DICT[id]['times']-1)) <= 0):
+        if (sum - 5 * (USER_AND_MORE_DICT[id]['times'] - 1)) <= 0:
             reply = TextSendMessage(text=f"{query_text}沒有更多了")
             line_bot_api.reply_message(event.reply_token, reply)
             return
         else:
             start = (USER_AND_MORE_DICT[id]['times']-1)*5
             end = start+5
-            if ((sum - 5*(USER_AND_MORE_DICT[id]['times']-1)) < 5):
+            if (sum - 5 * (USER_AND_MORE_DICT[id]['times'] - 1)) < 5:
                 end = start + sum - 5*(USER_AND_MORE_DICT[id]['times']-1)
             FlexMessage = GETfoodDataAPI().excute(queryFood[start:end], querySuggestion)
             quick_reply = QuickReply(items=[QuickReplyButton(action=MessageAction(label=f"查詢更多：{query_text}", text=query_text))])
             line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage, quick_reply=quick_reply))
             return
 
-
     #####找衛教資訊#####
     queryMedical = db.query(f"SELECT h.title, h.brief_desc, h.notification, JSON_ARRAYAGG(JSON_OBJECT('id', hh.healthinfolistid, 'sorted', hh.sorted, 'title', (select title from healthinfo where id = hh.healthinfolistid))) as infolist FROM healthinfo as h JOIN healthinfo__healthinfo as hh ON hh.healthinfoid = h.id WHERE h.title='{get_message}'")
+    queryMedicalTitle = queryMedical[0]['title']
 
-
-
-    if queryMedical[0]['title']:
-        print(queryMedical)
-        if id not in USER_AND_LEVEL_DICT.keys():
-            USER_AND_LEVEL_DICT[id] = LEVEL_DICT[queryMedical[0]['title']]
-        else:
-            USER_AND_LEVEL_DICT[id] = LEVEL_DICT[queryMedical[0]['title']]
-
-        print(USER_AND_LEVEL_DICT)
+    if queryMedicalTitle:
+        USER_AND_LEVEL_DICT[id] = LEVEL_DICT[queryMedicalTitle]
         FlexMessage = GETmedicalAPI().excute(queryMedical)
         line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
         return
 
-    if id in USER_AND_LEVEL_DICT.keys():
+    if id in USER_AND_LEVEL_DICT:
         LEVEL = USER_AND_LEVEL_DICT[id]
     #####找子查詢#####
     querySubMedical = db.query(f"SELECT one.title, one.full_desc, one.imgsrc, JSON_ARRAYAGG(JSON_OBJECT('title', two.checklist)) as checklist FROM (SELECT healthinfo.title, healthinfo.imgsrc, healthinfo.full_desc, healthinfo__healthinfo.healthinfoid FROM healthinfo JOIN healthinfo__healthinfo ON healthinfo__healthinfo.healthinfolistid = healthinfo.id WHERE healthinfo.title='{get_message}' and healthinfo__healthinfo.healthinfoid = {LEVEL}) as one, (SELECT hh.healthinfoid, h.title as checklist FROM healthinfo__healthinfo as hh LEFT JOIN healthinfo as h on h.Id = hh.healthinfolistid WHERE healthinfoid = (SELECT healthinfo__healthinfo.healthinfoid FROM healthinfo JOIN healthinfo__healthinfo ON (healthinfo__healthinfo.healthinfolistid = healthinfo.id)WHERE healthinfo.title = '{get_message}' and healthinfo__healthinfo.healthinfoid = {LEVEL})) as two")
+    querySubMedicalTitle = querySubMedical[0]['title']
 
-    if querySubMedical[0]['title']:
+    if querySubMedicalTitle:
         FlexMessage, TextReplyMessage, QuickReplyMessage = GETsubMedicalAPI().excute(querySubMedical)
 
         new_items = []
@@ -316,7 +306,5 @@ def handle_message(event):
     reply = TextSendMessage(text=f"{reply_msg}不在資料庫內，請洽詢護理師!")
     line_bot_api.reply_message(event.reply_token, reply)
 
-
     db.close()
-
-
+    return
