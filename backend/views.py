@@ -1,7 +1,7 @@
 
 from flask import Blueprint, jsonify, request, abort, make_response
 import json
-import os
+import os, re
 import base64
 from numpy import empty
 import requests
@@ -56,7 +56,6 @@ COLOR_DICT = {
     '乳品':'64DEE6',
 }
 
-
 @views.route("/callback", methods=["GET", "POST"])
 def home_page_render():
     if request.method == "GET":
@@ -109,7 +108,6 @@ def uploadFile():
             resp.headers['Access-Control-Allow-Origin'] = '*'
             return resp
 
-
 @views.route("/login", methods=["GET"])
 def login():
     # https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1657008810&redirect_uri=https://b20c-2001-b011-400b-fe62-469-9903-a1c3-8683.ngrok.io/login&state=12345abcde&scope=profile%20openid&nonce=09876xyz
@@ -132,6 +130,75 @@ def login():
     return resp
 
 @handler.add(MessageEvent, message=TextMessage)
+def handle_message_heatmap(event):
+    get_message = event.message.text
+    id = event.source.user_id
+    pattern = r'^(近3個月熱搜)|(近1個月熱搜)|(近1週熱搜)|(我的搜尋紀錄)|(我的搜尋紀錄)|(飲食查詢)|(最近熱搜紀錄)$'
+    if not re.match(pattern, get_message): return
+
+    if get_message == '我的搜尋紀錄':
+        USER_AND_SEARCH[id] = False
+    else:
+        USER_AND_SEARCH[id] = True
+
+    traceBackDate = None
+    if get_message == '近3個月熱搜':
+        traceBackDate = '90'
+    elif get_message == '近1個月熱搜':
+        traceBackDate = '30'
+    elif get_message == '近1周熱搜':
+        traceBackDate = '7'
+
+    _params = {}
+    if traceBackDate: _params["traceBackDate"] = traceBackDate
+    if USER_AND_SEARCH[id]: _params["lineId"] = id
+    heatmapProps = requests.get('https://kcs-backend.secplavory.page/getHeatmapProps', params=_params).json()['data']
+
+    food_word_dict = {}
+    for index, item in enumerate(heatmapProps):
+        food_word_dict[index] = {
+            'name': item['foodName'],
+            'tag': item['foodTag'],
+            'times': item['times'],
+        }
+
+    n = len(food_word_dict)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if food_word_dict[j]['times'] > food_word_dict[j + 1]['times']:
+                food_word_dict[j], food_word_dict[j+1] = food_word_dict[j+1], food_word_dict[j]
+
+    name_arr = []
+    times_arr = []
+    colors_arr = []
+    tag_color_arr = []
+    temp_tag_dict = []
+    for items in list(food_word_dict.values()):
+        color = COLOR_DICT[items['tag']] if items['tag'] in COLOR_DICT else '000000'
+
+        if len(temp_tag_dict) == 0 or items['tag'] not in temp_tag_dict:
+            temp_tag_dict.append(items['tag'])
+            tag_color_arr.append({
+                'tag': items['tag'],
+                'color': color
+            })
+        colors_arr.append(color)
+        name_arr.append(items['name'])
+        times_arr.append(items['times'])
+
+    plotHeatMap(times_arr, name_arr, colors_arr, tag_color_arr, filePath_word)
+    quick_reply = QuickReply(
+        items=[
+            QuickReplyButton(action=MessageAction(label='近3個月熱搜', text='近3個月熱搜')),
+            QuickReplyButton(action=MessageAction(label='近1個月熱搜', text='近1個月熱搜')),
+            QuickReplyButton(action=MessageAction(label='近1週熱搜', text='近1週熱搜')),
+        ]
+    )
+    imageMessage = ImageSendMessage(original_content_url='https://kcs-linebot.secplavory.page/word_images/plot.png',preview_image_url='https://kcs-linebot.secplavory.page/word_images/plot.png', quick_reply=quick_reply)
+    line_bot_api.reply_message(event.reply_token, imageMessage)
+    return
+
+@handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 
     db = SQLManger()
@@ -139,73 +206,6 @@ def handle_message(event):
     global LEVEL
     get_message = event.message.text
     id = event.source.user_id
-
-    #####熱圖API查詢#####
-    if get_message == '近3個月熱搜' or get_message == '近1個月熱搜' or get_message == '近1週熱搜' or get_message == '我的搜尋紀錄' or get_message == '飲食查詢' or get_message == '最近熱搜紀錄':
-
-        if get_message == '我的搜尋紀錄':
-            USER_AND_SEARCH[id] = False
-        elif get_message == '飲食查詢' or get_message == '最近熱搜紀錄':
-            USER_AND_SEARCH[id] = True
-
-        traceBackDate = None
-        if get_message == '近3個月熱搜':
-            traceBackDate = '90'
-        elif get_message == '近1個月熱搜':
-            traceBackDate = '30'
-        elif get_message == '近1周熱搜':
-            traceBackDate = '7'
-
-        _params = {}
-        if traceBackDate: _params["traceBackDate"] = traceBackDate
-        if USER_AND_SEARCH[id]: _params["lineId"] = id
-        res = requests.get('https://kcs-backend.secplavory.page/getHeatmapProps', params=_params)
-        heatmapProps = res.json()['data']
-
-        food_word_dict = {}
-        for index, item in enumerate(heatmapProps):
-            food_word_dict[index] = {
-                'name':item['foodName'],
-                'tag': item['foodTag'],
-                'times': item['times'],
-            }
-
-        # 無情氣泡排序
-        n = len(food_word_dict)
-        for i in range(n):
-            for j in range(0, n-i-1):
-                if food_word_dict[j]['times'] > food_word_dict[j + 1]['times']:
-                    food_word_dict[j], food_word_dict[j+1] = food_word_dict[j+1], food_word_dict[j]
-
-        name_arr = []
-        times_arr = []
-        colors_arr = []
-        tag_color_arr = []
-        temp_tag_dict = []
-        for items in list(food_word_dict.values()):
-            color = COLOR_DICT[items['tag']] if items['tag'] in COLOR_DICT else '000000'
-
-            if len(temp_tag_dict) == 0 or items['tag'] not in temp_tag_dict:
-                temp_tag_dict.append(items['tag'])
-                tag_color_arr.append({
-                    'tag': items['tag'],
-                    'color': color
-                })
-            colors_arr.append(color)
-            name_arr.append(items['name'])
-            times_arr.append(items['times'])
-
-        plotHeatMap(times_arr, name_arr, colors_arr, tag_color_arr, filePath_word)
-        quick_reply = QuickReply(
-            items=[
-                QuickReplyButton(action=MessageAction(label='近3個月熱搜', text='近3個月熱搜')),
-                QuickReplyButton(action=MessageAction(label='近1個月熱搜', text='近1個月熱搜')),
-                QuickReplyButton(action=MessageAction(label='近1週熱搜', text='近1週熱搜')),
-            ]
-        )
-        imageMessage = ImageSendMessage(original_content_url='https://kcs-linebot.secplavory.page/word_images/plot.png',preview_image_url='https://kcs-linebot.secplavory.page/word_images/plot.png', quick_reply=quick_reply)
-        line_bot_api.reply_message(event.reply_token, imageMessage)
-        return
 
     #####回傳關鍵字查詢#####
     queryFoodKeyword = db.query(
