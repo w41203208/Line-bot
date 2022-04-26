@@ -129,7 +129,7 @@ def login():
     resp.headers['Access-Control-Allow-Origin'] = '*'
     return resp
 
-def heatmap(get_message, id):
+def heatmap(get_message, id, event):
 
     if get_message == '我的搜尋紀錄':
         USER_AND_SEARCH[id] = False
@@ -192,7 +192,7 @@ def heatmap(get_message, id):
     imageMessage = ImageSendMessage(original_content_url='https://kcs-linebot.secplavory.page/word_images/plot.png',preview_image_url='https://kcs-linebot.secplavory.page/word_images/plot.png', quick_reply=quick_reply)
     line_bot_api.reply_message(event.reply_token, imageMessage)
 
-def autoReply(get_message, id):
+def autoReply(get_message, id, event):
     #####回傳關鍵字查詢#####
     queryFoodKeyword = db.query(
         f"SELECT a.*, JSON_ARRAYAGG(ac.content) as contentlist \
@@ -211,11 +211,11 @@ def autoReply(get_message, id):
 
         return True
 
-def healthInfo(get_message, id):
+def healthInfo(get_message, id, event):
     FlexMessage = json.load(open('./backend/assets/medical.json', 'r', encoding='utf-8'))
     line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
 
-def food(get_message, id):
+def food(get_message, id, event):
     db = SQLManger()
     db.connect()
     #####找食物#####
@@ -265,7 +265,7 @@ def food(get_message, id):
             return True
     db.close()
 
-def healthInfoList(get_message, id):
+def healthInfoList(get_message, id, event):
     db = SQLManger()
     db.connect()
     global LEVEL
@@ -298,7 +298,7 @@ def healthInfoList(get_message, id):
         line_bot_api.push_message(id, TextMessage, timeout=3)
         return True
 
-def noMessage(get_message, id):
+def noMessage(get_message, id, event):
     reply_msg = get_message
     reply = TextSendMessage(text=f"{reply_msg}不在資料庫內，請洽詢護理師!")
     line_bot_api.reply_message(event.reply_token, reply)
@@ -311,17 +311,17 @@ def handle_message(event):
 
     pattern = r'^(近3個月熱搜)|(近1個月熱搜)|(近1週熱搜)|(我的搜尋紀錄)|(我的搜尋紀錄)|(飲食查詢)|(最近熱搜紀錄)$'
     if re.match(pattern, get_message):
-        heatmap(get_message, id)
+        heatmap(get_message, id, event)
         return
 
     if get_message == '衛教資訊':
-        healthInfo(get_message, id)
+        healthInfo(get_message, id, event)
         return
 
-    if food(get_message, id): return
+    if food(get_message, id, event): return
 
-    if healthInfoList(get_message, id): return
+    if healthInfoList(get_message, id, event): return
 
-    if autoReply(get_message, id): return
+    if autoReply(get_message, id, event): return
 
-    noMessage(get_message, id)
+    noMessage(get_message, id, event)
