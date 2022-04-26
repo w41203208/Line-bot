@@ -129,12 +129,7 @@ def login():
     resp.headers['Access-Control-Allow-Origin'] = '*'
     return resp
 
-@handler.add(MessageEvent, message=TextMessage)
-def handle_message_heatmap(event):
-    get_message = event.message.text
-    id = event.source.user_id
-    pattern = r'^(近3個月熱搜)|(近1個月熱搜)|(近1週熱搜)|(我的搜尋紀錄)|(我的搜尋紀錄)|(飲食查詢)|(最近熱搜紀錄)$'
-    if not re.match(pattern, get_message): return
+def heatmap(get_message, id):
 
     if get_message == '我的搜尋紀錄':
         USER_AND_SEARCH[id] = False
@@ -196,17 +191,8 @@ def handle_message_heatmap(event):
     )
     imageMessage = ImageSendMessage(original_content_url='https://kcs-linebot.secplavory.page/word_images/plot.png',preview_image_url='https://kcs-linebot.secplavory.page/word_images/plot.png', quick_reply=quick_reply)
     line_bot_api.reply_message(event.reply_token, imageMessage)
-    return
 
-@handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
-
-    db = SQLManger()
-    db.connect()
-    global LEVEL
-    get_message = event.message.text
-    id = event.source.user_id
-
+def autoReply(get_message, id):
     #####回傳關鍵字查詢#####
     queryFoodKeyword = db.query(
         f"SELECT a.*, JSON_ARRAYAGG(ac.content) as contentlist \
@@ -223,11 +209,15 @@ def handle_message(event):
                 TextMessage = TextSendMessage(text)
                 line_bot_api.push_message(id, TextMessage, timeout=3)
 
-    if get_message == '衛教資訊':
-        FlexMessage = json.load(open('./backend/assets/medical.json', 'r', encoding='utf-8'))
-        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
-        return
+        return True
 
+def healthInfo(get_message, id):
+    FlexMessage = json.load(open('./backend/assets/medical.json', 'r', encoding='utf-8'))
+    line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
+
+def food(get_message, id):
+    db = SQLManger()
+    db.connect()
     #####找食物#####
     query_text = get_message
     queryFood = db.query(f"SELECT f.* FROM food as f  WHERE foodName LIKE '%{query_text}%'")
@@ -261,7 +251,8 @@ def handle_message(event):
         if (sum - 5 * (USER_AND_MORE_DICT[id]['times'] - 1)) <= 0:
             reply = TextSendMessage(text=f"{query_text}沒有更多了")
             line_bot_api.reply_message(event.reply_token, reply)
-            return
+            db.close()
+            return True
         else:
             start = (USER_AND_MORE_DICT[id]['times']-1)*5
             end = start+5
@@ -270,8 +261,14 @@ def handle_message(event):
             FlexMessage = GETfoodDataAPI().excute(queryFood[start:end], querySuggestion)
             quick_reply = QuickReply(items=[QuickReplyButton(action=MessageAction(label=f"查詢更多：{query_text}", text=query_text))])
             line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage, quick_reply=quick_reply))
-            return
+            db.close()
+            return True
+    db.close()
 
+def healthInfoList(get_message, id):
+    db = SQLManger()
+    db.connect()
+    global LEVEL
     #####找衛教資訊#####
     queryMedical = db.query(f"SELECT h.title, h.brief_desc, h.notification, JSON_ARRAYAGG(JSON_OBJECT('id', hh.healthinfolistid, 'sorted', hh.sorted, 'title', (select title from healthinfo where id = hh.healthinfolistid))) as infolist FROM healthinfo as h JOIN healthinfo__healthinfo as hh ON hh.healthinfoid = h.id WHERE h.title='{get_message}'")
     queryMedicalTitle = queryMedical[0]['title']
@@ -280,7 +277,7 @@ def handle_message(event):
         USER_AND_LEVEL_DICT[id] = LEVEL_DICT[queryMedicalTitle]
         FlexMessage = GETmedicalAPI().excute(queryMedical)
         line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
-        return
+        return True
 
     if id in USER_AND_LEVEL_DICT:
         LEVEL = USER_AND_LEVEL_DICT[id]
@@ -299,12 +296,32 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
         TextMessage = TextSendMessage(TextReplyMessage, quick_reply=quick_reply)
         line_bot_api.push_message(id, TextMessage, timeout=3)
-        return
+        return True
 
-
+def noMessage(get_message, id):
     reply_msg = get_message
     reply = TextSendMessage(text=f"{reply_msg}不在資料庫內，請洽詢護理師!")
     line_bot_api.reply_message(event.reply_token, reply)
 
-    db.close()
-    return
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+
+    get_message = event.message.text
+    id = event.source.user_id
+
+    pattern = r'^(近3個月熱搜)|(近1個月熱搜)|(近1週熱搜)|(我的搜尋紀錄)|(我的搜尋紀錄)|(飲食查詢)|(最近熱搜紀錄)$'
+    if re.match(pattern, get_message):
+        heatmap(get_message, id)
+        return
+
+    if get_message == '衛教資訊':
+        healthInfo(get_message, id)
+        return
+
+    if food(get_message, id): return
+
+    if healthInfoList(get_message, id): return
+
+    if autoReply(get_message, id): return
+
+    noMessage(get_message, id)
