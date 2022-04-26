@@ -1,7 +1,7 @@
 
 from flask import Blueprint, jsonify, request, abort, make_response
 import json
-import os, re
+import os, re, random
 import base64
 from numpy import empty
 import requests
@@ -207,9 +207,10 @@ def autoReply(get_message, id, event):
         for item in queryFoodKeyword:
             imageMessage = ImageSendMessage(original_content_url=f'{item["imgsrc"]}',preview_image_url=f'{item["imgsrc"]}')
             line_bot_api.reply_message(event.reply_token, imageMessage)
-            for text in eval(item['contentlist']):
-                TextMessage = TextSendMessage(text)
-                line_bot_api.push_message(id, TextMessage, timeout=3)
+            contentList = eval(item['contentlist'])
+            listAmount = len(contentList)
+            TextMessage = TextSendMessage(contentList[random.randrange(listAmount)])
+            line_bot_api.push_message(id, TextMessage, timeout=3)
         db.close()
         return True
     db.close()
