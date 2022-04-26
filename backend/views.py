@@ -193,6 +193,8 @@ def heatmap(get_message, id, event):
     line_bot_api.reply_message(event.reply_token, imageMessage)
 
 def autoReply(get_message, id, event):
+    db = SQLManger()
+    db.connect()
     #####回傳關鍵字查詢#####
     queryFoodKeyword = db.query(
         f"SELECT a.*, JSON_ARRAYAGG(ac.content) as contentlist \
@@ -208,8 +210,9 @@ def autoReply(get_message, id, event):
             for text in eval(item['contentlist']):
                 TextMessage = TextSendMessage(text)
                 line_bot_api.push_message(id, TextMessage, timeout=3)
-
+        db.close()
         return True
+    db.close()
 
 def healthInfo(get_message, id, event):
     FlexMessage = json.load(open('./backend/assets/medical.json', 'r', encoding='utf-8'))
