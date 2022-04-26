@@ -316,13 +316,16 @@ def handle_message(event):
     pattern = r'^(近3個月熱搜)|(近1個月熱搜)|(近1週熱搜)|(我的搜尋紀錄)|(我的搜尋紀錄)|(飲食查詢)|(最近熱搜紀錄)$'
     if re.match(pattern, get_message):
         heatmap(get_message, id, event)
+        USER_AND_MORE_DICT.pop(id, None)  # 因為很懶改query直接刪除食物查詢次數
         return
 
     if get_message == '衛教資訊':
         healthInfo(get_message, id, event)
+        USER_AND_MORE_DICT.pop(id, None) #因為很懶改query直接刪除食物查詢次數
         return
 
     if food(get_message, id, event): return
+    USER_AND_MORE_DICT.pop(id, None) #因為很懶改query直接刪除食物查詢次數
 
     if healthInfoList(get_message, id, event): return
 
