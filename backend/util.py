@@ -33,7 +33,7 @@ def plotHeatMap(times, lebals,colors,tag_colors ,filePath):
   for circle, label, time, color in zip(circles, lebals, times, colors):
     x, y, r = circle
     ax.add_patch(plt.Circle((x,y), r, alpha=0.2, linewidth=2, fill=True, facecolor=f'#{color}'))
-    ax.annotate(f'{label}\n{int(time)}次', (x,y), va='center', ha='center', fontsize=time*3)
+    ax.annotate(f'{label}\n{int(time)}次', (x,y), va='center', ha='center', fontsize=r*3)
 
   ax.legend(handles=handles, prop={'size': 24}, loc='upper right')
   fig.savefig(f'{filePath}/plot.png')
