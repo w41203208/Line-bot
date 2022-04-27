@@ -416,7 +416,7 @@ class GETsubMedicalAPI():
                     "paddingAll": "15px"
                 }
             }
-            new_text = item['full_desc'].replace('\\r', '\n')
+            new_text = item['full_desc'].replace('\r', '\n')
             self.result_ReplyMessage = new_text
             self.result_QuickReply = item['checklist']
         self.result_FlexMessage = flexMessage_bubble
