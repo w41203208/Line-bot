@@ -440,7 +440,7 @@ class GETsubMedicalAPI():
                 }
             }
 
-            new_text = item['full_desc'].replace('\\r', '\n')
+            new_text = item['full_desc'].replace('\r', '\n')
             self.result_ReplyMessage = new_text
             self.result_QuickReply = item['checklist']
 
