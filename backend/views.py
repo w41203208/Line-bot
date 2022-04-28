@@ -133,7 +133,7 @@ def heatmap(get_message, id, event):
 
     if get_message == '我的搜尋紀錄':
         USER_AND_SEARCH[id] = True
-    elif get_message == '飲食查詢' || get_message == '最近熱搜紀錄':
+    elif get_message == '飲食查詢' or get_message == '最近熱搜紀錄':
         USER_AND_SEARCH[id] = False
 
     traceBackDate = None
