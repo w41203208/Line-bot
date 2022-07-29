@@ -384,11 +384,11 @@ class GETsubMedicalAPI():
     def genAPI(self, dataMedical):
 
         for item in dataMedical:
-
-            test = item['imgsrc'].split('/')[-1]
-            img = Image.open(f"{filePath}/{test}")
-            w = img.width
-            h = img.height
+            if item['imgsrc']:
+                test = item['imgsrc'].split('/')[-1]
+                img = Image.open(f"{filePath}/{test}")
+                w = img.width
+                h = img.height
 
             image = {
                 "type": "box",
