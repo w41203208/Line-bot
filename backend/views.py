@@ -299,8 +299,9 @@ def healthInfoList(get_message, id, event):
         # 標題
         line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
         # 圖片
-        imageMessage = ImageSendMessage(original_content_url=f'{ImageMessage}',preview_image_url=f'{ImageMessage}')
-        line_bot_api.push_message(event.reply_token, imageMessage)
+        if ImageMessage:
+            imageMessage = ImageSendMessage(original_content_url=f'{ImageMessage}',preview_image_url=f'{ImageMessage}')
+            line_bot_api.push_message(event.reply_token, imageMessage)
         # 內文
         TextMessage = TextSendMessage(TextReplyMessage, quick_reply=quick_reply)
         line_bot_api.push_message(id, TextMessage, timeout=3)
