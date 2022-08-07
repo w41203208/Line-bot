@@ -181,7 +181,6 @@ def heatmap(get_message, id, event):
         name_arr.append(items['name'])
         times_arr.append(items['times'])
 
-    plotHeatMap(times_arr, name_arr, colors_arr, tag_color_arr, filePath_word)
     quick_reply = QuickReply(
         items=[
             QuickReplyButton(action=MessageAction(label='近3個月熱搜', text='近3個月熱搜')),
@@ -191,6 +190,9 @@ def heatmap(get_message, id, event):
     )
     imageMessage = ImageSendMessage(original_content_url='https://kcs-linebot.secplavory.page/word_images/plot.png',preview_image_url='https://kcs-linebot.secplavory.page/word_images/plot.png', quick_reply=quick_reply)
     line_bot_api.reply_message(event.reply_token, imageMessage)
+
+    plotHeatMap(times_arr[-20:], name_arr[-20:], colors_arr[-20:], tag_color_arr[-20:], filePath_word)
+
 
 def autoReply(get_message, id, event):
     db = SQLManger()
