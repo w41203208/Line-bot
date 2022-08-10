@@ -137,3 +137,9 @@ dmypy.json
 .__pycache__
 .test
 .img
+
+# IDE
+.idea/
+*.copy*
+githubHash
+nohup.out
