@@ -3,9 +3,7 @@ from flask import Blueprint, jsonify, request, abort, make_response
 import json
 import os, re, random
 import base64
-from numpy import empty
 import requests
-from sqlalchemy import false
 from .api import GETfoodDataAPI, GETmedicalAPI, GETsubMedicalAPI
 from .db import SQLManger
 from .util import plotHeatMap
@@ -191,7 +189,7 @@ def heatmap(get_message, id, event):
     imageMessage = ImageSendMessage(original_content_url='https://kcs-linebot.secplavory.page/word_images/plot.png',preview_image_url='https://kcs-linebot.secplavory.page/word_images/plot.png', quick_reply=quick_reply)
     line_bot_api.reply_message(event.reply_token, imageMessage)
 
-    plotHeatMap(times_arr[-20:], name_arr[-20:], colors_arr[-20:], tag_color_arr[-20:], filePath_word)
+    plotHeatMap(times_arr[-30:], name_arr[-30:], colors_arr[-30:], tag_color_arr, filePath_word)
 
 
 def autoReply(get_message, id, event):
