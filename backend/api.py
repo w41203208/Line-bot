@@ -1,6 +1,3 @@
-import json
-from .db import SQLManger
-from PIL import Image
 import os
 dirname = os.path.dirname(__file__)
 filePath = os.path.join(dirname, 'assets/images')
@@ -611,6 +608,7 @@ class GETmedicalAPI():
         self.result = flexMessage_bubble
 
 
+""" 
 class GETrichMenuURIAPI():
     def __init__(self, userId, title):
         self.userId = userId
@@ -660,3 +658,4 @@ class GETrichMenuURIAPI():
         }
 
         self.req = dict
+"""

@@ -191,7 +191,6 @@ def heatmap(get_message, id, event):
 
     plotHeatMap(times_arr[-30:], name_arr[-30:], colors_arr[-30:], tag_color_arr, filePath_word)
 
-
 def autoReply(get_message, id, event):
     db = SQLManger()
     db.connect()
