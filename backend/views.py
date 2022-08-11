@@ -300,7 +300,7 @@ def healthInfoList(get_message, id, event):
         # 圖片
         if ImageMessage:
             imageMessage = ImageSendMessage(original_content_url=f'{ImageMessage}',preview_image_url=f'{ImageMessage}')
-            line_bot_api.push_message(event.reply_token, imageMessage)
+            line_bot_api.push_message(id, imageMessage)
         # 內文
         TextMessage = TextSendMessage(TextReplyMessage, quick_reply=quick_reply)
         line_bot_api.push_message(id, TextMessage, timeout=3)
