@@ -337,4 +337,4 @@ def handle_message(event):
 
     # if autoReply(get_message, id, event): return
 
-    noMessage(get_message, id, event)
+    # noMessage(get_message, id, event)
