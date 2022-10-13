@@ -294,16 +294,16 @@ def healthInfoList(get_message, id, event):
         new_items = []
         for index, quickItem in enumerate(eval(QuickReplyMessage)):
             new_items.append(QuickReplyButton(action=MessageAction(label=str(index+1)+"、"+quickItem['title'], text=quickItem['title'])))
-        quick_reply = QuickReply(items=new_items)
+        # quick_reply = QuickReply(items=new_items)
         # 標題
         line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
-        # 圖片
-        if ImageMessage:
-            imageMessage = ImageSendMessage(original_content_url=f'{ImageMessage}',preview_image_url=f'{ImageMessage}')
-            line_bot_api.push_message(id, imageMessage)
-        # 內文
-        TextMessage = TextSendMessage(TextReplyMessage, quick_reply=quick_reply)
-        line_bot_api.push_message(id, TextMessage, timeout=3)
+        # # 圖片
+        # if ImageMessage:
+        #     imageMessage = ImageSendMessage(original_content_url=f'{ImageMessage}',preview_image_url=f'{ImageMessage}')
+        #     line_bot_api.push_message(id, imageMessage)
+        # # 內文
+        # TextMessage = TextSendMessage(TextReplyMessage, quick_reply=quick_reply)
+        # line_bot_api.push_message(id, TextMessage, timeout=3)
         return True
 
 def noMessage(get_message, id, event):
